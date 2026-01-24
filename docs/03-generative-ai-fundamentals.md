@@ -25,7 +25,20 @@ AWS provides access to high-performing FMs through **Amazon Bedrock**. It hosts 
 
 ---
 
-## 2. Types of Generative Models
+## 2. The Foundation Model (FM) Lifecycle
+
+Developing and deploying GenAI applications involves a structured lifecycle:
+
+1.  **Define the Use Case:** Identify the business problem.
+2.  **Select a Foundation Model:** e.g., via Amazon Bedrock.
+3.  **Adapt/Optimize:** Prompt Engineering, RAG, or Fine-tuning.
+4.  **Evaluate:** Assess performance and safety.
+5.  **Deploy & Integrate:** Into production.
+6.  **Monitor:** Track performance and costs.
+
+---
+
+## 3. Types of Generative Models
 
 ### Large Language Models (LLMs)
 Most modern LLMs use the **Transformer** architecture. They understand relationships between words by processing them as:
@@ -48,7 +61,7 @@ These models can process and generate multiple modes of data **simultaneously**.
 
 ---
 
-## 3. Optimizing Model Outputs
+## 4. Optimizing Model Outputs
 
 The FM lifecycle includes an optimization phase to tailor the model to specific needs.
 
@@ -72,7 +85,7 @@ Supplies domain-relevant data as "context" to the model without changing its int
 
 ---
 
-## 4. Key Terminology
+## 5. Key Terminology
 
 | Term | Definition |
 | :--- | :--- |
