@@ -1,0 +1,49 @@
+site_name: AWS AI Practitioner Exam Study Guide
+site_description: Deep dive study notes for the AWS Certified AI Practitioner (AIF-C01) exam.
+site_author: Dhee
+repo_url: https://github.com/yourusername/aws-ai-practitioner-exam # Update this later
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Fundamentals:
+    - Machine Learning: index.md
+    - Deep Learning: 02-deep-learning-fundamentals.md
+    - Generative AI: 03-generative-ai-fundamentals.md
