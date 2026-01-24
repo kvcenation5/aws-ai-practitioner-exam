@@ -25,35 +25,29 @@ AWS provides access to high-performing FMs through **Amazon Bedrock**. It hosts 
 
 ---
 
-## 2. The Foundation Model (FM) Lifecycle
+## FM lifecycle
 
-Developing and deploying effective and reliable foundation models involves a comprehensive process:
-
-### 1. Data Selection
-*   **Unlabeled Data:** Used at scale for pre-training because it is much easier to obtain than labeled data. 
-*   **Massive Datasets:** FMs require training on vast, diverse sources (images, text, video) to learn broad representations.
+### 1. Data selection
+Unlabeled data can be used at scale for pre-training because it is much easier to obtain compared to labeled data. Unlabeled data includes raw data, such as images, text files, or videos, with no meaningful informative labels to provide context. FMs require training on massive datasets from diverse sources.
 
 ### 2. Pre-training
-*   **Self-supervised Learning:** Unlike traditional ML, FMs use self-supervised learning where the algorithm makes use of the structure within the data to autogenerate labels.
-*   **Meaning & Context:** During this stage, the model learns relationships (e.g., whether "drink" is a noun or a verb).
-*   **Continuous Pre-training:** Further training on additional data to expand the model's knowledge base and improve generalization across domains.
+Although traditional ML models rely on supervised, unsupervised, or reinforcement learning patterns, FMs are typically pre-trained through self-supervised learning. With self-supervised learning, labeled examples are not required. Self-supervised learning makes use of the structure within the data to autogenerate labels.
+
+During the initial pre-training stage, the FM's algorithm can learn the meaning, context, and relationship of the words in the datasets. For example, the model might learn whether drink means beverage, the noun, or swallowing the liquid, the verb.
+
+After the initial pre-training, the model can be further pre-trained on additional data. This is known as continuous pre-training. The goal is to expand the model's knowledge base and improve its ability to understand and generalize across different domains or tasks.
 
 ### 3. Optimization
-Pre-trained models are tailored to specific tasks using:
-*   **Prompt Engineering:** Designing instructions to guide model behavior.
-*   **RAG (Retrieval-Augmented Generation):** Supplying external data as context.
-*   **Fine-tuning:** Training on task-specific, labeled data to adjust model weights.
+Pre-trained language models can be optimized through techniques like prompt engineering, retrieval-augmented generation (RAG), and fine-tuning on task-specific data. These methods will vary in complexity and cost and will be discussed later in this lesson.
 
 ### 4. Evaluation
-*   **Metrics & Benchmarks:** Measuring performance against business needs and safety standards.
-*   **Validation:** Ensuring the model meets desired performance criteria before moving forward.
+Whether or not you fine-tune a model or use a pre-trained model off the shelf, the next logical step is to evaluate the model. An FM's performance can be measured using appropriate metrics and benchmarks. Evaluation of model performance and its ability to meet business needs is important.
 
 ### 5. Deployment
-*   **Integration:** Moving the FM into a production environment by integrating it into applications, APIs, or software systems.
+When the FM meets the desired performance criteria, it can be deployed in the target production environment. Deployment can involve integrating the model into applications, APIs, or other software systems.
 
-### 6. Feedback & Continuous Improvement
-*   **Monitoring:** Tracking performance, detecting potential biases, or "drift" in the real world.
-*   **Feedback Loop:** Using input from users and experts for future iterations (fine-tuning, continuous pre-training, or re-training).
+### 6. Feedback and continuous improvement
+After deployment, the model's performance is continuously monitored, and feedback is collected from users, domain experts, or other stakeholders. This feedback, along with model monitoring data, is used to identify areas for improvement, detect potential biases or drift, and inform future iterations of the model. The feedback loop permits continuous enhancement of the foundation model through fine-tuning, continuous pre-training, or re-training, as needed.
 
 ---
 
