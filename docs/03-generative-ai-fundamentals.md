@@ -27,14 +27,33 @@ AWS provides access to high-performing FMs through **Amazon Bedrock**. It hosts 
 
 ## 2. The Foundation Model (FM) Lifecycle
 
-Developing and deploying GenAI applications involves a structured lifecycle:
+Developing and deploying effective and reliable foundation models involves a comprehensive process:
 
-1.  **Define the Use Case:** Identify the business problem.
-2.  **Select a Foundation Model:** e.g., via Amazon Bedrock.
-3.  **Adapt/Optimize:** Prompt Engineering, RAG, or Fine-tuning.
-4.  **Evaluate:** Assess performance and safety.
-5.  **Deploy & Integrate:** Into production.
-6.  **Monitor:** Track performance and costs.
+### 1. Data Selection
+*   **Unlabeled Data:** Used at scale for pre-training because it is much easier to obtain than labeled data. 
+*   **Massive Datasets:** FMs require training on vast, diverse sources (images, text, video) to learn broad representations.
+
+### 2. Pre-training
+*   **Self-supervised Learning:** Unlike traditional ML, FMs use self-supervised learning where the algorithm makes use of the structure within the data to autogenerate labels.
+*   **Meaning & Context:** During this stage, the model learns relationships (e.g., whether "drink" is a noun or a verb).
+*   **Continuous Pre-training:** Further training on additional data to expand the model's knowledge base and improve generalization across domains.
+
+### 3. Optimization
+Pre-trained models are tailored to specific tasks using:
+*   **Prompt Engineering:** Designing instructions to guide model behavior.
+*   **RAG (Retrieval-Augmented Generation):** Supplying external data as context.
+*   **Fine-tuning:** Training on task-specific, labeled data to adjust model weights.
+
+### 4. Evaluation
+*   **Metrics & Benchmarks:** Measuring performance against business needs and safety standards.
+*   **Validation:** Ensuring the model meets desired performance criteria before moving forward.
+
+### 5. Deployment
+*   **Integration:** Moving the FM into a production environment by integrating it into applications, APIs, or software systems.
+
+### 6. Feedback & Continuous Improvement
+*   **Monitoring:** Tracking performance, detecting potential biases, or "drift" in the real world.
+*   **Feedback Loop:** Using input from users and experts for future iterations (fine-tuning, continuous pre-training, or re-training).
 
 ---
 
