@@ -2,47 +2,84 @@
 
 > **AWS AI Practitioner Exam (AIF-C01) Study Guide**
 
-## 1. What is Generative AI?
-Generative AI is a subset of Deep Learning that can **create new content** (text, images, audio, code) based on the patterns it learned from existing data.
+Generative AI (GenAI) is a subset of deep learning that creates new content (text, images, audio, etc.) by learning patterns from massive datasets. Its recent surge is driven by massive investments in compute resources, large-scale data, and the willingness of organizations to develop "big ideas."
 
-*   **Discriminative AI:** Predicts labels or categories (e.g., "Is this a spam email?").
-*   **Generative AI:** Creates new data (e.g., "Write a response to this email.").
+---
 
-## 2. Foundation Models (FMs)
-Large-scale models trained on vast amounts of data that can be adapted to a wide range of downstream tasks.
+## 1. Foundation Models (FMs)
 
-*   **Large Language Models (LLMs):** Foundation models focused on text (e.g., GPT-4, Claude, Llama).
-*   **Scaling Laws:** The observation that model performance improves as you increase compute, data, and parameters.
+Generative AI is powered by **Foundation Models**. These are models pretrained on internet-scale, unlabeled data.
 
-## 3. The Transformer Architecture
-The core technology behind modern GenAI. Its key innovation is **Self-Attention**, which allows the model to weigh the importance of different parts of the input relative to each other.
+*   **One Model, Many Tasks:** Unlike traditional ML which requires a new model for every task, a single FM can be adapted for text generation, summarization, image creation, chatbot interactions, and more.
+*   **Starting Point:** FMs serve as the base for building specialized models for specific industries (like medical or legal).
+
+### Amazon Bedrock
+AWS provides access to high-performing FMs through **Amazon Bedrock**. It hosts models from:
+*   **Amazon** (Titan)
+*   **Anthropic** (Claude series)
+*   **Meta** (Llama series)
+*   **Mistral AI**
+*   **Stability AI** (Stable Diffusion)
+*   **AI21 Labs**
+*   **Cohere**
+
+---
+
+## 2. Types of Generative Models
+
+### Large Language Models (LLMs)
+Most modern LLMs use the **Transformer** architecture. They understand relationships between words by processing them as:
+*   **Tokens:** The basic units of text (words, phrases, or characters).
+*   **Embeddings & Vectors:** Mathematical representations that capture the meaning and relationship of tokens.
+
+### Diffusion Models
+A deep learning architecture that starts with pure noise and gradually adds meaningful information to create a coherent output.
+*   **Forward Diffusion:** Adding noise until only static remains.
+*   **Reverse Diffusion (Denoising):** Gradually removing noise until a new image or text emerges.
+
+### Multimodal Models
+These models can process and generate multiple modes of data **simultaneously**.
+*   **Example:** Inputting an image + text and receiving a new image + descriptive caption.
+*   **Use cases:** Automated video captioning, intelligent Q&A with visual info.
+
+### Other Models
+*   **GANs (Generative Adversarial Networks):** Two networks (Generator and Discriminator) competing to create realistic data.
+*   **VAEs (Variational Autoencoders):** Encode data into a latent space and decode it back to create new variations.
+
+---
+
+## 3. Optimizing Model Outputs
+
+The FM lifecycle includes an optimization phase to tailor the model to specific needs.
+
+### 1. Prompt Engineering (Fastest & Lowest Cost)
+Developing and optimizing "Instructions" to guide the model's behavior.
+*   **Elements of a good prompt:**
+    *   **Instructions:** The task description.
+    *   **Context:** External info to guide the model.
+    *   **Input Data:** The data the model should process.
+    *   **Output Indicator:** The desired format (e.g., "Summarize in 2 sentences").
+
+### 2. Fine-Tuning (Changes Model Weights)
+A supervised learning process involving smaller, specific datasets to adjust the model's internal parameters (weights).
+*   **Instruction Fine-Tuning:** Using examples of how the model should respond to commands.
+*   **RLHF (Reinforcement Learning from Human Feedback):** Aligning the model with human preferences using reward signals.
+
+### 3. RAG (Retrieval-Augmented Generation)
+Supplies domain-relevant data as "context" to the model without changing its internal weights.
+*   **How it works:** It retrieves relevant documents from an external source and provides them to the model along with the user's prompt.
+*   **Comparison:** Unlike fine-tuning, RAG **does not change model weights**.
+
+---
 
 ## 4. Key Terminology
-*   **Prompt:** The input provided to the model (e.g., a question or instruction).
-*   **Token:** The "chunks" of text the model processes (not always whole words).
-*   **Context Window:** The maximum number of tokens a model can consider at once.
-*   **Hallucination:** When a model generates factually incorrect but plausible-sounding information.
-*   **Temperature:** A setting that controls the randomness/creativity of the output (0 = predictable, 1+ = creative/random).
 
-## 5. Adapting Foundation Models
-| Method | Description | Effort |
-| :--- | :--- | :--- |
-| **Prompt Engineering** | Crafting better inputs to get better outputs. | Low |
-| **RAG (Retrieval-Augmented Generation)** | Giving the model access to external data to reduce hallucinations. | Medium |
-| **Fine-Tuning** | Training the model on a smaller, task-specific dataset. | High |
-
-## 6. Responsible AI
-Since GenAI creates content, ethics and safety are critical:
-*   **Toxicity:** Avoiding offensive or harmful content.
-*   **Bias:** Ensuring the model doesn't favor one group over another.
-*   **Transparency:** Disclosing when content is AI-generated.
-*   **Security:** Protecting against prompt injection or data leakage.
-
-## 7. AWS Generative AI Services
-*   **Amazon Bedrock:** The easiest way to build GenAI apps using foundation models from AWS (Titan), Anthropic (Claude), Meta (Llama), etc., via API.
-*   **Amazon Q:** A generative AI-powered assistant for work/AWS.
-*   **SageMaker JumpStart:** A hub where you can find and deploy foundation models.
-*   **AWS PartyRock:** A playground for learning how to build apps with Bedrock (non-coding).
+| Term | Definition |
+| :--- | :--- |
+| **Hallucination** | When a model generates factually incorrect but plausible-sounding info. |
+| **Context Window** | The limit of how many tokens a model can "remember" or process at once. |
+| **Temperature** | Controls randomness (0 = predictable/factual, 1+ = creative/random). |
+| **Tokens** | Small units of text that provide standardization for model processing. |
 
 ---
 *Last Updated: Jan 2026*
