@@ -25,9 +25,9 @@ AWS provides access to high-performing FMs through **Amazon Bedrock**. It hosts 
 
 ---
 
-## FM lifecycle
+## 2. FM Lifecycle
 
-### 1. Data selection
+### 1. Data Selection
 Unlabeled data can be used at scale for pre-training because it is much easier to obtain compared to labeled data. Unlabeled data includes raw data, such as images, text files, or videos, with no meaningful informative labels to provide context. FMs require training on massive datasets from diverse sources.
 
 ### 2. Pre-training
@@ -35,66 +35,102 @@ Although traditional ML models rely on supervised, unsupervised, or reinforcemen
 
 During the initial pre-training stage, the FM's algorithm can learn the meaning, context, and relationship of the words in the datasets. For example, the model might learn whether drink means beverage, the noun, or swallowing the liquid, the verb.
 
-After the initial pre-training, the model can be further pre-trained on additional data. This is known as continuous pre-training. The goal is to expand the model's knowledge base and improve its ability to understand and generalize across different domains or tasks.
+After the initial pre-training, the model can be further pre-trained on additional data. This is known as **continuous pre-training**. The goal is to expand the model's knowledge base and improve its ability to understand and generalize across different domains or tasks.
 
 ### 3. Optimization
-Pre-trained language models can be optimized through techniques like prompt engineering, retrieval-augmented generation (RAG), and fine-tuning on task-specific data. These methods will vary in complexity and cost and will be discussed later in this lesson.
+Pre-trained language models can be optimized through techniques like prompt engineering, retrieval-augmented generation (RAG), and fine-tuning on task-specific data. These methods vary in complexity and cost.
 
 ### 4. Evaluation
-Whether or not you fine-tune a model or use a pre-trained model off the shelf, the next logical step is to evaluate the model. An FM's performance can be measured using appropriate metrics and benchmarks. Evaluation of model performance and its ability to meet business needs is important.
+Whether or not you fine-tune a model or use a pre-trained model off the shelf, the next logical step is to evaluate the model. An FM's performance can be measured using appropriate metrics and benchmarks.
 
 ### 5. Deployment
 When the FM meets the desired performance criteria, it can be deployed in the target production environment. Deployment can involve integrating the model into applications, APIs, or other software systems.
 
-### 6. Feedback and continuous improvement
-After deployment, the model's performance is continuously monitored, and feedback is collected from users, domain experts, or other stakeholders. This feedback, along with model monitoring data, is used to identify areas for improvement, detect potential biases or drift, and inform future iterations of the model. The feedback loop permits continuous enhancement of the foundation model through fine-tuning, continuous pre-training, or re-training, as needed.
+### 6. Feedback and Continuous Improvement
+After deployment, the model's performance is continuously monitored. The feedback loop permits continuous enhancement of the foundation model through fine-tuning, continuous pre-training, or re-training, as needed.
 
 ---
 
-## 3. Types of Generative Models
+## 3. Core Architectures & Models
 
 ### Large Language Models (LLMs)
-Most modern LLMs use the **Transformer** architecture. They understand relationships between words by processing them as:
-*   **Tokens:** The basic units of text (words, phrases, or characters).
-*   **Embeddings & Vectors:** Mathematical representations that capture the meaning and relationship of tokens.
+Large language models can be based on a variety of architectures, but the most common architecture in today's state-of-the-art models is the **Transformer architecture**. Transformer-based LLMs are powerful models that can understand and generate human-like text. They are trained on vast amounts of text data from the internet, books, and other sources, and learn patterns and relationships between words and phrases.
+
+=== "Tokens"
+    Tokens are the basic units of text that the model processes. Tokens can be words, phrases, or individual characters like a period. Tokens also provide standardization of input data, which makes it easier for the model to process.
+    
+    *   **Example:** The sentence *"A puppy is to dog as a kitten is to cat."* might be broken up into: `“A”` `“puppy”` `“is”` `“to”` `“dog”` `“as”` `"a"` `“kitten”` `“is”` `“to”` `"cat."`
+    
+    ![Tokenization Process](assets/images/tokenization.png)
+
+=== "Embeddings and Vectors"
+    Embeddings are numerical representations of tokens, where each token is assigned a **vector** (a list of numbers) that captures its meaning and relationships with other tokens. 
+    
+    *   **Contextual Understanding:** These vectors are learned during training and allow the model to understand the context and nuances of language.
+    *   **Semantic Similarity:** For example, the embedding vector for the token "cat" might be close to the vectors for "feline" and "kitten" in the embedding space, indicating they are semantically related.
+
+LLMs use these tokens, embeddings, and vectors to understand and generate text. They can capture complex relationships, allowing them to generate coherent text, answer questions, summarize information, and engage in creative writing.
 
 ### Diffusion Models
-A deep learning architecture that starts with pure noise and gradually adds meaningful information to create a coherent output.
-*   **Forward Diffusion:** Adding noise until only static remains.
-*   **Reverse Diffusion (Denoising):** Gradually removing noise until a new image or text emerges.
+Diffusion is a deep learning architecture system that starts with **pure noise** or random data. The models gradually add more and more meaningful information to this noise until they end up with a clear and coherent output, like an image or a piece of text.
+
+!!! info "Two-Step Process"
+    1.  **Forward Diffusion:** The system gradually introduces a small amount of noise to an input image until only the noise is left over.
+    2.  **Reverse Diffusion:** In the subsequent reverse diffusion step, the noisy image is gradually introduced to denoising until a new image is generated.
+
+![Diffusion Process](assets/images/diffusion.png)
 
 ### Multimodal Models
-These models can process and generate multiple modes of data **simultaneously**.
-*   **Example:** Inputting an image + text and receiving a new image + descriptive caption.
-*   **Use cases:** Automated video captioning, intelligent Q&A with visual info.
+Instead of relying on a single type of input or output, multimodal models can process and generate **multiple modes of data simultaneously**.
+*   **Synergy:** They learn how different modalities like images and text are connected and can influence each other.
+*   **Use Cases:** Automating video captioning, creating graphics from text instructions, answering questions by combining text and visual info, and translating content while keeping relevant visuals.
 
-### Other Models
-*   **GANs (Generative Adversarial Networks):** Two networks (Generator and Discriminator) competing to create realistic data.
-*   **VAEs (Variational Autoencoders):** Encode data into a latent space and decode it back to create new variations.
+### Other Generative Models
+
+??? abstract "Generative Adversarial Networks (GANs)"
+    GANs involve two neural networks competing against each other in a zero-sum game:
+    
+    *   **Generator:** Generates new synthetic data from random noise to resemble training data.
+    *   **Discriminator:** Tries to distinguish between real data and the synthetic data from the generator.
+    *   **Process:** The goal is for the generator to eventually produce data indistinguishable from real data.
+
+??? abstract "Variational Autoencoders (VAEs)"
+    VAEs combine ideas from autoencoders and variational inference:
+    
+    *   **Encoder:** Maps input data to a lower-dimensional **latent space** capturing essential features.
+    *   **Decoder:** Takes the latent representation and generates a reconstruction of the original input.
+    *   **Generation:** New data can be created by sampling from the latent space (usually a Gaussian distribution).
 
 ---
 
 ## 4. Optimizing Model Outputs
 
-The FM lifecycle includes an optimization phase to tailor the model to specific needs.
+The optimization phase of the FM lifecycle is critical for tailoring output to specific needs.
 
-### 1. Prompt Engineering (Fastest & Lowest Cost)
-Developing and optimizing "Instructions" to guide the model's behavior.
-*   **Elements of a good prompt:**
-    *   **Instructions:** The task description.
-    *   **Context:** External info to guide the model.
-    *   **Input Data:** The data the model should process.
-    *   **Output Indicator:** The desired format (e.g., "Summarize in 2 sentences").
+### Prompt Engineering
+Prompts act as instructions for foundation models. Prompt engineering focuses on developing, designing, and optimizing prompts to enhance output.
 
-### 2. Fine-Tuning (Changes Model Weights)
-A supervised learning process involving smaller, specific datasets to adjust the model's internal parameters (weights).
-*   **Instruction Fine-Tuning:** Using examples of how the model should respond to commands.
-*   **RLHF (Reinforcement Learning from Human Feedback):** Aligning the model with human preferences using reward signals.
+!!! example "Components of a Prompt"
+    *   **Instructions:** Task description (what the FM should do).
+    *   **Context:** External information to guide the model.
+    *   **Input Data:** The specific content you want a response for.
+    *   **Output Indicator:** The desired output type or format.
 
-### 3. RAG (Retrieval-Augmented Generation)
-Supplies domain-relevant data as "context" to the model without changing its internal weights.
-*   **How it works:** It retrieves relevant documents from an external source and provides them to the model along with the user's prompt.
-*   **Comparison:** Unlike fine-tuning, RAG **does not change model weights**.
+**Example Prompt:**
+> "You are an experienced journalist that excels at condensing long articles into concise summaries. Summarize the following text in 2–3 sentences.
+> **Text:** [Long article text goes here]"
+
+### Fine-Tuning
+Fine-tuning involves taking a pre-trained model and adding specific, smaller datasets to **modify the weights** of the model to better align with the task.
+
+*   **Instruction Fine-Tuning:** Uses examples of how the model should respond to specific instructions (e.g., prompt tuning).
+*   **RLHF (Reinforcement Learning from Human Feedback):** Uses human feedback data to align the model with human preferences.
+*   **Use Case:** Fine-tuning a base model with articles from medical journals for specialized medical research tasks.
+
+### Retrieval-Augmented Generation (RAG)
+RAG supplies domain-relevant data as context to produce responses based on that data.
+*   **Difference from Fine-Tuning:** RAG retrieves relevant documents to provide context but **will not change the weights** of the foundation model.
+*   **Benefit:** Allows the model to answer questions based on private or up-to-date data without expensive retraining.
 
 ---
 
