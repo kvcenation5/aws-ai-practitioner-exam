@@ -2,57 +2,81 @@
 
 > **AWS AI Practitioner Exam (AIF-C01) Study Guide**
 
-## 1. Core Concepts
-*   **Machine Learning (ML):** Teaching computers to learn from data without explicit programming.
-*   **Traditional vs ML:** Traditional uses rules + data -> output. ML uses data + answers -> rules (model).
+Building a machine learning model involves a systematic process: collecting and preparing data, selecting an appropriate algorithm, training the model on the prepared data, and evaluating its performance through testing and iteration.
 
-## 2. Types of Machine Learning
-| Type | Data Used | Goal | Example |
-| :--- | :--- | :--- | :--- |
-| **Supervised** | Labeled | Predict labels | Spam detection, Price prediction |
-| **Unsupervised** | Unlabeled | Find patterns | Customer segmentation |
-| **Reinforcement** | Rewards/Penalties | Optimize actions | Game AI, Robotics |
+---
 
-### Supervised Learning Sub-types
-*   **Classification:** Discrete categories (Binary: Yes/No; Multi-class: Cat/Dog/Bird).
-*   **Regression:** Continuous values (e.g., house prices, temperature).
+## 1. The Foundation: Training Data
 
-### Unsupervised Learning Sub-types
-*   **Clustering:** Grouping similar items (K-Means).
-*   **Dimensionality Reduction:** Simplifying data (PCA).
+The machine learning process starts with collecting and processing **training data**. An ML model is only as good as the data used to train it.
 
-## 3. Key Vocabulary
-*   **Features:** Input variables (e.g., sq footage, # of rooms).
-*   **Labels:** Target variable (e.g., house price).
-*   **Model:** The mathematical representation learned from data.
-*   **Inference:** Using a trained model to make predictions on new data.
+!!! failure "Garbage In, Garbage Out (GIGO)"
+    Bad data leads to bad models. Although data preparation is often a routine process, it is the most critical stage. It can make the model work as intended or completely ruin its performance.
 
-## 4. The ML Pipeline
-1.  **Problem Definition:** What are we solving?
-2.  **Data Collection:** Gathering raw data (S3, RDS).
-3.  **Data Prep/Feature Engineering:** Cleaning, scaling, selecting features.
-4.  **Model Training:** Feeding data to algorithms (SageMaker).
-5.  **Evaluation:** Checking accuracy on test data.
-6.  **Tuning:** Adjusting hyperparameters.
-7.  **Deployment:** Hosting the model for use (SageMaker Endpoints).
-8.  **Monitoring:** Tracking performance over time (Model Monitor).
+### Data Types: Labeled vs. Unlabeled
+*   **Labeled Data:** Data that already contains the "answer" or the target attribute you want the model to predict (e.g., an image of a cat marked as "Cat").
+*   **Unlabeled Data:** Information that has no predefined labels or categories. The model must find its own patterns.
 
-## 5. Model Performance Issues
-*   **Underfitting (High Bias):** Model is too simple; performs poorly on both training and test data.
-*   **Overfitting (High Variance):** Model is too complex; performs great on training data but poorly on unseen test data.
-*   **Data Split:** Usually 70% Training / 15% Validation / 15% Test.
+### Structured vs. Unstructured Data
+| Data Category | Characteristics | Examples |
+| :--- | :--- | :--- |
+| **Structured** | Highly organized, formatted in rows/columns. Easily searchable. | Excel sheets, SQL databases, CSV files. |
+| **Unstructured** | No predefined format. Difficult to collect and analyze. | Images, audio files, videos, PDF documents, social media posts. |
 
-## 6. Evaluation Metrics
-*   **Accuracy:** Overall correctness.
-*   **Precision:** TP / (TP + FP) -> Avoid "False Alarms".
-*   **Recall:** TP / (TP + FN) -> Avoid "Misses".
-*   **F1-Score:** Harmonic mean of Precision and Recall.
-*   **RMSE:** Common for regression; measures error magnitude.
+---
 
-## 7. AWS AI/ML Service Stack
-*   **AI Services:** Pre-built (Rekognition, Comprehend, Lex, Polly, Transcribe).
-*   **ML Services:** Managed platform (Amazon SageMaker).
-*   **Infrastructure:** P-series instances (GPUs), Trainium, Inferentia.
+## 2. The Machine Learning Process & Paradigms
+
+Training data is fed into machine learning algorithms to create a model. This process is divided into four broad categories:
+
+### Supervised Learning
+The model is trained on **labeled data**. 
+*   **Goal:** Learn a "mapping function" to predict output for new, unseen data based on known examples.
+*   **Types:** Classification (Categories) and Regression (Numbers).
+
+### Unsupervised Learning
+The model learns from **unlabeled data**.
+*   **Goal:** Discover inherent patterns, structures, or hidden relationships within the data.
+*   **Examples:** Clustering (grouping customers) and Association.
+
+### Reinforcement Learning
+The model learns through trial and error in an environment.
+*   **Goal:** Improve decision-making over time to maximize a reward.
+*   **Mechanics:** Uses a system of **rewards and penalties**.
+
+### Semi-Supervised Learning
+A hybrid approach where only a **small portion** of the training data is labeled. The model uses the labeled data to understand the structure and the unlabeled data to generalize and improve accuracy.
+
+---
+
+## 3. Inferencing: Using the Model
+
+Once a model has been trained, it is used to make predictions or decisions on new data. This process is called **Inferencing**. 
+
+There are two main ways to perform inferencing on AWS:
+
+| Type | Description | Use Case |
+| :--- | :--- | :--- |
+| **Batch Inferencing** | Running predictions on a large group (batch) of data all at once. Usually processed on a schedule (e.g., overnight). | Monthly credit scores, product recommendation emails, financial reporting. |
+| **Real-time Inferencing** | Running predictions immediately as new data arrives. Requires low-latency response. | Fraud detection at checkout, chatbot responses, navigation apps. |
+
+---
+
+## 4. Model Performance Concepts
+
+*   **Underfitting (High Bias):** The model is too simple to capture the underlying patterns. Performs poorly on both training and test data.
+*   **Overfitting (High Variance):** The model "memorizes" the training data including the noise. Performs great on training data but fails on new, unseen data.
+*   **The 70/15/15 Split:** A common practice to split data into **Training** (70%), **Validation** (15% for tuning), and **Test** (15% for final evaluation).
+
+---
+
+## 5. Evaluation Metrics
+
+*   **Accuracy:** Percentage of correct predictions.
+*   **Precision:** How many of the "Positive" predictions were actually correct? (Avoids False Positives).
+*   **Recall:** How many of the actual "Positives" did we find? (Avoids False Negatives).
+*   **F1-Score:** The balance between Precision and Recall.
+*   **RMSE:** Root Mean Square Error, used to measure accuracy in **Regression** problems.
 
 ---
 *Last Updated: Jan 2026*
