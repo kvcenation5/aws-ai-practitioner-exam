@@ -23,6 +23,13 @@ AWS provides access to high-performing FMs through **Amazon Bedrock**. It hosts 
 *   **AI21 Labs**
 *   **Cohere**
 
+!!! tip "Exam Tip: Model Selection"
+    *   **Anthropic Claude:** Great for complex reasoning and large context windows.
+    *   **Meta Llama:** Popular open-weights model for general tasks.
+    *   **Mistral:** High performance and efficiency.
+    *   **Stability AI:** The go-to for **Image Generation** (Stable Diffusion).
+
+
 ---
 
 ## 2. FM Lifecycle
@@ -31,11 +38,16 @@ AWS provides access to high-performing FMs through **Amazon Bedrock**. It hosts 
 Unlabeled data can be used at scale for pre-training because it is much easier to obtain compared to labeled data. Unlabeled data includes raw data, such as images, text files, or videos, with no meaningful informative labels to provide context. FMs require training on massive datasets from diverse sources.
 
 ### 2. Pre-training
-Although traditional ML models rely on supervised, unsupervised, or reinforcement learning patterns, FMs are typically pre-trained through self-supervised learning. With self-supervised learning, labeled examples are not required. Self-supervised learning makes use of the structure within the data to autogenerate labels.
+Although traditional ML models rely on supervised, unsupervised, or reinforcement learning patterns, FMs are typically pre-trained through **self-supervised learning**. With self-supervised learning, labeled examples are not required. Self-supervised learning makes use of the structure within the data to autogenerate labels.
 
-During the initial pre-training stage, the FM's algorithm can learn the meaning, context, and relationship of the words in the datasets. For example, the model might learn whether drink means beverage, the noun, or swallowing the liquid, the verb.
+During the initial pre-training stage, the FM's algorithm can learn the meaning, context, and relationship of the words in the datasets. 
 
-After the initial pre-training, the model can be further pre-trained on additional data. This is known as **continuous pre-training**. The goal is to expand the model's knowledge base and improve its ability to understand and generalize across different domains or tasks.
+After the initial pre-training, the model can be further pre-trained on additional data. This is known as **continuous pre-training**. 
+
+!!! warning "Exam Perspective: Pre-training vs. Fine-tuning"
+    **Pre-training** involves training on massive unlabeled datasets and is extremely expensive (millions of dollars). **Fine-tuning** is done on smaller, labeled datasets to specialize a model and is much cheaper.
+
+
 
 ### 3. Optimization
 Pre-trained language models can be optimized through techniques like prompt engineering, retrieval-augmented generation (RAG), and fine-tuning on task-specific data. These methods vary in complexity and cost.
@@ -125,9 +137,14 @@ Prompts act as instructions for foundation models. Prompt engineering focuses on
     *   **Input Data:** The specific content you want a response for.
     *   **Output Indicator:** The desired output type or format.
 
+!!! tip "Exam Tip: Few-Shot vs. Zero-Shot"
+    *   **Zero-Shot:** Asking the model to perform a task without any examples.
+    *   **Few-Shot:** Providing a few examples within the prompt to guide the model's output.
+
 **Example Prompt:**
 > "You are an experienced journalist that excels at condensing long articles into concise summaries. Summarize the following text in 2–3 sentences.
 > **Text:** [Long article text goes here]"
+
 
 ### Fine-Tuning
 Fine-tuning involves taking a pre-trained model and adding specific, smaller datasets to **modify the weights** of the model to better align with the task.
@@ -152,6 +169,10 @@ RAG supplies domain-relevant data as context to produce responses based on that 
 | **Hallucination** | When a model generates factually incorrect but plausible-sounding info. |
 | **Context Window** | The limit of how many tokens a model can "remember" or process at once. |
 | **Temperature** | Controls randomness (0 = predictable/factual, 1+ = creative/random). |
+
+!!! info "Exam Perspective: Hallucinations"
+    Hallucinations are a key risk in GenAI. They are best mitigated using **RAG** (Grounding the model in facts) or **Prompt Engineering** (Telling the model to say "I don't know").
+
 | **Tokens** | Small units of text that provide standardization for model processing. |
 
 ---

@@ -23,6 +23,10 @@ The machine learning process starts with collecting and processing **training da
 | **Structured** | Highly organized, formatted in rows/columns. Easily searchable. | Excel sheets, SQL databases, CSV files. |
 | **Unstructured** | No predefined format. Difficult to collect and analyze. | Images, audio files, videos, PDF documents, social media posts. |
 
+!!! tip "Exam Tip: Unstructured Data"
+    Generative AI and Foundation Models are primarily used to extract value from **unstructured data** (text, images, video) which traditional ML struggles with.
+
+
 ---
 
 ## 2. The Machine Learning Process & Paradigms
@@ -47,6 +51,10 @@ The model learns through trial and error in an environment.
 ### Semi-Supervised Learning
 A hybrid approach where only a **small portion** of the training data is labeled. The model uses the labeled data to understand the structure and the unlabeled data to generalize and improve accuracy.
 
+!!! note "Exam Perspective: Self-Supervised Learning"
+    While not always listed in basic ML intros, **Foundation Models** often use **Self-Supervised Learning**, where the data itself provides the labels (e.g., predicting the next word in a sentence).
+
+
 ---
 
 ## 3. Inferencing: Using the Model
@@ -60,23 +68,40 @@ There are two main ways to perform inferencing on AWS:
 | **Batch Inferencing** | Running predictions on a large group (batch) of data all at once. Usually processed on a schedule (e.g., overnight). | Monthly credit scores, product recommendation emails, financial reporting. |
 | **Real-time Inferencing** | Running predictions immediately as new data arrives. Requires low-latency response. | Fraud detection at checkout, chatbot responses, navigation apps. |
 
+!!! tip "Exam Tip: Cost vs. Performance"
+    **Batch Inferencing** is generally more cost-effective because it doesn't require "always-on" infrastructure, while **Real-time Inferencing** is required for interactive user experiences.
+
+
 ---
 
 ## 4. Model Performance Concepts
 
-*   **Underfitting (High Bias):** The model is too simple to capture the underlying patterns. Performs poorly on both training and test data.
-*   **Overfitting (High Variance):** The model "memorizes" the training data including the noise. Performs great on training data but fails on new, unseen data.
+*   **Underfitting (High Bias):** The model is too simple. Performs poorly on both training and test data.
+*   **Overfitting (High Variance):** The model "memorizes" the training data. Performs great on training data but fails on new data.
 *   **The 70/15/15 Split:** A common practice to split data into **Training** (70%), **Validation** (15% for tuning), and **Test** (15% for final evaluation).
+
+!!! warning "Exam Perspective: Fixing Overfitting"
+    To fix **overfitting**, you can:
+    1.  Provide more training data.
+    2.  Simplify the model (reduce features).
+    3.  Use **Regularization** techniques.
+
 
 ---
 
 ## 5. Evaluation Metrics
 
 *   **Accuracy:** Percentage of correct predictions.
-*   **Precision:** How many of the "Positive" predictions were actually correct? (Avoids False Positives).
-*   **Recall:** How many of the actual "Positives" did we find? (Avoids False Negatives).
+*   **Precision:** How many of the "Positive" predictions were actually correct? (**Avoids False Positives**).
+*   **Recall:** How many of the actual "Positives" did we find? (**Avoids False Negatives**).
 *   **F1-Score:** The balance between Precision and Recall.
 *   **RMSE:** Root Mean Square Error, used to measure accuracy in **Regression** problems.
+
+!!! info "Exam Perspective: Precision vs. Recall"
+    *   Use **Precision** when the cost of a False Positive is high (e.g., marking a legitimate email as Spam).
+    *   Use **Recall** when the cost of a False Negative is high (e.g., missing a Cancer diagnosis).
+    *   **F1-Score** is the best "all-around" metric when you have an imbalanced dataset.
+
 
 ---
 *Last Updated: Jan 2026*
