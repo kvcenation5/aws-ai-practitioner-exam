@@ -1,4 +1,4 @@
-# Generative AI Fundamentals
+ # Generative AI Fundamentals
 
 > **AWS AI Practitioner Exam (AIF-C01) Study Guide**
 
@@ -67,7 +67,12 @@ Large language models can be based on a variety of architectures, but the most c
     Embeddings are numerical representations of tokens, where each token is assigned a **vector** (a list of numbers) that captures its meaning and relationships with other tokens. 
     
     *   **Contextual Understanding:** These vectors are learned during training and allow the model to understand the context and nuances of language.
-    *   **Semantic Similarity:** For example, the embedding vector for the token "cat" might be close to the vectors for "feline" and "kitten" in the embedding space, indicating they are semantically related.
+    *   **Semantic Similarity:** Similar concepts cluster together in the vector space.
+        *   *Example:* `Vector("King") - Vector("Man") + Vector("Woman") ≈ Vector("Queen")`.
+    *   **Exam Perspective:** 
+        *   **Vectors** are the "language" machines use to calculate meaning.
+        *   **Embeddings** enable **RAG** (Retrieval-Augmented Generation) by allowing similarity searches in vector databases (like Amazon OpenSearch or pgvector).
+
 
 LLMs use these tokens, embeddings, and vectors to understand and generate text. They can capture complex relationships, allowing them to generate coherent text, answer questions, summarize information, and engage in creative writing.
 
@@ -95,11 +100,15 @@ Instead of relying on a single type of input or output, multimodal models can pr
     *   **Process:** The goal is for the generator to eventually produce data indistinguishable from real data.
 
 ??? abstract "Variational Autoencoders (VAEs)"
-    VAEs combine ideas from autoencoders and variational inference:
+    VAEs are generative models that use an encoder-decoder architecture to create new data.
     
-    *   **Encoder:** Maps input data to a lower-dimensional **latent space** capturing essential features.
-    *   **Decoder:** Takes the latent representation and generates a reconstruction of the original input.
-    *   **Generation:** New data can be created by sampling from the latent space (usually a Gaussian distribution).
+    *   **Encoder:** Maps input data to a **probability distribution** in a lower-dimensional **latent space** (capturing core features like "smile intensity" or "hair color").
+    *   **Decoder:** Takes a sample from that distribution and generates a reconstruction or a brand-new variation.
+    *   **Example:** A VAE trained on faces can generate a new, non-existent face by "sampling" different feature combinations from the latent space.
+    *   **Exam Tip:** 
+        *   VAEs are known for **speed** but can produce **blurry** images compared to Diffusion models.
+        *   Key takeaway for exam: They use **distributions** in the latent space to ensure smooth transitions between generated features.
+
 
 ---
 
@@ -131,6 +140,8 @@ Fine-tuning involves taking a pre-trained model and adding specific, smaller dat
 RAG supplies domain-relevant data as context to produce responses based on that data.
 *   **Difference from Fine-Tuning:** RAG retrieves relevant documents to provide context but **will not change the weights** of the foundation model.
 *   **Benefit:** Allows the model to answer questions based on private or up-to-date data without expensive retraining.
+*   **Exam Perspective:** RAG is the best choice when you need to reduce **hallucinations** and use data that changes frequently (e.g., daily news or company wikis).
+
 
 ---
 
