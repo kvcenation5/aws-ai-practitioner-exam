@@ -47,3 +47,6 @@ nav:
     - Machine Learning: index.md
     - Deep Learning: 02-deep-learning-fundamentals.md
     - Generative AI: 03-generative-ai-fundamentals.md
+  - Courses:
+    - Stephane Maarek (Udemy): stephane-maarek-course.md
+
