@@ -49,6 +49,8 @@ nav:
     - Generative AI: 03-generative-ai-fundamentals.md
     - Infrastructure & Tech: 04-aws-infrastructure-technologies.md
     - Prompt Engineering: 05-prompt-engineering.md
+    - Prompt Misuse & Risks: 06-prompt-misuse-risks.md
+
 
 
   - Courses:
