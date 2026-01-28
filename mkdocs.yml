@@ -48,6 +48,8 @@ nav:
     - Deep Learning: 02-deep-learning-fundamentals.md
     - Generative AI: 03-generative-ai-fundamentals.md
     - Infrastructure & Tech: 04-aws-infrastructure-technologies.md
+    - Prompt Engineering: 05-prompt-engineering.md
+
 
   - Courses:
     - Stephane Maarek (Udemy): stephane-maarek-course.md
