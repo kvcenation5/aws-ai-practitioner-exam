@@ -75,4 +75,9 @@ Jailbreaking is the practice of **circumventing safety measures and ethical cons
 *   **Roleplay/Character Scenarios:** If an attacker asks a model to "Act as a person who forgets their ethics," this is a classic **Jailbreak** attempt.
 
 ---
+## 6. References & Further Reading
+*   [Amazon Bedrock Prompt Engineering Guidelines](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html) (Security and Risks)
+*   [AWS: What is Prompt Engineering?](https://aws.amazon.com/what-is/prompt-engineering/)
+
+---
 *Last Updated: Jan 2026*

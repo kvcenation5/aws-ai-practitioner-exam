@@ -113,4 +113,9 @@ The student starts with a vague prompt but refines it based on the course:
 *   **Result:** High-quality, tailored output that addresses the specific goals of a finance firm.
 
 ---
+## 8. References & Further Reading
+*   [Amazon Bedrock Prompt Engineering Guidelines](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html)
+*   [AWS: What is Prompt Engineering?](https://aws.amazon.com/what-is/prompt-engineering/)
+
+---
 *Last Updated: Jan 2026*
