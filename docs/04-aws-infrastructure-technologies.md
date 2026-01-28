@@ -29,6 +29,10 @@ With SageMaker AI, you can build, train, and deploy ML models for any use case w
 *   **SageMaker JumpStart:** Helps you quickly get started with ML by providing a set of solutions for common use cases. It supports one-click deployment and fine-tuning of more than 150 popular open-source models (Llama, etc.).
 *   **SageMaker Canvas:** A visual, no-code interface for business analysts to build ML models and generate predictions.
 
+!!! example "Practical Example: SageMaker AI"
+    A bank uses SageMaker to build a custom fraud detection model by training it on millions of historical transactions to identify subtle patterns that indicate suspicious activity.
+
+
 ---
 
 ## 3. SageMaker AI vs. Amazon Bedrock
@@ -61,17 +65,41 @@ These services provide developers with AI/ML capabilities without requiring exte
     *   Understands sentiment (positive/negative).
     *   Analyzes text using tokenization and parts of speech.
     *   Automatically organizes a collection of text files by topic.
+
+!!! example "Practical Example: Comprehend"
+    A customer support team uses Comprehend to automatically scan thousands of support tickets, identifying which ones express "negative" sentiment so they can prioritize angry customers.
+
 *   **Amazon Translate:** A neural machine translation service that delivers fast, high-quality, and affordable language translation. It uses deep learning models to deliver more accurate and natural-sounding translations than traditional statistical algorithms.
+
+!!! example "Practical Example: Translate"
+    An e-commerce company uses Amazon Translate to instantly localize their product descriptions into 10 different languages, allowing them to launch in new countries in days instead of months.
+
 *   **Amazon Textract:** Automatically extracts text and data from scanned documents. It goes beyond simple OCR to identify contents of fields in forms and information stored in tables.
+
+!!! example "Practical Example: Textract"
+    An insurance company uses Textract to automatically read medical claim forms. It doesn't just "see" the text; it understands which value belongs to "Policy Number" and which belongs to "Total Amount."
+
 
 ### Speech & Chat
 *   **Amazon Lex:** A fully managed AI service to design, build, test, and deploy conversational interfaces (chatbots) using voice and text. It provides **ASR** (Automatic Speech Recognition) for converting speech to text and **NLU** (Natural Language Understanding) to recognize intent. Powered by the same technology as Amazon Alexa.
+
+!!! example "Practical Example: Lex"
+    An airline builds a chatbot using Lex that allows travelers to say "I want to change my flight" in natural language. Lex understands the **intent** and asks for the confirmation number.
+
 *   **Amazon Polly:** Turns text into lifelike speech (**TTS**). Uses advanced deep learning technologies to synthesize speech that sounds like a human voice across dozens of languages.
+
+!!! example "Practical Example: Polly"
+    A news app uses Polly to create an "Audio Version" of its articles, allowing users to listen to the news during their morning commute with a voice that sounds like a real news anchor.
+
 *   **Amazon Transcribe:** An automatic speech recognition (**ASR**) service for converting speech to text. 
     *   Supports common formats like WAV and MP3.
     *   Provides **time stamps** for every word.
     *   Supports live audio streaming for real-time transcription.
     *   Use cases: transcription of customer service calls, subtitles, and content analysis.
+
+!!! example "Practical Example: Transcribe"
+    A law firm uses Transcribe to automatically convert 100 hours of recorded legal depositions into searchable text format, saving weeks of manual typing.
+
 
 ### Vision & Search
 *   **Amazon Rekognition:** Facilitates adding image and video analysis to your applications.
@@ -79,13 +107,29 @@ These services provide developers with AI/ML capabilities without requiring exte
     *   Detect inappropriate content.
     *   Highly accurate facial analysis and facial search.
     *   Use cases: user verification, people counting, and public safety.
+
+!!! example "Practical Example: Rekognition"
+    A smart-home security system uses Rekognition to analyze video doorbells, notifying the owner only when a "Person" is detected rather than just a "Dog" or a "Car."
+
 *   **Amazon Kendra:** An intelligent search service powered by ML. It reimagines enterprise search, helping employees find content even when it is scattered across multiple locations and repositories.
+
+!!! example "Practical Example: Kendra"
+    An employee at a large company asks, "What is our company's policy on remote work from Japan?" Kendra searches SharePoint, Box, and internal wikis to provide the specific answer instantly.
+
 
 ### Industry/User Specific
 *   **Amazon Personalize:** Allows developers to create individualized recommendations for customers. 
     *   Uses an activity stream (page views, signups, purchases).
     *   Identifies what is meaningful, selects the right algorithms, and trains a customized model.
+
+!!! example "Practical Example: Personalize"
+    A streaming service uses Personalize to show a "Recommended for You" section where the movies shown are based on the specific genres and actors the user has watched in the past 30 days.
+
 *   **AWS DeepRacer:** A 1/18th scale race car that provides a fun way to get started with **Reinforcement Learning (RL)**. RL learns complex behaviors without labeled data by optimizing for long-term goals.
+
+!!! example "Practical Example: DeepRacer"
+    A developer trains a virtual car in a simulator to stay on a track. The car gets a "reward" (+1) for staying in the center and a "penalty" (-1) for going off-track, eventually learning the optimal racing line.
+
 
 ---
 
@@ -95,9 +139,17 @@ These services provide developers with AI/ML capabilities without requiring exte
 A fully managed service that makes Foundation Models (FMs) from Amazon and leading AI startups available through an API.
 *   **Serverless Experience:** Quickly experiment, privately customize with your own data, and deploy into AWS applications without managing infrastructure.
 
+!!! example "Practical Example: Bedrock"
+    A marketing agency uses Bedrock to access the **Claude 3** model. They provide their brand guidelines as context (RAG) and the model generates personalized email campaigns for thousands of their clients.
+
+
 ### Amazon Q
 *   **Amazon Q Business:** Helps get fast, relevant answers to questions, solve problems, and generate content using company information repositories and enterprise systems.
 *   **Amazon Q Developer:** Improves developer productivity by providing ML-powered code recommendations (Java, JS, Python, etc.). It can generate entire functions and logical blocks of code (10–15+ lines).
+
+!!! example "Practical Example: Amazon Q"
+    A DevOps engineer asks Amazon Q Business, "Why is my Lambda function timing out?" Q analyzes the logs and configuration to suggest increasing the memory or timeout setting.
+
 
 ---
 
