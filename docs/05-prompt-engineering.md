@@ -6,11 +6,16 @@ Prompt engineering is the fastest way to harness the power of GenAI. By interact
 
 ---
 
-## 1. Benefits of Effective Prompting
-*   **Enhance Capabilities:** Bolsters the model's performance and safety measures.
-*   **Domain Knowledge:** Equips models with specific knowledge without modifying parameters or fine-tuning.
-*   **Comprehension:** Helps developers fully understand a model's potential.
-*   **Quality:** Higher-quality inputs directly lead to higher-quality outputs.
+## 1. Benefits and Importance
+Why bother with prompt engineering?
+*   **Greater Developer Control:** Fine-tune outputs without changing model weights.
+*   **Improved User Experience:** Deliver more relevant, accurate, and safe responses.
+*   **Enhanced Capabilities:** Helps FMs perform tasks like classification, code generation, and complex reasoning.
+*   **Safety & Bias Mitigation:** Helps bolster safety measures and reduce problematic outputs.
+
+!!! note "Hallucination Reduction"
+    To reduce hallucinations, use prompt optimization combined with techniques like **Retrieval Augmented Generation (RAG)** to provide the model access to grounded data.
+
 
 ---
 
@@ -22,15 +27,15 @@ A prompt's form depends on the task. A complete prompt often includes:
 *   **Input Data:** The raw content for which you want a response.
 *   **Output Indicator:** The desired type or format of the output.
 
-### Example: Inventory Management
-> **Prompt:** Given a list of customer orders and available inventory, determine which can be fulfilled. This task is essential for ecommerce businesses.  
-> **Orders:** Product A (5 units)...  
-> **Inventory:** Product A (8 units)...  
-> **Fulfillment status:** 
-*   **Instructions:** Determine fulfillment/restock needs.
-*   **Context:** Ecommerce/retail context.
-*   **Input Data:** The specific order/inventory numbers.
-*   **Output Indicator:** The phrase "Fulfillment status:"
+### Example: Restaurant Review Summary
+> **Context:** The following is text from a restaurant review:  
+> **Input Data:** "I finally got to check out Alessandro’s Brilliant Pizza... [detailed review]"  
+> **Instruction:** Summarize the above restaurant review in one sentence.  
+> **Output:** Alessandro's Brilliant Pizza is a fantastic restaurant in Seattle with a beautiful view and delicious food.
+
+!!! tip "Exam Tip: Component Significance"
+    Without the **Instruction**, the model doesn't know what to do with the text. Without the **Input Data**, it has nothing to operate on. The **Context** (e.g., "The following is a review") provides the keywords that guide model focus.
+
 
 ---
 
@@ -83,6 +88,20 @@ Providing contextual examples (One-shot = 1 example, Few-shot = multiple).
 Divides intricate reasoning into smaller, intermediary steps.
 *   **Keyword:** Use the phrase **"Think step by step"** to initiate logic loops.
 *   **Example:** Math problems or multi-layer logic (e.g., comparing deposit costs for two different services).
+
+### Advanced Prompting Techniques
+Beyond basic shots, these techniques help with extreme complexity:
+
+*   **Tree-of-Thought (ToT):** Generalizes CoT by allowing the model to generate multiple possible "next steps" and using a tree search to explore the best path.
+*   **Maieutic Prompting:** Prompts the model for an answer *and* an explanation, then prompts it to explain parts of that explanation to prune inconsistencies.
+*   **Generated Knowledge:** Prompt the model to first "list relevant facts" about a topic before completing the main task (e.g., "List facts about climate change, then write an essay").
+*   **Least-to-Most:** Prompt the model to list sub-problems first, then solve them in sequence.
+*   **Self-Refinement:** Model drafts a solution, critiques it, and rewrites it iteratively based on the critique.
+
+!!! warning "Model Specifics (Amazon Bedrock)"
+    *   **Anthropic Claude:** Use XML-style tags like `<example></example>` to separate sections.
+    *   **Delimiters:** Use clear markers like `H:` (Human) and `A:` (Assistant) or `###` to prevent the model from confusing instructions with data.
+
 
 ---
 
