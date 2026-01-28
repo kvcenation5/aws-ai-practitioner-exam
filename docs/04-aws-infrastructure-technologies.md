@@ -26,12 +26,29 @@ AWS categorizes its services into a "stack" to help customers choose the right l
 *   **SageMaker JumpStart:** A hub within SageMaker to access pre-trained models (including FMs like Llama) for one-click deployment.
 *   **SageMaker Canvas:** A visual, no-code interface for business analysts to build ML models.
 
-!!! tip "Exam Tip: SageMaker AI vs. Bedrock"
-    If the question asks for **full control** over model training and deployment, choose **SageMaker**. If it asks for **serverless access** to models via API, choose **Bedrock**.
+---
+
+## 3. SageMaker AI vs. Amazon Bedrock
+
+Choosing between these two is a common exam topic. Use this table for quick reference:
+
+| Feature | Amazon SageMaker AI | Amazon Bedrock |
+| :--- | :--- | :--- |
+| **Model Type** | Custom ML & Deep Learning | Foundation Models (FMs) |
+| **Primary Workflow** | Build, Train, Deploy (Full Lifecycle) | Consume via API (Serverless) |
+| **Infrastructure** | **Managed Instances** (You choose GPU/CPU) | **Serverless** (No instances to manage) |
+| **Control** | **High** (Complete control over code & env) | **Low** (Abstraction for ease of use) |
+| **Customization** | Fine-tuning & Training from scratch | Fine-tuning & RAG (Retrieval-Augmented) |
+| **Cost Model** | **Instance-based** (Pay by the hour) | **Token-based** (Pay per request/usage) |
+| **Best For** | Data Scientists building unique models | Developers adding GenAI to apps quickly |
+
+!!! info "Exam Perspective: The 'Flexibility' Trade-off"
+    SageMaker offers the most **flexibility** for custom machine learning, while Bedrock offers the most **simplicity** for generative AI through pre-trained foundation models.
+
 
 ---
 
-## 3. Specialized AI Services (The "Ready-to-Use" Layer)
+## 4. Specialized AI Services (The "Ready-to-Use" Layer)
 
 These services are pre-trained by AWS and available via API.
 
@@ -55,7 +72,7 @@ These services are pre-trained by AWS and available via API.
 
 ---
 
-## 4. Generative AI Services
+## 5. Generative AI Services
 
 ### Amazon Bedrock
 A fully managed **serverless** service that makes Foundation Models (FMs) from AWS and AI startups (Anthropic, Meta, etc.) available through a single API.
@@ -67,7 +84,7 @@ A fully managed **serverless** service that makes Foundation Models (FMs) from A
 
 ---
 
-## 5. Summary Table: AI/ML Service Comparison
+## 6. Summary Table: AI/ML Service Comparison
 
 | Service | Category | Key Function | Exam Keyword |
 | :--- | :--- | :--- | :--- |
@@ -85,7 +102,7 @@ A fully managed **serverless** service that makes Foundation Models (FMs) from A
 
 ---
 
-## 6. Infrastructure and Cost Considerations
+## 7. Infrastructure and Cost Considerations
 
 *   **Security:** AWS uses a **Shared Responsibility Model**. AWS secures the infrastructure; you secure your data and model configurations.
 *   **Privacy:** In Amazon Bedrock, your data is **not used** to train the base models.
