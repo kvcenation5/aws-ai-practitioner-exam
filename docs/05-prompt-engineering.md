@@ -56,8 +56,14 @@ Used to guide the model away from specific content or behaviors.
 | **Top K** | 1+ | Limits choices to a fixed number of most likely words (e.g., Top K 50 = always pick from top 50, regardless of probability %). |
 
 ### Length & Control
-*   **Maximum Length:** Limits tokens to prevent resource exhaustion or "hallucination loops."
-*   **Stop Sequences:** Special tokens that tell the model to terminate generation immediately (e.g., a "User:" token in a chat).
+*   **Maximum Length:** Limits the total number of tokens generated for the entire response. Used to control costs and prevent rambling.
+*   **Stop Sequences:** Special tokens that tell the model to terminate generation immediately.
+
+!!! tip "The 'Big Three' Comparison"
+    *   **Top K (Selection by Rank):** Limits the model to a fixed number of the most likely words. (e.g., "Only look at the top 50 choices").
+    *   **Top P (Selection by Weight):** Limits the model to a "nucleus" of words that add up to a specific probability. (e.g., "Look at as many words as it takes to reach 90% certainty").
+    *   **Max Tokens (Selection by Volume):** Limits how long the response can be. (e.g., "Stop talking after 200 words").
+
 
 ---
 
