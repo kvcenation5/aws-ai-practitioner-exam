@@ -95,6 +95,14 @@ Latency is the time it takes for a model to generate a response. In the context 
 3.  **Prompt Optimization:** Keep your prompts clear and avoid unnecessary "rambling" in the instructions.
 4.  **Provisioned Throughput (Bedrock):** For high-traffic applications, use Provisioned Throughput to ensure consistent performance and lower latency.
 
+!!! info "What does NOT impact latency?"
+    In the exam, look out for these "distractor" options. These typically do **not** increase the computational time per token:
+    *   **Temperature:** Whether you set it to 0 or 1, the model performs the same amount of math.
+    *   **Top P / Top K:** These are simple filters applied *after* the model has already calculated the next alternatives.
+    *   **The specific language (English vs. French):** The model processes tokens, not "languages" in a way that changes GPU speed.
+    *   **Presence of Stop Sequences:** These actually *reduce* total latency by stopping the model early.
+
+
 ---
 
 ## 6. Best Practices: "Bad vs. Good"
