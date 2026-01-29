@@ -56,9 +56,16 @@ Used to guide the model away from specific content or behaviors.
 
 | **Top K** | 1+ | Limits choices to a fixed number of most likely words (e.g., Top K 50 = always pick from top 50, regardless of probability %). |
 
-### Length & Control
-*   **Maximum Length:** Limits the total number of tokens generated for the entire response. Used to control costs and prevent rambling.
-*   **Stop Sequences:** Special tokens that tell the model to terminate generation immediately.
+### Length & Control (Response Termination)
+*   **Maximum Length (Max Tokens):** 
+    - This is a **hard limit** on the total number of tokens (words/parts of words) the model can generate for a single response.
+    - **Why it matters:** It prevents the model from generating infinite text, saves compute costs (Bedrock charges per token), and reduces latency.
+    - **Trade-off:** If set too low, the model's response will be **truncated** (cut off in the middle of a sentence).
+*   **Stop Sequences:** 
+    - These are specific character strings that tell the model to **stop typing immediately** as soon as it generates them.
+    - **Common Examples:** Newline characters (`\n`), specific markers like `###`, `User:`, or `End of Response`.
+    - **Best Practice:** When doing **Few-Shot prompting**, use a stop sequence like `###` at the end of each example. This prevents the model from "making up" additional fake examples after it completes your actual request.
+
 
 !!! tip "The 'Big Three' Comparison"
     *   **Top K (Selection by Rank):** Limits the model to a fixed number of the most likely words. (e.g., "Only look at the top 50 choices").
