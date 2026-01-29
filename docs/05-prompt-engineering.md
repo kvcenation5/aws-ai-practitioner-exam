@@ -36,17 +36,37 @@ A prompt's form depends on the task. A complete prompt often includes:
 !!! tip "Exam Tip: Component Significance"
     Without the **Instruction**, the model doesn't know what to do with the text. Without the **Input Data**, it has nothing to operate on. The **Context** (e.g., "The following is a review") provides the keywords that guide model focus.
 
+---
+
+## 3. Prompt Templates
+In a production environment (like an app built on Amazon Bedrock), developers don't write a new prompt from scratch for every user. Instead, they use a **Prompt Template**.
+
+*   **What it is:** A predefined string with **placeholders** (variables) that are filled in at runtime based on user input or database records.
+*   **The Goal:** To ensure **Consistency** and **Scalability**. It ensures the model always follows the same rules/instructions regardless of what the user asks.
+
+### Example Template Structure:
+> "You are a customer support agent. Summarize the following customer complaint in {{tone}} tone.  
+> **Complaint:** {{user_input}}  
+> **Summary:**"
+
+*   **Fixed Instructions:** "You are a customer support agent..."
+*   **Placeholders:** `{{tone}}` and `{{user_input}}`.
+*   **Benefits:**
+    - **Reusability:** The same logic works for thousands of users.
+    - **Control:** You can enforce a specific format (e.g., "Always output a JSON object").
+    - **Separation of Concerns:** Developers can modify the *instructions* in the template without changing the application's code.
 
 ---
 
-## 3. Negative Prompting
+
+## 4. Negative Prompting
 Used to guide the model away from specific content or behaviors.
 *   **Example:** Preventing hate speech, explicit content, or biased language in a chatbot.
 *   **Tip:** It's often easier to tell a model what **not** to do than to list every acceptable thing.
 
 ---
 
-## 4. Inference Parameters (The "Knobs")
+## 5. Inference Parameters (The "Knobs")
 
 ### Randomness & Diversity
 | Parameter | Range | How it Works |
@@ -80,7 +100,7 @@ Most advanced models use both in a **pipeline** (Top K is usually applied first)
 
 ---
 
-### 5. Prompt Latency
+### 6. Prompt Latency
 Latency is the time it takes for a model to generate a response. In the context of the AWS AI Practitioner exam, you should understand what drives latency and how to optimize it.
 
 #### Factors Influencing Latency:
@@ -105,7 +125,7 @@ Latency is the time it takes for a model to generate a response. In the context 
 
 ---
 
-## 6. Best Practices: "Bad vs. Good"
+## 7. Best Practices: "Bad vs. Good"
 
 | Rule | Bad Prompt | Good Prompt (Refined) |
 | :--- | :--- | :--- |
@@ -118,7 +138,7 @@ Latency is the time it takes for a model to generate a response. In the context 
 
 ---
 
-## 7. Prompt Engineering Techniques
+## 8. Prompt Engineering Techniques
 
 ### Zero-Shot Prompting
 Relies on the model's general knowledge. No examples provided.
@@ -149,7 +169,7 @@ Beyond basic shots, these techniques help with extreme complexity:
 
 ---
 
-## 8. The AnyCompany Scenario (Final Refined Prompt)
+## 9. The AnyCompany Scenario (Final Refined Prompt)
 The student starts with a vague prompt but refines it based on the course:
 
 *   **Initial:** "Generate a market analysis report."
@@ -157,7 +177,7 @@ The student starts with a vague prompt but refines it based on the course:
 *   **Result:** High-quality, tailored output that addresses the specific goals of a finance firm.
 
 ---
-## 9. References & Further Reading
+## 10. References & Further Reading
 *   [Amazon Bedrock Prompt Engineering Guidelines](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html)
 *   [AWS: What is Prompt Engineering?](https://aws.amazon.com/what-is/prompt-engineering/)
 
