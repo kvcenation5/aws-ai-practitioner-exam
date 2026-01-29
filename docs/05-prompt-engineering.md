@@ -64,6 +64,12 @@ Used to guide the model away from specific content or behaviors.
     *   **Top P (Selection by Weight):** Limits the model to a "nucleus" of words that add up to a specific probability. (e.g., "Look at as many words as it takes to reach 90% certainty").
     *   **Max Tokens (Selection by Volume):** Limits how long the response can be. (e.g., "Stop talking after 200 words").
 
+### Why use both Top K and Top P?
+Most advanced models use both in a **pipeline** (Top K is usually applied first):
+1.  **Top K acts as a "Hard Cap":** It prevents the model from ever looking at the "long tail" of low-probability words, even if Top P hasn't been reached yet.
+2.  **Top P acts as a "Dynamic Filter":** It narrows the Top K selection even further when the model is very confident, ensuring the response stays relevant.
+
+
 
 ---
 
