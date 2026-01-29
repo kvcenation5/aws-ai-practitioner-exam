@@ -78,10 +78,26 @@ Most advanced models use both in a **pipeline** (Top K is usually applied first)
 2.  **Top P acts as a "Dynamic Filter":** It narrows the Top K selection even further when the model is very confident, ensuring the response stays relevant.
 
 
+---
+
+### 5. Prompt Latency
+Latency is the time it takes for a model to generate a response. In the context of the AWS AI Practitioner exam, you should understand what drives latency and how to optimize it.
+
+#### Factors Influencing Latency:
+*   **Prompt Length (Input Tokens):** Larger prompts (e.g., long RAG context or massive few-shot examples) increase the "time to first token" (TTFT) because the model has to process all input before it starts generating.
+*   **Generation Length (Output Tokens):** This is typically the **biggest factor**. Because LLMs generate text one token at a time, a 1,000-token response will take significantly longer than a 50-token response.
+*   **Model Size/Complexity:** Larger, more "intelligent" models (like Claude 3 Opus) have higher latency than smaller, faster models (like Claude 3 Haiku or Amazon Nova Micro).
+*   **Inference Parameters:** While Temperature doesn't affect speed, setting a high **Max Tokens** limit can lead to longer (and thus slower) responses.
+
+#### Strategies to Reduce Latency:
+1.  **Use Streaming:** Show the output to the user as it is being "typed" by the model. This doesn't change the total time but drastically reduces **Perceived Latency**.
+2.  **Model Selection:** Choose "smaller/faster" models for simple tasks like classification or summarization.
+3.  **Prompt Optimization:** Keep your prompts clear and avoid unnecessary "rambling" in the instructions.
+4.  **Provisioned Throughput (Bedrock):** For high-traffic applications, use Provisioned Throughput to ensure consistent performance and lower latency.
 
 ---
 
-## 5. Best Practices: "Bad vs. Good"
+## 6. Best Practices: "Bad vs. Good"
 
 | Rule | Bad Prompt | Good Prompt (Refined) |
 | :--- | :--- | :--- |
@@ -94,7 +110,7 @@ Most advanced models use both in a **pipeline** (Top K is usually applied first)
 
 ---
 
-## 6. Prompt Engineering Techniques
+## 7. Prompt Engineering Techniques
 
 ### Zero-Shot Prompting
 Relies on the model's general knowledge. No examples provided.
@@ -125,7 +141,7 @@ Beyond basic shots, these techniques help with extreme complexity:
 
 ---
 
-## 7. The AnyCompany Scenario (Final Refined Prompt)
+## 8. The AnyCompany Scenario (Final Refined Prompt)
 The student starts with a vague prompt but refines it based on the course:
 
 *   **Initial:** "Generate a market analysis report."
@@ -133,7 +149,7 @@ The student starts with a vague prompt but refines it based on the course:
 *   **Result:** High-quality, tailored output that addresses the specific goals of a finance firm.
 
 ---
-## 8. References & Further Reading
+## 9. References & Further Reading
 *   [Amazon Bedrock Prompt Engineering Guidelines](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html)
 *   [AWS: What is Prompt Engineering?](https://aws.amazon.com/what-is/prompt-engineering/)
 
