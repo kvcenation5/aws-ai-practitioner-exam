@@ -52,7 +52,8 @@ Used to guide the model away from specific content or behaviors.
 | Parameter | Range | How it Works |
 | :--- | :--- | :--- |
 | **Temperature** | 0 to 1 | **Low (0.2):** Focused, conservative. **High (1.0):** Creative, diverse but potentially less coherent. |
-| **Top P** | 0 to 1 | Limits choices to words that make up a cumulative probability (e.g., Top P 0.25 = top 25% of likely words). |
+| **Top P** | 0 to 1 | **Nucleus Sampling:** Limits choices to a subset of words whose **cumulative probability sum** reaches P. (It is NOT a percentage of the total dictionary). |
+
 | **Top K** | 1+ | Limits choices to a fixed number of most likely words (e.g., Top K 50 = always pick from top 50, regardless of probability %). |
 
 ### Length & Control
