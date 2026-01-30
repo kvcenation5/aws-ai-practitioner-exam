@@ -104,7 +104,11 @@ AWS provides built-in tools across its managed services to help implement the co
     A fully managed ML service for building, training, and deploying models. It provides integrated development environments (IDEs) and managed algorithms that run efficiently at scale.
 
 *   **Amazon Bedrock**
-    A fully managed serverless service that provides access to high-performing FMs from leading startups and Amazon through a unified API.
+    A fully managed **serverless** service that provides access to high-performing FMs from leading startups and Amazon through a unified API.
+
+!!! warning "Exam Alert: Serverless vs. Fully Managed"
+    - **Amazon Bedrock = Serverless.** You don't manage any infrastructure or pick instances. You just call the API.
+    - **Amazon SageMaker = Fully Managed.** AWS handles the upkeep, but you typically **select and pay for specific instances** (CPUs/GPUs) to run your models. (Note: SageMaker does have a "Serverless Inference" *option*, but the service as a whole is defined by managed internal infrastructure).
 
 #### 2. Foundation Model (FM) Evaluation
 *   **Model Evaluation on Amazon Bedrock**
