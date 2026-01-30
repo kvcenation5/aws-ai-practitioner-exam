@@ -4,6 +4,8 @@
 
 The Machine Learning (ML) lifecycle refers to the end-to-end process of developing, deploying, and maintaining machine learning models. It is rarely a linear path; instead, it is an iterative cycle of continuous improvement.
 
+![Machine Learning Lifecycle](assets/ml-lifecycle.png)
+
 ---
 
 ## 1. The ML Lifecycle Phases

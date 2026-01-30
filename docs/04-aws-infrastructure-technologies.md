@@ -29,6 +29,9 @@ With SageMaker AI, you can build, train, and deploy ML models for any use case w
 *   **SageMaker JumpStart:** Helps you quickly get started with ML by providing a set of solutions for common use cases. It supports one-click deployment and fine-tuning of more than 150 popular open-source models (Llama, etc.).
 *   **SageMaker Canvas:** A visual, no-code interface for business analysts to build ML models and generate predictions.
 
+!!! info "Deep Dive"
+    For a complete breakdown of all SageMaker tools—from Data Wrangler to Model Monitor—see the [SageMaker AI Features](10-sagemaker-ai.md) page.
+
 !!! example "Practical Example: SageMaker AI"
     A bank uses SageMaker to build a custom fraud detection model by training it on millions of historical transactions to identify subtle patterns that indicate suspicious activity.
 

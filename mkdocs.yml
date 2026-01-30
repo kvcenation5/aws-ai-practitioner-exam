@@ -49,6 +49,7 @@ nav:
     - Deep Learning: 02-deep-learning-fundamentals.md
     - Generative AI: 03-generative-ai-fundamentals.md
     - Infrastructure & Tech: 04-aws-infrastructure-technologies.md
+    - SageMaker AI Features: 10-sagemaker-ai.md
     - Prompt Engineering: 05-prompt-engineering.md
     - Prompt Misuse & Risks: 06-prompt-misuse-risks.md
     - Evaluation & Metrics: 07-model-evaluation-and-metrics.md
