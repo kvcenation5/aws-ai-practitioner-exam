@@ -168,6 +168,12 @@ The goal is to find the perfect balance:
 | **Dimension Reduction** | Simplify Data | (e.g., PCA) Reduces features while retaining essential info. |
 | **Stop Early** | Prevent Overfitting | Ending training before the model starts "memorizing" the data. |
 
+!!! note "Infra vs. Logic"
+    For the exam, remember: **Bias and Variance are "Logic" problems.**
+    *   **Underfitting** isn't caused by a slow CPU; it's caused by a **math formula** that is too simple.
+    *   **Overfitting** isn't caused by too much RAM; it's caused by a **math formula** that is too complex and "memorizes" the noise.
+    *   **AWS Infrastructure** (like SageMaker GPU instances) just determines how *fast* or *large* of a model you can train.
+
 ---
 
 ## 6. Evaluation Metrics
