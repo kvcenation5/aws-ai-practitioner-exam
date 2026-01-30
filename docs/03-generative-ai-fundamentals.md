@@ -2,7 +2,9 @@
 
 > **AWS AI Practitioner Exam (AIF-C01) Study Guide**
 
-Generative AI (GenAI) is a subset of deep learning that creates new content (text, images, audio, etc.) by learning patterns from massive datasets. Its recent surge is driven by massive investments in compute resources, large-scale data, and the willingness of organizations to develop "big ideas."
+Generative AI (GenAI) is a subset of deep learning that creates new content (text, images, audio, etc.) by learning patterns from massive datasets. **It is considered a subset of deep learning because it adapts models built using deep learning (often without needing retraining or fine-tuning).**
+
+It is capable of generating entirely new data, including conversations, stories, images, videos, music, and code.
 
 ---
 

@@ -8,7 +8,7 @@ Deep learning is a subset of machine learning inspired by the structure and func
 
 ## 1. Artificial Neural Networks (ANN)
 
-At the core of deep learning are neural networks. Just as our brains have neurons connected to each other, neural networks consist of many tiny units called **nodes** (or neurons) that are connected together.
+At the core of deep learning are neural networks. Just as our brains have **neurons and synapses** connected to each other, artificial neural networks consist of many tiny units called **nodes** (or neurons) that are connected together.
 
 ### Neural Network Structure
 These nodes are organized into distinct layers:

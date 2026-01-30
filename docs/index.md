@@ -33,31 +33,48 @@ The machine learning process starts with collecting and processing **training da
 
 Training data is fed into machine learning algorithms to create a model. This process is divided into four broad categories:
 
-### Supervised Learning
-The model is trained on **labeled data**. 
-*   **Goal:** Learn a "mapping function" to predict output for new, unseen data based on known examples.
-*   **Types:** Classification (Categories) and Regression (Numbers).
+### 2.1 Supervised Learning
+The model is trained on **labeled data** (data with a "supervisor").
+*   **Classification:** Assigns labels or categories to data.
+    *   **Use Cases:** Fraud detection, Image classification, Customer retention, Diagnostics.
+*   **Regression:** Predicts continuous or numerical values.
+    *   **Use Cases:** Weather forecasting, Market forecasting, Estimating life expectancy, Advertising popularity.
 
-### Unsupervised Learning
-The model learns from **unlabeled data**.
-*   **Goal:** Discover inherent patterns, structures, or hidden relationships within the data.
-*   **Examples:** Clustering (grouping customers) and Association.
+### 2.2 Unsupervised Learning
+The model learns from **unlabeled data** to find hidden structures.
+*   **Clustering:** Groups data based on similar features (e.g., grouping customers by habits).
+    *   **Use Cases:** Customer segmentation, Targeted marketing, Recommendation systems.
+*   **Dimensionality Reduction:** Reduces the number of features while preserving important patterns.
+    *   **Use Cases:** Big data visualization, Meaningful compression, Structure discovery.
 
-### Reinforcement Learning
-The model learns through trial and error in an environment.
-*   **Goal:** Improve decision-making over time to maximize a reward.
-*   **Mechanics:** Uses a system of **rewards and penalties**.
+### 2.3 Reinforcement Learning
+An **agent** learns through trial and error in an **environment** based on **rewards and penalties**.
+*   **Example:** In **AWS DeepRacer**, a virtual car (agent) learns to navigate a track (environment) by receiving rewards for staying on the track and completing it quickly.
+*   **Best For:** When the desired outcome is known but the specific path to achieve it requires exploration.
 
-### Semi-Supervised Learning
-A hybrid approach where only a **small portion** of the training data is labeled. The model uses the labeled data to understand the structure and the unlabeled data to generalize and improve accuracy.
+### 2.4 Semi-Supervised Learning
+A hybrid approach using a small amount of labeled data and a large amount of unlabeled data to improve accuracy and structure.
 
 !!! note "Exam Perspective: Self-Supervised Learning"
-    While not always listed in basic ML intros, **Foundation Models** often use **Self-Supervised Learning**, where the data itself provides the labels (e.g., predicting the next word in a sentence).
-
+    **Foundation Models** often use **Self-Supervised Learning**, where the data itself provides the labels (e.g., predicting the next word in a sentence).
 
 ---
 
-## 3. Inferencing: Using the Model
+## 3. Determining the Appropriate Solution
+
+Before applying AI or ML, you must determine if it is the right fit for the business problem.
+
+### When AI/ML IS Appropriate:
+*   **Manual Rules are Challenging:** When the rules are too complex for humans to code (e.g., Spam filtering with millions of overlapping variables).
+*   **Scale is Challenging:** When the volume of data is too large for manual human analysis (e.g., scanning millions of emails in real-time).
+
+### When AI/ML IS NOT Appropriate:
+*   **Simple Rules Suffice:** If you can determine the target value using simple math, logic, or predefined steps (e.g., calculating sales tax).
+*   **No Data Patterns:** If there is no historical data or patterns to learn from.
+
+---
+
+## 4. Inferencing: Using the Model
 
 Once a model has been trained, it is used to make predictions or decisions on new data. This process is called **Inferencing**. 
 
@@ -74,7 +91,10 @@ There are two main ways to perform inferencing on AWS:
 
 ---
 
-## 4. Model Performance Concepts
+---
+
+## 5. Model Performance Concepts
+
 
 *   **Underfitting (High Bias):** The model is too simple. Performs poorly on both training and test data.
 *   **Overfitting (High Variance):** The model "memorizes" the training data. Performs great on training data but fails on new data.
@@ -89,7 +109,10 @@ There are two main ways to perform inferencing on AWS:
 
 ---
 
-## 5. Evaluation Metrics
+---
+
+## 6. Evaluation Metrics
+
 
 *   **Accuracy:** Percentage of correct predictions.
 *   **Precision:** How many of the "Positive" predictions were actually correct? (**Avoids False Positives**).
