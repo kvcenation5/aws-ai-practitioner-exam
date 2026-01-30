@@ -99,6 +99,10 @@ Developing responsible AI requires careful consideration during model selection 
 ### AWS Services & Tools for Responsible AI
 AWS provides built-in tools across its managed services to help implement the core dimensions of responsible AI.
 
+!!! info "Understanding Terminology"
+    *   **Fully Managed:** AWS handles the "undifferentiated heavy lifting" (hardware, OS patching, cooling). You still pick the **instance size**, but you don't worry about the "plumbing."
+    *   **Serverless:** The ultimate form of managed. You don't even pick an instance size; you just call an API and it scales automatically.
+
 #### 1. Managed Platforms
 *   **Amazon SageMaker AI**
     A fully managed ML service for building, training, and deploying models. It provides integrated development environments (IDEs) and managed algorithms that run efficiently at scale.
