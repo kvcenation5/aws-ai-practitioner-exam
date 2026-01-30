@@ -97,21 +97,75 @@ Developing responsible AI requires careful consideration during model selection 
 *   **Data Preparation:** Ensuring training data is diverse, accurate, and free from PII or harmful content.
 
 ### AWS Services & Tools for Responsible AI
-AWS provides specific tools to help implement these practices:
-*   **Amazon Bedrock Guardrails:** Implements content filters, PII redaction, and protection against prompt injection.
-*   **Amazon SageMaker Clarify:** Detects bias in training data and model predictions; provides explainability (feature importance).
-*   **Amazon SageMaker Model Monitor:** Monitors models in production for "drift" and maintains quality over time.
+AWS provides built-in tools across its managed services to help implement the core dimensions of responsible AI.
+
+#### 1. Managed Platforms
+*   **Amazon SageMaker AI**
+    A fully managed ML service for building, training, and deploying models. It provides integrated development environments (IDEs) and managed algorithms that run efficiently at scale.
+
+*   **Amazon Bedrock**
+    A fully managed serverless service that provides access to high-performing FMs from leading startups and Amazon through a unified API.
+
+#### 2. Foundation Model (FM) Evaluation
+*   **Model Evaluation on Amazon Bedrock**
+    Allows you to evaluate and select models using **Automatic Evaluation** (metrics like accuracy, robustness, toxicity) or **Human Evaluation** (subjective metrics like brand voice and friendliness using your own employees or an AWS team).
+
+*   **SageMaker AI Clarify (for FMs)**
+    Supports automatic evaluation of FMs for generative AI use cases with metrics for accuracy, robustness, and toxicity.
+
+#### 3. Safeguards for Generative AI
+*   **Guardrails for Amazon Bedrock**
+    A consistent layer of safety that can be applied across different models (Claude, Llama, Titan, etc.).
+    - **Block Undesirable Topics:** Define specific topics to avoid (e.g., a bank avoiding investment advice).
+    - **Filter Harmful Content:** Set configurable thresholds for hate, insults, sexual, and violence categories.
+    - **Redact PII:** Automatically detect and redact or reject personally identifiable information to protect privacy.
+
+#### 4. Bias, Explainability, and Data Preparation
+*   **SageMaker AI Clarify**
+    Identifies potential bias by analyzing features (like age or gender) and provides visual reports for remediation.
+
+*   **SageMaker Data Wrangler**
+    Helps rebalance data using operators like **Random Undersampling**, **Random Oversampling**, or **SMOTE** (Synthetic Minority Oversampling Technique).
+
+*   **Model Prediction Explanations**
+    SageMaker AI Clarify integrates with **SageMaker AI Experiments** to provide feature importance scores, showing which inputs (tabular, NLP, or CV) had the most influence on a specific prediction.
+
+#### 5. Monitoring & Human Review
+*   **Amazon SageMaker Model Monitor**
+    Continuously monitors production models for "drift" or deviations in quality and sends alerts for corrective action.
+
+*   **Amazon Augmented AI (Amazon A2I)**
+    Builds workflows for human review of ML predictions, removing the heavy lifting of managing large groups of reviewers.
+
+#### 6. Governance Tools
+*   **SageMaker Role Manager:** Quickly defines minimum "least-privilege" permissions for users.
+*   **SageMaker Model Cards:** Captures and shares essential model information (intended use, risk ratings, training details).
+*   **SageMaker Model Dashboard:** Provides a unified view to track model behavior and alerts in production.
 
 ---
 
-## 4. Transparency and Explainability
+## 4. Transparency and Documentation
+Transparency ensures that stakeholders can make informed choices based on system capabilities and limitations.
+
+### AWS AI Service Cards
+AI Service Cards are a specialized form of responsible AI documentation that provides transparency for **AWS AI Services**. Each card covers:
+1.  **Basic Concepts:** Helps users understand the service features.
+2.  **Intended Use Cases & Limitations:** Clear guidance on where the model should (and shouldn't) be used.
+3.  **Responsible AI Design:** Documentation of choices made during service development.
+4.  **Deployment & Optimization:** Best practices for performance and safety.
+
+!!! info "Model Cards vs. Service Cards"
+    - **SageMaker Model Cards:** Documentation for **your individual models** that you build or fine-tune.
+    - **AWS AI Service Cards:** Transparency documentation for **pre-built AWS AI Services** (like Rekognition or Transcribe).
+
+### Explainability and the Human Element
 A transparent model is one where the internal workings and data sources are open for review. An explainable model (XAI) is one where the *decisions* can be explained in human-understandable terms.
 
-### Safety vs. Transparency Tradeoffs
+#### Safety vs. Transparency Tradeoffs
 *   **The Dilemma:** Sometimes, making a model more transparent (showing exactly how it works) can introduce safety risks, such as making it easier for bad actors to find weaknesses or "jailbreak" the system.
 *   **The Goal:** Finding the "sweet spot" where users trust the system because it's explainable, but the system remains secure.
 
-### Human-Centered Design (HCD) for Explainable AI
+#### Human-Centered Design (HCD) for Explainable AI
 *   **User-First Approach:** Explanations should be tailored to the user's expertise. A doctor needs a different explanation than a patient.
 *   **Actionable Insights:** Explanations should help the user decide if they should trust the AI's output or not.
 
