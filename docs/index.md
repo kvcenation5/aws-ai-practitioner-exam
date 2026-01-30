@@ -36,6 +36,11 @@ The machine learning process starts with collecting and processing **training da
 | **Supervised** | **Answers** | A student with an answer key. | "Labeled data", "Predict $X$", "Classify as $Y$". |
 | **Unsupervised**| **Patterns** | An explorer discovering a new land. | "Unlabeled", "Groups", "Clusters", "Anomalies". |
 
+!!! warning "Common Misconception: Prediction vs. Discovery"
+    It is a common mistake to think Unsupervised is for prediction. Remember:
+    *   **Supervised = Prediction:** Used to predict a **known** type of outcome (e.g., "Will it rain?").
+    *   **Unsupervised = Discovery:** Used to find **unknown** patterns or groups (e.g., "What types of weather patterns exist?").
+
 ---
 
 ## 2. The Machine Learning Paradigms
