@@ -13,12 +13,16 @@ Responsible standards are not a "one-off" check; they must be integrated into ev
 
 *   **Initial Design**
     Setting ethical goals and defining constraints.
+
 *   **Development**
     Curating safe data and selecting appropriate models.
+
 *   **Deployment**
     Implementing guardrails and safety filters.
+
 *   **Monitoring**
     Continuously checking for bias, drift, or toxicity.
+
 *   **Evaluation**
     Measuring the real-world impact and effectiveness.
 
@@ -27,10 +31,13 @@ To operate AI responsibly, organizations should ensure:
 
 *   **Transparency & Accountability**
     Robust monitoring and oversight mechanisms.
+
 *   **Accountable Leadership**
     A leadership team specifically responsible for AI strategies.
+
 *   **Expert Teams**
     Development teams with deep expertise in responsible AI principles.
+
 *   **Structured Guidelines**
     Building strictly following established responsible AI guidelines.
 
