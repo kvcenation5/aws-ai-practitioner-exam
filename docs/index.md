@@ -36,6 +36,9 @@ Training data is fed into machine learning algorithms to create a model. This pr
 ### 2.1 Supervised Learning
 The algorithms are trained on **labeled data**. 
 *   **Goal:** Learn a **mapping function** that can predict the output for new, unseen input data.
+
+!!! info "What is a Mapping Function?"
+    Think of it as a mathematical "rule" or "recipe" ($Y=f(X)$). The model analyzes labeled examples to figure out the specific rule that transforms **Inputs (X)** into **Outputs (Y)**. Once it knows the rule, it can apply it to brand-new data to make a prediction.
 *   **Classification:** Assigns labels or categories to data.
     *   **Use Cases:** Fraud detection, Image classification, Customer retention, Diagnostics.
 *   **Regression:** Predicts continuous or numerical values.
