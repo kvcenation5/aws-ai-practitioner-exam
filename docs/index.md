@@ -34,21 +34,24 @@ The machine learning process starts with collecting and processing **training da
 Training data is fed into machine learning algorithms to create a model. This process is divided into four broad categories:
 
 ### 2.1 Supervised Learning
-The model is trained on **labeled data** (data with a "supervisor").
+The algorithms are trained on **labeled data**. 
+*   **Goal:** Learn a **mapping function** that can predict the output for new, unseen input data.
 *   **Classification:** Assigns labels or categories to data.
     *   **Use Cases:** Fraud detection, Image classification, Customer retention, Diagnostics.
 *   **Regression:** Predicts continuous or numerical values.
     *   **Use Cases:** Weather forecasting, Market forecasting, Estimating life expectancy, Advertising popularity.
 
 ### 2.2 Unsupervised Learning
-The model learns from **unlabeled data** to find hidden structures.
+Algorithms that learn from **unlabeled data**. 
+*   **Goal:** Discover **inherent patterns, structures, or relationships** within the input data.
 *   **Clustering:** Groups data based on similar features (e.g., grouping customers by habits).
     *   **Use Cases:** Customer segmentation, Targeted marketing, Recommendation systems.
 *   **Dimensionality Reduction:** Reduces the number of features while preserving important patterns.
     *   **Use Cases:** Big data visualization, Meaningful compression, Structure discovery.
 
 ### 2.3 Reinforcement Learning
-An **agent** learns through trial and error in an **environment** based on **rewards and penalties**.
+The machine is given only a **performance score** as guidance. An **agent** learns through trial and error as it interacts in an **environment** based on feedback in the form of **rewards and penalties**.
+*   **Goal:** Improve decision-making over time to maximize the reward.
 *   **Example:** In **AWS DeepRacer**, a virtual car (agent) learns to navigate a track (environment) by receiving rewards for staying on the track and completing it quickly.
 *   **Best For:** When the desired outcome is known but the specific path to achieve it requires exploration.
 
