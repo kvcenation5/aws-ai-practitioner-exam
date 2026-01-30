@@ -45,6 +45,7 @@ nav:
   - Home: index.md
   - Fundamentals:
     - Machine Learning: index.md
+    - ML Lifecycle: 01-ml-lifecycle.md
     - Deep Learning: 02-deep-learning-fundamentals.md
     - Generative AI: 03-generative-ai-fundamentals.md
     - Infrastructure & Tech: 04-aws-infrastructure-technologies.md
