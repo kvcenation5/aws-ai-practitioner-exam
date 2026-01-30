@@ -72,16 +72,28 @@ Generative AI is a subset of Deep Learning that can create **new content** (text
 ## 4. Selecting and Measuring GenAI Models
 
 ### Factors for Model Selection:
-*   **Task Complexity:** Does it need a massive logic engine (Claude 3 Opus) or a fast classifier (Haiku)?
-*   **Latency Requirements:** Is it for a real-time chatbot or an offline batch process?
-*   **Cost Sensitivity:** Balancing performance vs. token cost.
-*   **Modality:** Does it need to handle just text, or images and audio?
+*   **Model Types:** Optimizing for the specific task (e.g., text, image, code).
+*   **Performance Requirements:** Assessing accuracy and the reliability of the output for the target task.
+*   **Constraints:**
+    *   **Computational Resources:** Available GPU/CPU and memory.
+    *   **Data Availability:** Size and quality of available training data.
+    *   **Deployment Requirements:** On-premises vs. Cloud requirements.
+*   **Compliance:** Moral concerns, fairness, transparency (traceability), and accountability, especially in regulated industries (Healthcare, Finance).
+*   **Cost vs. Capability:** 
+    *   **Large Models:** More precise but expensive and slow.
+    *   **Small Models:** Faster and cheaper with more deployment flexibility.
 
 ### Business Metrics for GenAI:
-*   **ROI (Return on Investment):** Does the productivity boost outweigh the API costs?
-*   **Throughput:** How many requests/tokens can the system handle per second?
-*   **Accuracy/Utility:** Is the generated content actually useful to the end-user?
-*   **Brand Safety Rate:** Percentage of responses that meet safety/policy guidelines.
+Organizations measure the success of AI initiatives by their tangible impact on business objectives:
+
+| Metric | Definition | Use Case Example |
+| :--- | :--- | :--- |
+| **User Satisfaction** | Gathering feedback to assess quality of recommendations/content. | Improving customer loyalty on an e-commerce site. |
+| **ARPU** | Average Revenue Per User attributed to the AI application. | Monetizing the user base effectively. |
+| **Conversion Rate** | % of visitors who complete a desired action (purchase, sign-up). | Optimizing a clothing store for higher sales. |
+| **Cross-Domain Performance** | Ability of the model to perform across different categories or regions. | Monitoring a multi-domain e-commerce platform. |
+| **Efficiency** | Measuring resource utilization and computation time. | Improving production line efficiency in manufacturing. |
+| **ROI** | Quantitative value vs. resource allocation and strategy cost. | Determining budget for future AI scaling. |
 
 ---
 *Last Updated: Jan 2026*

@@ -6,6 +6,15 @@ Generative AI (GenAI) is a subset of deep learning that creates new content (tex
 
 It is capable of generating entirely new data, including conversations, stories, images, videos, music, and code.
 
+### Key Capabilities of Generative AI
+*   **Adaptability:** Models can adapt to various tasks and domains by learning from data and generating content tailored to specific contexts.
+*   **Responsiveness:** Real-time generation allows for rapid response times and dynamic interactions (e.g., chatbots).
+*   **Simplicity:** Simplifies complex tasks by automating content creation (e.g., reducing human effort in writing).
+*   **Creativity and Exploration:** Fosters innovation by generating novel ideas, designs, or solutions through unique combinations.
+*   **Data Efficiency:** Some models can learn from small amounts of data and generate new, consistent samples.
+*   **Personalization:** Creates content tailored to individual preferences, enhancing engagement.
+*   **Scalability:** Once trained, models can produce massive amounts of content quickly across industries.
+
 ---
 
 ## 1. Foundation Models (FMs)
@@ -15,21 +24,21 @@ Generative AI is powered by **Foundation Models**. These are models pretrained o
 *   **One Model, Many Tasks:** Unlike traditional ML which requires a new model for every task, a single FM can be adapted for text generation, summarization, image creation, chatbot interactions, and more.
 *   **Starting Point:** FMs serve as the base for building specialized models for specific industries (like medical or legal).
 
-### Amazon Bedrock
-AWS provides access to high-performing FMs through **Amazon Bedrock**. It hosts models from:
-*   **Amazon** (Titan)
-*   **Anthropic** (Claude series)
-*   **Meta** (Llama series)
-*   **Mistral AI**
-*   **Stability AI** (Stable Diffusion)
-*   **AI21 Labs**
-*   **Cohere**
+### Amazon Bedrock Model Providers
+AWS provides access to high-performing foundation models through **Amazon Bedrock**. Each provider specializes in different tasks:
 
-!!! tip "Exam Tip: Model Selection"
-    *   **Anthropic Claude:** Great for complex reasoning and large context windows.
-    *   **Meta Llama:** Popular open-weights model for general tasks.
-    *   **Mistral:** High performance and efficiency.
-    *   **Stability AI:** The go-to for **Image Generation** (Stable Diffusion).
+| Provider | Key Model Series | Primary Tasks | Example Use Case |
+| :--- | :--- | :--- | :--- |
+| **AI21 Labs** | Jurassic-2 | Text generation, Summarization, Paraphrasing, Information extraction. | **Finance:** Summarizing lengthy financial reports. |
+| **Amazon** | Titan | Text generation, Summarization, Classification, Embeddings, Search/Image generation. | **AdTech:** Creating studio-quality images for campaigns. |
+| **Anthropic** | Claude | Content generation, Translation, Q&A, Summarization, Code generation/debugging. | **Legal:** Parsing legal documents and answering specific questions. |
+| **Stability AI** | Stable Diffusion | Generating photo-realistic images, Improving image quality. | **Gaming:** Creating characters and immersive worlds. |
+| **Cohere** | Command | Text generation, Information extraction, Q&A, Summarization. | **Healthcare:** Summarizing key ideas from long medical texts. |
+| **Meta** | Llama | Q&A, Chat, Summarization, Sentiment analysis, Text generation. | **Customer Service:** Powering support chatbots. |
+
+!!! tip "Exam Tip: Balancing Model Size"
+    *   **Large Models:** More precise and capable but expensive and slower (higher latency).
+    *   **Small Models:** Faster and cheaper (lower latency) but may have lower accuracy for complex tasks.
 
 
 ---
