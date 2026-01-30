@@ -10,18 +10,29 @@ Responsible AI refers to the practices and principles that ensure AI systems are
 
 ### The Lifecycle of Responsibility
 Responsible standards are not a "one-off" check; they must be integrated into every phase:
-*   **Initial Design:** Setting ethical goals and defining constraints.
-*   **Development:** Curating safe data and selecting appropriate models.
-*   **Deployment:** Implementing guardrails and safety filters.
-*   **Monitoring:** Continuously checking for bias, drift, or toxicity.
-*   **Evaluation:** Measuring the real-world impact and effectiveness.
+
+*   **Initial Design**
+    Setting ethical goals and defining constraints.
+*   **Development**
+    Curating safe data and selecting appropriate models.
+*   **Deployment**
+    Implementing guardrails and safety filters.
+*   **Monitoring**
+    Continuously checking for bias, drift, or toxicity.
+*   **Evaluation**
+    Measuring the real-world impact and effectiveness.
 
 ### Proactive Organizational Measures
 To operate AI responsibly, organizations should ensure:
-*   **Transparency & Accountability:** Robust monitoring and oversight mechanisms.
-*   **Accountable Leadership:** A leadership team specifically responsible for AI strategies.
-*   **Expert Teams:** Development teams with deep expertise in responsible AI principles.
-*   **Structured Guidelines:** Building strictly following established responsible AI guidelines.
+
+*   **Transparency & Accountability**
+    Robust monitoring and oversight mechanisms.
+*   **Accountable Leadership**
+    A leadership team specifically responsible for AI strategies.
+*   **Expert Teams**
+    Development teams with deep expertise in responsible AI principles.
+*   **Structured Guidelines**
+    Building strictly following established responsible AI guidelines.
 
 ### Core Dimensions of Responsible AI
 No single dimension is a standalone goal; each is a required part of a complete implementation. There is considerable overlap between these topics (e.g., transparency requires elements of explainability and fairness).
