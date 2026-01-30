@@ -163,7 +163,10 @@ Accuracy is the #1 problem in AI applications. If a model is not trained properl
 ### 5.3 The Bias-Variance Tradeoff
 The goal is to find the perfect balance:
 *   **Balanced Model:** Low bias and low variance. It captures enough patterns without memorizing the noise.
-*   **The Tradeoff:** Decreasing bias often increases variance, and vice versa. ML engineers aim for the "sweet spot" that minimizes both.
+*   **The Tradeoff:** Decreasing bias often increases variance, and vice versa. It is impossible to avoid this tradeoff entirely; the goal is to find the "sweet spot."
+
+!!! quote "Can we avoid these algorithms?"
+    No. Every algorithm has a natural tendency toward one or the other. Instead of avoiding them, we use **Ensemble Methods** (like **Random Forest** or **XGBoost**) which combine many simple models to cancel out each other's bias and variance, leading to a much more "Balanced" result.
 
 ### 5.4 Techniques to Overcome Errors
 | Technique | Goal | How it Works |
