@@ -88,7 +88,73 @@ Responsible AI is required for **all** forms of AI, whether traditional or gener
 
 ---
 
-## 3. Developing Responsible AI Systems
+## 3. Responsible Considerations to Select a Model
+
+Selecting the right model is a strategic decision that affects user experience, go-to-market speed, and long-term profitability.
+
+### 3.1 Defining the Use Case Narrowly
+A common mistake is treating technology (like "Face Recognition") as the use case. You must define the **specific application** to tune the model correctly.
+
+#### Traditional AI Examples:
+*   **Gallery Retrieval**
+    Often tuned to favor **Recall** (finding as many matches as possible) to ensure no potential match is missed (e.g., finding missing persons).
+*   **Celebrity Recognition / Virtual Proctoring**
+    Tuned to favor **Precision** (ensuring the match is definitely correct) to avoid false positives.
+
+#### Generative AI Examples:
+*   **Product Cataloging**
+    Targets a broad demographic; favors neutrality, clarity, and completeness.
+*   **Sales Persuasion**
+    Targets a narrow demographic; focuses on specific interest problems and benefits to that group.
+
+### 3.2 Performance Factors
+Model performance is a function of the **Model + the specific Test Dataset**. A model that performs well on Dataset A might progressively degrade on Dataset C.
+
+*   **Level of Customization**
+    Ease of changing output via prompts vs. full retraining.
+*   **Model Size**
+    Defined by parameter count (complexity of learned information).
+*   **Inference Options**
+    Ranging from API calls (serverless) to self-managed deployments.
+*   **Licensing**
+    Some agreements restrict commercial use.
+*   **Context Windows**
+    The amount of information that can fit in a single prompt.
+*   **Latency**
+    The amount of time it takes for a model to generate an output.
+
+### 3.3 Responsible Agency (Moral Agency)
+Responsible agency is the system's capacity to act in a socially responsible manner. Key aspects include:
+
+*   **Value Alignment**
+    Goals must align with human moral principles, not just pure utility maximization.
+*   **Responsible Reasoning Skills**
+    Logic to navigate moral dilemmas and apply ethical principles to novel situations.
+*   **Appropriate Autonomy**
+    Clear boundaries and human-in-the-loop mechanisms for high-stakes domains.
+*   **Transparency & Accountability**
+    The decision-making process must be open to external oversight.
+
+### 3.4 Sustainability (Environmental & Economic)
+AI systems must be sustainable over the long term.
+
+#### Environmental Considerations:
+*   **Energy Consumption**
+    Training large models uses massive power. **Solution:** Use renewable energy and optimize energy efficiency.
+*   **Resource Utilization**
+    Hardware (GPUs/TPUs) manufacturing and disposal. **Solution:** Maximize resource efficiency and recycling.
+*   **Impact Assessments**
+    Evaluating both direct (energy) and indirect (enabling harmful activities) impacts before deployment.
+
+#### Economic Considerations:
+*   **Job Displacement**
+    Automation may displace workers even as it improves efficiency.
+*   **Inequality**
+    Concentration of power/data in a few companies can lead to monopolies.
+
+---
+
+## 4. Developing Responsible AI Systems
 
 Developing responsible AI requires careful consideration during model selection and data preparation.
 
@@ -152,7 +218,7 @@ AWS provides built-in tools across its managed services to help implement the co
 
 ---
 
-## 4. Transparency and Documentation
+## 5. Transparency and Documentation
 Transparency ensures that stakeholders can make informed choices based on system capabilities and limitations.
 
 ### AWS AI Service Cards
@@ -179,7 +245,7 @@ A transparent model is one where the internal workings and data sources are open
 
 ---
 
-## 5. Key Challenges & Risks (GenAI Specifics)
+## 6. Key Challenges & Risks (GenAI Specifics)
 
 Responsible AI in Generative AI faces unique ethical and legal challenges that go beyond traditional ML performance.
 
