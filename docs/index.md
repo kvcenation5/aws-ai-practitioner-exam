@@ -68,6 +68,11 @@ The algorithms are trained on **labeled data**.
 *   **Regression:** Predicts continuous or numerical values.
     *   **Use Cases:** Weather forecasting, Market forecasting, Estimating life expectancy, Advertising popularity.
 
+!!! tip "How to Choose: Classification vs. Regression?"
+    In the exam, look at the **target value** the algorithm is trying to predict:
+    *   **Discrete (Categories):** If the answer is a "Word" or a specific "Group" (e.g., Cat vs. Dog), use **Classification**.
+    *   **Continuous (Numbers):** If the answer is a "Measurement" or a "Count" (e.g., $450.25 or 72 degrees), use **Regression**.
+
 ### 2.2 Unsupervised Learning
 Algorithms that learn from **unlabeled data**. 
 *   **Goal:** Discover **inherent patterns, structures, or relationships** within the input data.
