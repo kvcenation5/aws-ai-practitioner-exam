@@ -154,7 +154,37 @@ AI systems must be sustainable over the long term.
 
 ---
 
-## 4. Developing Responsible AI Systems
+## 4. Responsible Preparation for Datasets
+
+Preparing datasets responsibly is essential for building AI models that are fair, accurate, and unbiased. Balanced datasets ensure the model does not unfairly discriminate against specific groups.
+
+### 4.1 Balancing Datasets
+A balanced dataset represents all relevant groups or topics with an adequate number of examples. This is critical in high-stakes fields like **hiring, lending, and criminal justice**.
+
+*   **Inclusiveness & Diversity**
+    Data collection must reflect diverse perspectives, sources, and demographics (age, geography, viewpoints). Alienating groups in training data leads to societal harm and legal risks.
+    *   *Example:* An ML model trained mostly on middle-aged people will be inaccurate for younger or older generations.
+
+*   **Intended Use Case Balance**
+    Balance should always be tuned to the specific problem.
+    *   *Example:* A model for pediatric cancer should focus on data from children and exclude adult datasets to remain accurate for its target audience.
+
+### 4.2 Data Curation Steps
+Curation is the process of labeling, organizing, and preprocessing data to improve model quality and reliability.
+
+*   **Data Preprocessing**
+    Cleaning, normalization, and feature selection to ensure data is accurate and unbiased.
+*   **Data Augmentation**
+    Generating new instances of underrepresented groups to balance the dataset and prevent majority bias.
+*   **Regular Auditing**
+    Continuously checking the dataset for emerging biases and taking corrective action as the data evolves.
+
+!!! tip "AWS Tools for Data Balance"
+    Remember that you can use **Amazon SageMaker Data Wrangler** (for rebalancing via SMOTE) and **SageMaker AI Clarify** to identify and remediate bias in your datasets.
+
+---
+
+## 5. Developing Responsible AI Systems
 
 Developing responsible AI requires careful consideration during model selection and data preparation.
 
@@ -218,7 +248,7 @@ AWS provides built-in tools across its managed services to help implement the co
 
 ---
 
-## 5. Transparency and Documentation
+## 6. Transparency and Documentation
 Transparency ensures that stakeholders can make informed choices based on system capabilities and limitations.
 
 ### AWS AI Service Cards
@@ -245,7 +275,7 @@ A transparent model is one where the internal workings and data sources are open
 
 ---
 
-## 6. Key Challenges & Risks (GenAI Specifics)
+## 7. Key Challenges & Risks (GenAI Specifics)
 
 Responsible AI in Generative AI faces unique ethical and legal challenges that go beyond traditional ML performance.
 
