@@ -8,7 +8,12 @@ Building a machine learning model involves a systematic process: collecting and 
 
 ## 1. The Foundation: Training Data
 
-The machine learning process starts with collecting and processing **training data**. An ML model is only as good as the data used to train it.
+### 1. The Foundation: Training Data
+
+The machine learning process starts with collecting and processing **training data**. 
+
+*   **What is Training Data?** It is a "Teacher's Guide" containing thousands of examples (Inputs) and their correct answers (Labels).
+*   **The Training Process:** The model doesn't just look at the data once. It looks at it through many repetitions (**Epochs**). In each epoch, the model makes a guess, checks the answer, and adjusts its internal math to get closer to the truth.
 
 !!! failure "Garbage In, Garbage Out (GIGO)"
     Bad data leads to bad models. Although data preparation is often a routine process, it is the most critical stage. It can make the model work as intended or completely ruin its performance.
