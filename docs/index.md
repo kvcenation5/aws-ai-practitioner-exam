@@ -144,12 +144,19 @@ Accuracy is the #1 problem in AI applications. If a model is not trained properl
 ### 5.1 Bias (Underfitting)
 *   **Definition:** Bias measures the difference between the model's expected predictions and the true values. 
 *   **High Bias:** The model is too simple and misses important features of the dataset.
+*   **Algorithm Examples:** 
+    *   **Linear Regression:** Assumes everything is a straight line. If the data is a complex curve, it will miss the point.
+    *   **Logistic Regression:** A simple classifier that can't handle complex, overlapping patterns.
 *   **ELI5 Analogy:** You tell a kid a dog is just "a thing with 4 legs." The kid sees a cow and calls it a dog because they were too simple.
 *   **Result (Underfitting):** The model performs poorly on **both** the training data and new data.
 
 ### 5.2 Variance (Overfitting)
 *   **Definition:** Variance refers to the model's sensitivity to "noise" or fluctuations in the training data.
 *   **High Variance:** The model becomes too familiar with the training data and "memorizes" it instead of learning general patterns.
+*   **Algorithm Examples:** 
+    *   **Decision Trees (unpruned):** If left to grow, they can create a branch for every single row of data, memorizing the dataset perfectly.
+    *   **k-Nearest Neighbors (k-NN) with k=1:** It only looks at the single closest neighbor, making it extremely sensitive to random noise.
+    *   **Deep Neural Networks:** With millions of "knobs" (parameters), they can easily memorize noise if not restricted.
 *   **ELI5 Analogy:** You show a kid your tiny white poodle. The kid memorizes it so perfectly that when they see a big brown dog, they say "That's not a dog!" because it's not exactly like the one they saw.
 *   **Result (Overfitting):** The model performs with high accuracy on training data but **fails significantly** when introduced to new, unseen data.
 
