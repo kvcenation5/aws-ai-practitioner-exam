@@ -29,8 +29,16 @@ The machine learning process starts with collecting and processing **training da
 
 ---
 
-## 2. The Machine Learning Process & Paradigms
+### 1.1 Quick Rule of Thumb: Supervised vs. Unsupervised
 
+| Learning Type | Keyword | Analogy | Exam Trigger Words |
+| :--- | :--- | :--- | :--- |
+| **Supervised** | **Answers** | A student with an answer key. | "Labeled data", "Predict $X$", "Classify as $Y$". |
+| **Unsupervised**| **Patterns** | An explorer discovering a new land. | "Unlabeled", "Groups", "Clusters", "Anomalies". |
+
+---
+
+## 2. The Machine Learning Paradigms
 Training data is fed into machine learning algorithms to create a model. This process is divided into four broad categories:
 
 ### 2.1 Supervised Learning
