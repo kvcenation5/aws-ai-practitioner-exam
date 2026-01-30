@@ -241,6 +241,12 @@ AWS provides built-in tools across its managed services to help implement the co
 *   **Amazon Augmented AI (Amazon A2I)**
     Builds workflows for human review of ML predictions, removing the heavy lifting of managing large groups of reviewers.
 
+*   **Reinforcement Learning from Human Feedback (RLHF)**
+    A technique where human feedback is used to optimize ML models. It incorporates human rewards into the learning function to align models with human goals and needs.
+
+*   **Amazon SageMaker Ground Truth**
+    Provides human-in-the-loop capabilities across the ML lifecycle. Includes data annotation for RLHF, allowing humans to rank or classify model responses to create a "reward model" for fine-tuning.
+
 #### 6. Governance Tools
 *   **SageMaker Role Manager:** Quickly defines minimum "least-privilege" permissions for users.
 *   **SageMaker Model Cards:** Captures and shares essential model information (intended use, risk ratings, training details).
@@ -270,8 +276,27 @@ A transparent model is one where the internal workings and data sources are open
 *   **The Goal:** Finding the "sweet spot" where users trust the system because it's explainable, but the system remains secure.
 
 #### Human-Centered Design (HCD) for Explainable AI
-*   **User-First Approach:** Explanations should be tailored to the user's expertise. A doctor needs a different explanation than a patient.
-*   **Actionable Insights:** Explanations should help the user decide if they should trust the AI's output or not.
+Human-centered design (HCD) ensures that AI products are intuitive and meet the actual needs of users. In explainable AI, HCD ensures that explanations are clear, accurate, and fair.
+
+*   **1. Design for Amplified Decision-Making**
+    Supports users in high-stakes or high-pressure situations to maximize benefits and minimize risks.
+    - **Clarity:** Information is easy to understand without introducing bias.
+    - **Simplicity:** Minimize information overload while keeping essential data.
+    - **Usability:** Easy to navigate regardless of technical expertise.
+    - **Reflexivity:** Prompts users to reflect on their own decision process.
+    - **Accountability:** Attaches consequences to decisions so users remain responsible.
+
+*   **2. Design for Unbiased Decision-Making**
+    Ensures processes and tools are free from biases that influence outcomes.
+    - **Transparency:** Scrutinizable processes using techniques like data visualization.
+    - **Fairness:** Inclusive of diverse perspectives; avoids biased criteria.
+    - **Training:** Training stakeholders to recognize and mitigate their own biases.
+
+*   **3. Design for Human and AI Learning**
+    Creates environments beneficial for both the human and the AI system.
+    - **Cognitive Apprenticeship:** AI learns from human experts via observation/interaction.
+    - **Personalization:** Tailoring tools to individual learning styles and needs.
+    - **User-Centered Design:** Prioritizing accessibility (disabilities, language barriers).
 
 ---
 
