@@ -80,15 +80,19 @@ A transparent model is one where the internal workings and data sources are open
 
 ---
 
-## 5. Key Challenges & Risks (Recap)
+## 5. Key Challenges & Risks (GenAI Specifics)
 
-| Challenge | Risk | Mitigation |
+Responsible AI in Generative AI faces unique ethical and legal challenges that go beyond traditional ML performance.
+
+| Challenge | Risk Context | Detailed Mitigation / Consideration |
 | :--- | :--- | :--- |
-| **Regulatory Violations** | Exposing PII or sensitive data. | Anonymization, Encryption, PII Redaction. |
-| **Social Risks** | Brand damage from biased output. | Evaluation, Human-in-the-loop review. |
-| **Toxicity** | Inflammatory or offensive content. | Data curation, Guardrail models. |
-| **Hallucinations** | Confidently stating false facts. | Grounding (RAG), independent verification. |
-| **Nondeterminism**| Varied outputs for same input. | Consistent testing, temperature control (0). |
+| **Toxicity** | Offensive or inflammatory content. | **Subjectivity Problem:** Defining toxic content is hard (e.g., quotations or opinions). Mitigate via curation and **Guardrail models**. |
+| **Hallucinations** | Verifiably incorrect assertions. | **Mechanism:** LLMs sample from "next-word distributions," not maps of reality. Ground with independent sources. |
+| **Intellectual Property** | Plagiarism and Mimicry. | **The Style Mimicry Risk:** Creating "Warhol-style" art can spark objections even if the image is original. |
+| **Plagiarism & Cheating** | Academic or professional illicit copying. | Need for methods to verify if content was authored by a human vs. machine. |
+| **Disruption of Work** | Automation of professional tasks. | Anxiety over professions being replaced. Transformative effect requires adapting job roles. |
+| **Regulatory Violations** | Exposing PII or sensitive data. | Anonymization, Encryption, and regular audits of training data. |
+| **Nondeterminism**| Varied outputs for same input. | Consistent testing; running the model multiple times to compare output. |
 
 ---
 *Last Updated: Jan 2026*

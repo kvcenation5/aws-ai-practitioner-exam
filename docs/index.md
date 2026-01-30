@@ -132,21 +132,34 @@ There are two main ways to perform inferencing on AWS:
 
 ---
 
-## 5. Model Performance Concepts
+## 5. Model Performance Concepts (Bias & Variance)
 
+Accuracy is the #1 problem in AI applications. If a model is not trained properly, it will produce inaccurate results. This is measured through two primary metrics: **Bias** and **Variance**.
 
-*   **Underfitting (High Bias):** The model is too simple. Performs poorly on both training and test data.
-*   **Overfitting (High Variance):** The model "memorizes" the training data. Performs great on training data but fails on new data.
-*   **The 70/15/15 Split:** A common practice to split data into **Training** (70%), **Validation** (15% for tuning), and **Test** (15% for final evaluation).
+### 5.1 Bias (Underfitting)
+*   **Definition:** Bias measures the difference between the model's expected predictions and the true values. 
+*   **High Bias:** The model is too simple and misses important features of the dataset (e.g., trying to fit a horizontal line to a complex curve).
+*   **Result (Underfitting):** The model performs poorly on **both** the training data and new data.
 
-!!! warning "Exam Perspective: Fixing Overfitting"
-    To fix **overfitting**, you can:
-    1.  Provide more training data.
-    2.  Simplify the model (reduce features).
-    3.  Use **Regularization** techniques.
+### 5.2 Variance (Overfitting)
+*   **Definition:** Variance refers to the model's sensitivity to "noise" or fluctuations in the training data.
+*   **High Variance:** The model becomes too familiar with the training data and "memorizes" it instead of learning general patterns.
+*   **Result (Overfitting):** The model performs with high accuracy on training data but **fails significantly** when introduced to new, unseen data (evaluation data).
 
+### 5.3 The Bias-Variance Tradeoff
+The goal is to find the perfect balance:
+*   **Balanced Model:** Low bias and low variance. It captures enough patterns without memorizing the noise.
+*   **The Tradeoff:** Decreasing bias often increases variance, and vice versa. ML engineers aim for the "sweet spot" that minimizes both.
 
----
+### 5.4 Techniques to Overcome Errors
+| Technique | Goal | How it Works |
+| :--- | :--- | :--- |
+| **Cross-Validation** | Detect Overfitting | Training the model on different subsets of data to evaluate consistency. |
+| **Increase Data** | Reduce Variance | Adding more samples increases the model's learning scope. |
+| **Regularization** | Prevent Overfitting | Penalizes extreme weight values in linear models. |
+| **Simpler Models** | Fix Overfitting | Reducing complexity prevents the model from memorizing noise. |
+| **Dimension Reduction** | Simplify Data | (e.g., PCA) Reduces features while retaining essential info. |
+| **Stop Early** | Prevent Overfitting | Ending training before the model starts "memorizing" the data. |
 
 ---
 
