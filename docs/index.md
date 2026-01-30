@@ -38,8 +38,19 @@ The machine learning process starts with collecting and processing **training da
 
 !!! warning "Common Misconception: Prediction vs. Discovery"
     It is a common mistake to think Unsupervised is for prediction. Remember:
-    *   **Supervised = Prediction:** Used to predict a **known** type of outcome (e.g., "Will it rain?").
-    *   **Unsupervised = Discovery:** Used to find **unknown** patterns or groups (e.g., "What types of weather patterns exist?").
+
+    #### 1. Supervised Learning = Prediction 🎯
+    You give the model "Factual Data" (Labeled examples) so that it can **Predict** those same facts for new data.
+    *   **The Fact:** "This transaction was Fraud."
+    *   **The Prediction:** "Based on the facts I learned, I **predict** this new transaction is also Fraud."
+    *   **Exam Logic:** If the goal is to **Predict** a specific value (Price, Category, Yes/No), it is **Supervised**.
+
+    #### 2. Unsupervised Learning = Discovery 🔍
+    Since you don't have "Facts" (Labels), you aren't predicting a right answer. Instead, you are **Discovering** hidden structures.
+    *   **The Discovery:** "I noticed these 5,000 customers all buy diapers and beer at 7 PM on Fridays."
+    *   **The Value:** You didn't "predict" they would do that; you **discovered** a group you didn't know existed.
+    *   **Exam Logic:** If the goal is to **Discover** groups, patterns, or anomalies, it is **Unsupervised**.
+
 
 ---
 
