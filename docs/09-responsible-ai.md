@@ -10,11 +10,11 @@ Responsible AI refers to the practices and principles that ensure AI systems are
 
 ### The Lifecycle of Responsibility
 Responsible standards are not a "one-off" check; they must be integrated into every phase:
-1.  **Initial Design:** Setting ethical goals and defining constraints.
-2.  **Development:** Curating safe data and selecting appropriate models.
-3.  **Deployment:** Implementing guardrails and safety filters.
-4.  **Monitoring:** Continuously checking for bias, drift, or toxicity.
-5.  **Evaluation:** Measuring the real-world impact and effectiveness.
+*   **Initial Design:** Setting ethical goals and defining constraints.
+*   **Development:** Curating safe data and selecting appropriate models.
+*   **Deployment:** Implementing guardrails and safety filters.
+*   **Monitoring:** Continuously checking for bias, drift, or toxicity.
+*   **Evaluation:** Measuring the real-world impact and effectiveness.
 
 ### Proactive Organizational Measures
 To operate AI responsibly, organizations should ensure:
