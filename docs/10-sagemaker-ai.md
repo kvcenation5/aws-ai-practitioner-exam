@@ -51,4 +51,46 @@ SageMaker AI provides specialized tools for every stage of the machine learning 
     - **Feature Attribution Drift:** Changes in which features contribute most to predictions.
 
 ---
+
+## 📂 Sources of ML Models
+
+SageMaker AI provides multiple ways to build models, ranging from "zero-effort" to "full customization."
+
+| Method | Level of Effort | Description |
+| :--- | :--- | :--- |
+| **Pre-trained Models** | **Least Effort** | Models ready to deploy or fine-tune immediately using **SageMaker JumpStart**. |
+| **Built-in Algorithms** | **Medium Effort** | Highly optimized algorithms provided by AWS that scale automatically for large datasets. |
+| **Pre-made Framework Images** | **High Effort** | Use pre-configured Docker images for common frameworks like **TensorFlow, PyTorch, scikit-learn, MXNet, or Chainer**. |
+| **Custom Docker Images** | **Most Effort** | Build and bring your own Docker image with specific packages and software required for your unique model. |
+
+---
+
+## 🧮 SageMaker AI Built-in Algorithms (Cheat Sheet)
+
+SageMaker AI offers pre-built algorithms for a wide range of ML tasks. Below are the most common categories:
+
+### 1. Supervised Learning
+General-purpose algorithms tailored for:
+*   **Classification:** Identifying discrete categories (e.g., Fraud vs. Not Fraud).
+*   **Regression:** Predicting continuous numerical values (e.g., Housing Prices).
+
+### 2. Unsupervised Learning
+Used for discovering hidden patterns without labels:
+*   **Clustering:** Grouping similar data points.
+*   **Dimension Reduction:** Simplifying complex datasets.
+*   **Topic Modeling:** Pattern recognition in large text corpora.
+*   **Anomaly Detection:** Identifying outliers in data streams.
+
+### 3. Image Processing & Computer Vision
+*   **Image Classification:** Identifying the primary subject of an image.
+*   **Object Detection:** Locating and labeling multiple objects within an image.
+*   **Time Series Vision:** Specialized vision tasks involving temporal changes.
+
+### 4. Text Analysis & NLP
+Algorithms tailored for analyzing textual documents:
+*   **Classification & Summarization:** Organizing documents or generating short versions.
+*   **Topic Modeling:** Discovering themes within text.
+*   **Language Transcription & Translation:** Converting speech to text or one language to another.
+
+---
 *Last Updated: Jan 2026*
