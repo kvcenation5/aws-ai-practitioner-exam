@@ -6,6 +6,21 @@ Evaluating an AI model correctly is critical for ensuring it is reliable, safe, 
 
 ---
 
+## 🏗️ Model Evaluation Datasets
+
+Evaluation occurs after a model is trained. To ensure a model generalizes well to new data (rather than just memorizing the training data), the available data is typically partitioned into three parts.
+
+![Evaluation Datasets Split](assets/evaluation-datasets.png)
+
+1.  **Training Set (80%)**
+    The data used to actually train the model. The model learns patterns and relationships from this set.
+2.  **Validation Set (10%)**
+    The data set aside to evaluate how the model responds in a non-training environment. You use this data to **improve the model** (tuning hyperparameters) and ensure it generalizes to unseen data.
+3.  **Test Set (10%)**
+    After you have improved the model using the validation data, you use the test set for a final evaluation. This measures the final predictive quality and ensures the model meets your performance standards before production deployment.
+
+---
+
 ## 1. Generative AI Metrics (LLMs)
 
 ### Perplexity (PPL)
