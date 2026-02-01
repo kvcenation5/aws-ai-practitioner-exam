@@ -52,7 +52,25 @@ SageMaker AI provides specialized tools for every stage of the machine learning 
 
 ---
 
-## 📂 Sources of ML Models
+## �️ SageMaker AI Workflow
+
+SageMaker AI allows you to automate and manage the end-to-end ML lifecycle.
+
+![SageMaker AI Workflow](assets/sagemaker-workflow.png)
+
+1.  **Prepare Data**: Use **SageMaker Data Wrangler** and **Processing Jobs** to clean and transform raw data.
+2.  **Curate Features**: Store processed data in the **SageMaker Feature Store** for consistent use across training and inference.
+3.  **Train Model**: Run **SageMaker Training Jobs** using built-in algorithms or custom scripts.
+4.  **Experiment Tracking**: Use **SageMaker Experiments** to monitor and compare multiple training runs.
+5.  **Evaluate Model**: Run **Processing Jobs** to calculate evaluation metrics (Accuracy, RMSE, etc.).
+6.  **Register Model**: Store the best model version in the **SageMaker Model Registry**.
+7.  **Deploy Model**: Deploy the model to an endpoint for real-time or batch **Deployments**.
+8.  **Manage Model**: Use **SageMaker Model Monitor** to detect drift and maintain quality in production.
+9.  **Automation**: Orchestrate the entire flow using **SageMaker AI Pipelines**.
+
+---
+
+## �📂 Sources of ML Models
 
 SageMaker AI provides multiple ways to build models, ranging from "zero-effort" to "full customization."
 
@@ -67,55 +85,97 @@ SageMaker AI provides multiple ways to build models, ranging from "zero-effort" 
 
 ## 🧮 SageMaker AI Built-in Algorithms (Cheat Sheet)
 
-SageMaker AI provides algorithms for different categories of machine learning problems. This is a shortlist of the most common algorithms. Refer to the SageMaker AI documentation for a complete list and further details.
+SageMaker AI provides algorithms for different categories of machine learning problems.
 
 ### 1. Supervised Learning
 SageMaker AI provides several built-in general-purpose algorithms that you can use for either classification or regression problems.
 
 ![SageMaker Supervised Learning Algorithms](assets/sagemaker-supervised-algorithms.png)
 
-| Algorithm | Exam Triggers / Keywords | Typical Use Case |
-| :--- | :--- | :--- |
-| **Linear Learner** | "Base-line," "Simple Regression/Classification," "Yes/No." | Predicting a simple value like a house price or a binary choice (Stay/Leave). |
-| **XGBoost** | **"Tabular Data,"** "Highly Accurate," "Structured Data." | Predicting customer churn or mortgage defaults using CSV/spreadsheet data. |
-| **Factorization Machines** | **"Sparse Data,"** "Recommendation Systems." | Predicting how a user will rate a movie based on a massive list of other users' ratings. |
-| **K-Nearest Neighbors (KNN)** | "Proximity," "Similarity," "Non-parametric." | Classifying an image based on how similar it is to other images in the database. |
+*   **Linear Learner**
+    **Exam Triggers:** "Base-line," "Simple Regression/Classification," "Yes/No."
+    **Typical Use Case:** Predicting simple house prices.
+
+*   **XGBoost**
+    **Exam Triggers:** **"Tabular Data,"** "Highly Accurate," "Structured Data."
+    **Typical Use Case:** Predicting customer churn or defaults.
+
+*   **Factorization Machines**
+    **Exam Triggers:** **"Sparse Data,"** "Recommendation Systems."
+    **Typical Use Case:** Predicting movie ratings for recommendation engines.
+
+*   **K-Nearest Neighbors (KNN)**
+    **Exam Triggers:** "Proximity," "Similarity," "Non-parametric."
+    **Typical Use Case:** Classifying images based on similarities.
+
+---
 
 ### 2. Unsupervised Learning
 Used for discovering hidden patterns without the need for pre-existing labels.
 
 ![SageMaker Unsupervised Learning Algorithms](assets/sagemaker-unsupervised-algorithms.png)
 
-| Algorithm | Exam Triggers / Keywords | Typical Use Case |
-| :--- | :--- | :--- |
-| **K-means** | **"Clustering,"** "Groupings," "Segmentation." | Dividing a customer base into 4 groups based on spending habits for targeted ads. |
-| **LDA & NTM** | **"Topic Modeling,"** "Document Themes." | Scanning 10,000 news articles to find the top 5 common themes (Politics, Sports, etc.). |
-| **Object2Vec** | **"Embeddings,"** "Vectorization," "Similarity Scaling." | Creating a math-based representation of a book to suggest "similar" reads. |
-| **PCA** | **"Feature Reduction,"** "Visualization," "Removing Noise." | Turning 100 complicated data columns into 3 "main" columns to simplify the dataset. |
-| **Random Cut Forest (RCF)** | **"Anomaly Detection,"** "Streaming Data," "Outliers." | Spotting a sudden, suspicious spike in login attempts on a secure website. |
-| **IP Insights** | "IP Addresses," "Security Patterns," "Anomalies." | Flagging a login attempt if the IP address is geographically distant from the user's home. |
+*   **K-means**
+    **Exam Triggers:** **"Clustering,"** "Groupings," "Segmentation."
+    **Typical Use Case:** Dividing customer bases for targeted ads.
+
+*   **LDA & NTM**
+    **Exam Triggers:** **"Topic Modeling,"** "Document Themes."
+    **Typical Use Case:** Finding themes in thousands of news articles.
+
+*   **Object2Vec**
+    **Exam Triggers:** **"Embeddings,"** "Vectorization," "Similarity Scaling."
+    **Typical Use Case:** Creating math-based representations of books.
+
+*   **PCA**
+    **Exam Triggers:** **"Feature Reduction,"** "Visualization," "Removing Noise."
+    **Typical Use Case:** Simplifying 100 columns into 3 "main" columns.
+
+*   **Random Cut Forest (RCF)**
+    **Exam Triggers:** **"Anomaly Detection,"** "Streaming Data," "Outliers."
+    **Typical Use Case:** Spotting suspicious spikes in login attempts.
+
+*   **IP Insights**
+    **Exam Triggers:** "IP Addresses," "Security Patterns," "Anomalies."
+    **Typical Use Case:** Flagging logins from unusual geographic locations.
+
+---
 
 ### 3. Image Processing & Computer Vision
 Specialized algorithms for visual data and time-series forecasting.
 
 ![SageMaker Image Processing Algorithms](assets/sagemaker-image-processing.png)
 
-| Task | Exam Triggers / Keywords | Typical Use Case |
-| :--- | :--- | :--- |
-| **Image Classification** | **"What is it?"** "Single Label," "ResNet/ImageNet." | Identifying if a photo contains a "Tractor" or a "Truck." |
-| **Object Detection** | **"Where is it?"** "Multiple Labels," "Bounding Boxes." | Drawing boxes around every "Car," "Pedestrian," and "Stop Sign" in a video frame. |
-| **Semantic Segmentation** | **"Pixel-level,"** "Masking," "Precise Boundaries." | Identifying the exact pixels that belong to a tumor in a medical X-ray. |
-| **DeepAR** | **"Forecasting,"** "Seasonality," "Time Series." | Predicting how many umbrellas you need to stock for next week's rain forecast. |
+*   **Image Classification**
+    **Exam Triggers:** **"What is it?"** "Single Label," "ResNet/ImageNet."
+    **Typical Use Case:** Identifying a "Tractor" vs. a "Truck."
+
+*   **Object Detection**
+    **Exam Triggers:** **"Where is it?"** "Multiple Labels," "Bounding Boxes."
+    **Typical Use Case:** Drawing boxes around "Cars" and "Pedestrians."
+
+*   **Semantic Segmentation**
+    **Exam Triggers:** **"Pixel-level,"** "Masking," "Precise Boundaries."
+    **Typical Use Case:** Identifying exact pixels of a tumor in an X-ray.
+
+*   **DeepAR**
+    **Exam Triggers:** **"Forecasting,"** "Seasonality," "Time Series."
+    **Typical Use Case:** Predicting future sales or stock levels.
+
+---
 
 ### 4. Text Analysis & NLP
 Algorithms designed for understanding and generating human-like text.
 
 ![SageMaker Text Analysis Algorithms](assets/sagemaker-text-analysis.png)
 
-| Algorithm | Exam Triggers / Keywords | Typical Use Case |
-| :--- | :--- | :--- |
-| **BlazingText** | **"Word2Vec,"** "High-speed Text Classif," "Sentiment Analysis." | Determining if 1 million app reviews are "Positive" or "Negative" in seconds. |
-| **Seq2Seq** | **"Translation,"** "Summarization," "Speech-to-Text." | Automatically translating a legal document from English to French. |
+*   **BlazingText**
+    **Exam Triggers:** **"Word2Vec,"** "High-speed Text Classif," "Sentiment Analysis."
+    **Typical Use Case:** Analyzing sentiment in millions of app reviews.
+
+*   **Seq2Seq**
+    **Exam Triggers:** **"Translation,"** "Summarization," "Speech-to-Text."
+    **Typical Use Case:** Automatically translating legal documents.
 
 ---
 *Last Updated: Jan 2026*
