@@ -1,0 +1,2063 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Deep dive study notes for the AWS Certified AI Practitioner (AIF-C01) exam.">
+      
+      
+        <meta name="author" content="Dhee">
+      
+      
+      
+        <link rel="prev" href="../10-sagemaker-ai/">
+      
+      
+        <link rel="next" href="../07-model-evaluation-and-metrics/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Prompt Engineering - AWS AI Practitioner Exam Study Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prompt-engineering-essentials" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS AI Practitioner Exam Study Guide" class="md-header__button md-logo" aria-label="AWS AI Practitioner Exam Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS AI Practitioner Exam Study Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Prompt Engineering
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/yourusername/aws-ai-practitioner-exam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+  
+  Fundamentals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../04-aws-infrastructure-technologies/" class="md-tabs__link">
+          
+  
+  
+  Infrastructure & AI Services
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Model Optimization
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../07-model-evaluation-and-metrics/" class="md-tabs__link">
+          
+  
+  
+  Performance & Use Cases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../09-responsible-ai/" class="md-tabs__link">
+          
+  
+  
+  Safety, Risks & Governance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../stephane-maarek-course/" class="md-tabs__link">
+          
+  
+  
+  Courses
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS AI Practitioner Exam Study Guide" class="md-nav__button md-logo" aria-label="AWS AI Practitioner Exam Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AWS AI Practitioner Exam Study Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/yourusername/aws-ai-practitioner-exam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ml-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-deep-learning-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-generative-ai-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure & AI Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Infrastructure & AI Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-aws-infrastructure-technologies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-sagemaker-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SageMaker AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Optimization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Model Optimization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-benefits-and-importance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Benefits and Importance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-elements-of-a-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Elements of a Prompt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Elements of a Prompt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-restaurant-review-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Restaurant Review Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-prompt-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Prompt Templates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Prompt Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-template-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Template Structure:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-negative-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Negative Prompting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-inference-parameters-the-knobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Inference Parameters (The "Knobs")
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Inference Parameters (The &#34;Knobs&#34;)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#randomness-diversity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Randomness &amp; Diversity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#length-control-response-termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Length &amp; Control (Response Termination)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-use-both-top-k-and-top-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use both Top K and Top P?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-prompt-latency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Prompt Latency
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Prompt Latency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#factors-influencing-latency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Factors Influencing Latency:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategies-to-reduce-latency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategies to Reduce Latency:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-best-practices-bad-vs-good" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Best Practices: "Bad vs. Good"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-prompt-engineering-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Prompt Engineering Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Prompt Engineering Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zero-shot-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zero-Shot Prompting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#few-shot-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Few-Shot Prompting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chain-of-thought-cot-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chain-of-Thought (CoT) Prompting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-prompting-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Prompting Techniques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-the-anycompany-scenario-final-refined-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. The AnyCompany Scenario (Final Refined Prompt)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-references-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. References &amp; Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance & Use Cases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Performance & Use Cases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-model-evaluation-and-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluation & Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-ai-business-use-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Use Cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safety, Risks & Governance
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Safety, Risks & Governance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-responsible-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsible AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-security-compliance-governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-prompt-misuse-risks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Misuse & Risks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Courses
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stephane-maarek-course/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stephane Maarek (Udemy)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-benefits-and-importance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Benefits and Importance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-elements-of-a-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Elements of a Prompt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Elements of a Prompt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-restaurant-review-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Restaurant Review Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-prompt-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Prompt Templates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Prompt Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-template-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Template Structure:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-negative-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Negative Prompting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-inference-parameters-the-knobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Inference Parameters (The "Knobs")
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Inference Parameters (The &#34;Knobs&#34;)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#randomness-diversity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Randomness &amp; Diversity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#length-control-response-termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Length &amp; Control (Response Termination)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-use-both-top-k-and-top-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use both Top K and Top P?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-prompt-latency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Prompt Latency
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Prompt Latency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#factors-influencing-latency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Factors Influencing Latency:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategies-to-reduce-latency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategies to Reduce Latency:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-best-practices-bad-vs-good" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Best Practices: "Bad vs. Good"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-prompt-engineering-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Prompt Engineering Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Prompt Engineering Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zero-shot-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zero-Shot Prompting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#few-shot-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Few-Shot Prompting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chain-of-thought-cot-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chain-of-Thought (CoT) Prompting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-prompting-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Prompting Techniques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-the-anycompany-scenario-final-refined-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. The AnyCompany Scenario (Final Refined Prompt)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-references-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. References &amp; Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="prompt-engineering-essentials">Prompt Engineering Essentials</h1>
+<blockquote>
+<p><strong>AWS AI Practitioner Exam (AIF-C01) Study Guide</strong></p>
+</blockquote>
+<p>Prompt engineering is the fastest way to harness the power of GenAI. By interacting with a model through a series of questions, statements, or instructions, you can adjust output behavior based on specific context.</p>
+<hr />
+<h2 id="1-benefits-and-importance">1. Benefits and Importance</h2>
+<p>Why bother with prompt engineering?
+*   <strong>Greater Developer Control:</strong> Fine-tune outputs without changing model weights.
+*   <strong>Improved User Experience:</strong> Deliver more relevant, accurate, and safe responses.
+*   <strong>Enhanced Capabilities:</strong> Helps FMs perform tasks like classification, code generation, and complex reasoning.
+*   <strong>Safety &amp; Bias Mitigation:</strong> Helps bolster safety measures and reduce problematic outputs.</p>
+<div class="admonition note">
+<p class="admonition-title">Hallucination Reduction</p>
+<p>To reduce hallucinations, use prompt optimization combined with techniques like <strong>Retrieval Augmented Generation (RAG)</strong> to provide the model access to grounded data.</p>
+</div>
+<hr />
+<h2 id="2-elements-of-a-prompt">2. Elements of a Prompt</h2>
+<p>A prompt's form depends on the task. A complete prompt often includes:</p>
+<ul>
+<li><strong>Instructions:</strong> The task for the model to perform.</li>
+<li><strong>Context:</strong> External information to guide the model (e.g., "I work in finance").</li>
+<li><strong>Input Data:</strong> The raw content for which you want a response.</li>
+<li><strong>Output Indicator:</strong> The desired type or format of the output.</li>
+</ul>
+<h3 id="example-restaurant-review-summary">Example: Restaurant Review Summary</h3>
+<blockquote>
+<p><strong>Context:</strong> The following is text from a restaurant review:<br />
+<strong>Input Data:</strong> "I finally got to check out Alessandro’s Brilliant Pizza... [detailed review]"<br />
+<strong>Instruction:</strong> Summarize the above restaurant review in one sentence.<br />
+<strong>Output:</strong> Alessandro's Brilliant Pizza is a fantastic restaurant in Seattle with a beautiful view and delicious food.</p>
+</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Exam Tip: Component Significance</p>
+<p>Without the <strong>Instruction</strong>, the model doesn't know what to do with the text. Without the <strong>Input Data</strong>, it has nothing to operate on. The <strong>Context</strong> (e.g., "The following is a review") provides the keywords that guide model focus.</p>
+</div>
+<hr />
+<h2 id="3-prompt-templates">3. Prompt Templates</h2>
+<p>In a production environment (like an app built on Amazon Bedrock), developers don't write a new prompt from scratch for every user. Instead, they use a <strong>Prompt Template</strong>.</p>
+<ul>
+<li><strong>What it is:</strong> A predefined string with <strong>placeholders</strong> (variables) that are filled in at runtime based on user input or database records.</li>
+<li><strong>The Goal:</strong> To ensure <strong>Consistency</strong> and <strong>Scalability</strong>. It ensures the model always follows the same rules/instructions regardless of what the user asks.</li>
+</ul>
+<h3 id="example-template-structure">Example Template Structure:</h3>
+<blockquote>
+<p>"You are a customer support agent. Summarize the following customer complaint in {{tone}} tone.<br />
+<strong>Complaint:</strong> {{user_input}}<br />
+<strong>Summary:</strong>"</p>
+</blockquote>
+<ul>
+<li><strong>Fixed Instructions:</strong> "You are a customer support agent..."</li>
+<li><strong>Placeholders:</strong> <code>{{tone}}</code> and <code>{{user_input}}</code>.</li>
+<li><strong>Benefits:</strong><ul>
+<li><strong>Reusability:</strong> The same logic works for thousands of users.</li>
+<li><strong>Control:</strong> You can enforce a specific format (e.g., "Always output a JSON object").</li>
+<li><strong>Separation of Concerns:</strong> Developers can modify the <em>instructions</em> in the template without changing the application's code.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="4-negative-prompting">4. Negative Prompting</h2>
+<p>Used to guide the model away from specific content or behaviors.
+*   <strong>Example:</strong> Preventing hate speech, explicit content, or biased language in a chatbot.
+*   <strong>Tip:</strong> It's often easier to tell a model what <strong>not</strong> to do than to list every acceptable thing.</p>
+<hr />
+<h2 id="5-inference-parameters-the-knobs">5. Inference Parameters (The "Knobs")</h2>
+<h3 id="randomness-diversity">Randomness &amp; Diversity</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Range</th>
+<th style="text-align: left;">How it Works</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Temperature</strong></td>
+<td style="text-align: left;">0 to 1</td>
+<td style="text-align: left;"><strong>Low (0.2):</strong> Focused, conservative. <strong>High (1.0):</strong> Creative, diverse but potentially less coherent.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Top P</strong></td>
+<td style="text-align: left;">0 to 1</td>
+<td style="text-align: left;"><strong>Nucleus Sampling:</strong> Limits choices to a subset of words whose <strong>cumulative probability sum</strong> reaches P. (It is NOT a percentage of the total dictionary).</td>
+</tr>
+</tbody>
+</table>
+<p>| <strong>Top K</strong> | 1+ | Limits choices to a fixed number of most likely words (e.g., Top K 50 = always pick from top 50, regardless of probability %). |</p>
+<h3 id="length-control-response-termination">Length &amp; Control (Response Termination)</h3>
+<ul>
+<li><strong>Maximum Length (Max Tokens):</strong> <ul>
+<li>This is a <strong>hard limit</strong> on the total number of tokens (words/parts of words) the model can generate for a single response.</li>
+<li><strong>Why it matters:</strong> It prevents the model from generating infinite text, saves compute costs (Bedrock charges per token), and reduces latency.</li>
+<li><strong>Trade-off:</strong> If set too low, the model's response will be <strong>truncated</strong> (cut off in the middle of a sentence).</li>
+</ul>
+</li>
+<li><strong>Stop Sequences:</strong> <ul>
+<li>These are specific character strings that tell the model to <strong>stop typing immediately</strong> as soon as it generates them.</li>
+<li><strong>Common Examples:</strong> Newline characters (<code>\n</code>), specific markers like <code>###</code>, <code>User:</code>, or <code>End of Response</code>.</li>
+<li><strong>Best Practice:</strong> When doing <strong>Few-Shot prompting</strong>, use a stop sequence like <code>###</code> at the end of each example. This prevents the model from "making up" additional fake examples after it completes your actual request.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">The 'Big Three' Comparison</p>
+<ul>
+<li><strong>Top K (Selection by Rank):</strong> Limits the model to a fixed number of the most likely words. (e.g., "Only look at the top 50 choices").</li>
+<li><strong>Top P (Selection by Weight):</strong> Limits the model to a "nucleus" of words that add up to a specific probability. (e.g., "Look at as many words as it takes to reach 90% certainty").</li>
+<li><strong>Max Tokens (Selection by Volume):</strong> Limits how long the response can be. (e.g., "Stop talking after 200 words").</li>
+</ul>
+</div>
+<h3 id="why-use-both-top-k-and-top-p">Why use both Top K and Top P?</h3>
+<p>Most advanced models use both in a <strong>pipeline</strong> (Top K is usually applied first):
+1.  <strong>Top K acts as a "Hard Cap":</strong> It prevents the model from ever looking at the "long tail" of low-probability words, even if Top P hasn't been reached yet.
+2.  <strong>Top P acts as a "Dynamic Filter":</strong> It narrows the Top K selection even further when the model is very confident, ensuring the response stays relevant.</p>
+<hr />
+<h3 id="6-prompt-latency">6. Prompt Latency</h3>
+<p>Latency is the time it takes for a model to generate a response. In the context of the AWS AI Practitioner exam, you should understand what drives latency and how to optimize it.</p>
+<h4 id="factors-influencing-latency">Factors Influencing Latency:</h4>
+<ul>
+<li><strong>Prompt Length (Input Tokens):</strong> Larger prompts (e.g., long RAG context or massive few-shot examples) increase the "time to first token" (TTFT) because the model has to process all input before it starts generating.</li>
+<li><strong>Generation Length (Output Tokens):</strong> This is typically the <strong>biggest factor</strong>. Because LLMs generate text one token at a time, a 1,000-token response will take significantly longer than a 50-token response.</li>
+<li><strong>Model Size/Complexity:</strong> Larger, more "intelligent" models (like Claude 3 Opus) have higher latency than smaller, faster models (like Claude 3 Haiku or Amazon Nova Micro).</li>
+<li><strong>Inference Parameters:</strong> While Temperature doesn't affect speed, setting a high <strong>Max Tokens</strong> limit can lead to longer (and thus slower) responses.</li>
+</ul>
+<h4 id="strategies-to-reduce-latency">Strategies to Reduce Latency:</h4>
+<ol>
+<li><strong>Use Streaming:</strong> Show the output to the user as it is being "typed" by the model. This doesn't change the total time but drastically reduces <strong>Perceived Latency</strong>.</li>
+<li><strong>Model Selection:</strong> Choose "smaller/faster" models for simple tasks like classification or summarization.</li>
+<li><strong>Prompt Optimization:</strong> Keep your prompts clear and avoid unnecessary "rambling" in the instructions.</li>
+<li><strong>Provisioned Throughput (Bedrock):</strong> For high-traffic applications, use Provisioned Throughput to ensure consistent performance and lower latency.</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">What does NOT impact latency?</p>
+<p>In the exam, look out for these "distractor" options. These typically do <strong>not</strong> increase the computational time per token:
+*   <strong>Temperature:</strong> Whether you set it to 0 or 1, the model performs the same amount of math.
+*   <strong>Top P / Top K:</strong> These are simple filters applied <em>after</em> the model has already calculated the next alternatives.
+*   <strong>The specific language (English vs. French):</strong> The model processes tokens, not "languages" in a way that changes GPU speed.
+*   <strong>Presence of Stop Sequences:</strong> These actually <em>reduce</em> total latency by stopping the model early.</p>
+</div>
+<hr />
+<h2 id="7-best-practices-bad-vs-good">7. Best Practices: "Bad vs. Good"</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Rule</th>
+<th style="text-align: left;">Bad Prompt</th>
+<th style="text-align: left;">Good Prompt (Refined)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Clear &amp; Concise</strong></td>
+<td style="text-align: left;">"Compute the sum total of the subsequent sequence..."</td>
+<td style="text-align: left;">"What is the sum of these numbers: 4, 8, 12, 16?"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Include Context</strong></td>
+<td style="text-align: left;">"Summarize this article."</td>
+<td style="text-align: left;">"Provide a summary of this article to be used in a blog post."</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Use Directives</strong></td>
+<td style="text-align: left;">"What is the capital?"</td>
+<td style="text-align: left;">"What is the capital of New York? Provide the answer in a full sentence."</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Consider Output</strong></td>
+<td style="text-align: left;">"Calculate the area of a circle."</td>
+<td style="text-align: left;">"Calculate the area of a circle with a radius of 3. Round to the nearest integer."</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Start with Interrogation</strong></td>
+<td style="text-align: left;">"Summarize this event."</td>
+<td style="text-align: left;">"Why did this event happen? Explain in three sentences."</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Provide Examples</strong></td>
+<td style="text-align: left;">"Determine sentiment: [Post]"</td>
+<td style="text-align: left;">"post: 'great' =&gt; Positive. post: 'bad' =&gt; Negative. [Post] =&gt;"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-prompt-engineering-techniques">8. Prompt Engineering Techniques</h2>
+<h3 id="zero-shot-prompting">Zero-Shot Prompting</h3>
+<p>Relies on the model's general knowledge. No examples provided.
+*   <strong>Tip:</strong> Larger models (like Claude 3 or Llama 3) perform better at zero-shot tasks.</p>
+<h3 id="few-shot-prompting">Few-Shot Prompting</h3>
+<p>Providing contextual examples (One-shot = 1 example, Few-shot = multiple).
+*   <strong>Tip:</strong> Ensure examples are representative and diverse. Too many examples can introduce "noise."</p>
+<h3 id="chain-of-thought-cot-prompting">Chain-of-Thought (CoT) Prompting</h3>
+<p>Divides intricate reasoning into smaller, intermediary steps.
+*   <strong>Keyword:</strong> Use the phrase <strong>"Think step by step"</strong> to initiate logic loops.
+*   <strong>Example:</strong> Math problems or multi-layer logic (e.g., comparing deposit costs for two different services).</p>
+<h3 id="advanced-prompting-techniques">Advanced Prompting Techniques</h3>
+<p>Beyond basic shots, these techniques help with extreme complexity:</p>
+<ul>
+<li><strong>Tree-of-Thought (ToT):</strong> Generalizes CoT by allowing the model to generate multiple possible "next steps" and using a tree search to explore the best path.</li>
+<li><strong>Maieutic Prompting:</strong> Prompts the model for an answer <em>and</em> an explanation, then prompts it to explain parts of that explanation to prune inconsistencies.</li>
+<li><strong>Generated Knowledge:</strong> Prompt the model to first "list relevant facts" about a topic before completing the main task (e.g., "List facts about climate change, then write an essay").</li>
+<li><strong>Least-to-Most:</strong> Prompt the model to list sub-problems first, then solve them in sequence.</li>
+<li><strong>Self-Refinement:</strong> Model drafts a solution, critiques it, and rewrites it iteratively based on the critique.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Model Specifics (Amazon Bedrock)</p>
+<ul>
+<li><strong>Anthropic Claude:</strong> Use XML-style tags like <code>&lt;example&gt;&lt;/example&gt;</code> to separate sections.</li>
+<li><strong>Delimiters:</strong> Use clear markers like <code>H:</code> (Human) and <code>A:</code> (Assistant) or <code>###</code> to prevent the model from confusing instructions with data.</li>
+</ul>
+</div>
+<hr />
+<h2 id="9-the-anycompany-scenario-final-refined-prompt">9. The AnyCompany Scenario (Final Refined Prompt)</h2>
+<p>The student starts with a vague prompt but refines it based on the course:</p>
+<ul>
+<li><strong>Initial:</strong> "Generate a market analysis report."</li>
+<li><strong>Refined:</strong> "Generate a comprehensive market analysis report for the finance industry for an audience of SMBs. Structure: 1. Summary, 2. Overview, 3. Competition... Tone: Professional."</li>
+<li><strong>Result:</strong> High-quality, tailored output that addresses the specific goals of a finance firm.</li>
+</ul>
+<hr />
+<h2 id="10-references-further-reading">10. References &amp; Further Reading</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html">Amazon Bedrock Prompt Engineering Guidelines</a></li>
+<li><a href="https://aws.amazon.com/what-is/prompt-engineering/">AWS: What is Prompt Engineering?</a></li>
+</ul>
+<hr />
+<p><em>Last Updated: Jan 2026</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

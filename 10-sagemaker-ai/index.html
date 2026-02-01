@@ -1,0 +1,1858 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Deep dive study notes for the AWS Certified AI Practitioner (AIF-C01) exam.">
+      
+      
+        <meta name="author" content="Dhee">
+      
+      
+      
+        <link rel="prev" href="../04-aws-infrastructure-technologies/">
+      
+      
+        <link rel="next" href="../05-prompt-engineering/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>SageMaker AI - AWS AI Practitioner Exam Study Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#amazon-sagemaker-ai-features" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS AI Practitioner Exam Study Guide" class="md-header__button md-logo" aria-label="AWS AI Practitioner Exam Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS AI Practitioner Exam Study Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SageMaker AI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/yourusername/aws-ai-practitioner-exam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+  
+  Fundamentals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../04-aws-infrastructure-technologies/" class="md-tabs__link">
+          
+  
+  
+  Infrastructure & AI Services
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../05-prompt-engineering/" class="md-tabs__link">
+          
+  
+  
+  Model Optimization
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../07-model-evaluation-and-metrics/" class="md-tabs__link">
+          
+  
+  
+  Performance & Use Cases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../09-responsible-ai/" class="md-tabs__link">
+          
+  
+  
+  Safety, Risks & Governance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../stephane-maarek-course/" class="md-tabs__link">
+          
+  
+  
+  Courses
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS AI Practitioner Exam Study Guide" class="md-nav__button md-logo" aria-label="AWS AI Practitioner Exam Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AWS AI Practitioner Exam Study Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/yourusername/aws-ai-practitioner-exam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ml-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-deep-learning-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-generative-ai-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure & AI Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Infrastructure & AI Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-aws-infrastructure-technologies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SageMaker AI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SageMaker AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sagemaker-ai-feature-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ SageMaker AI Feature Categories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ SageMaker AI Feature Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-data-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Data Preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-feature-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Feature Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-model-building-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Model Building &amp; Training
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-model-evaluation-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Model Evaluation &amp; Tuning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-deployment-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Deployment &amp; Inference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-monitoring-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Monitoring &amp; Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sagemaker-ai-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        �️ SageMaker AI Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources-of-ml-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        �📂 Sources of ML Models
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sagemaker-ai-built-in-algorithms-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧮 SageMaker AI Built-in Algorithms (Cheat Sheet)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧮 SageMaker AI Built-in Algorithms (Cheat Sheet)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Supervised Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-unsupervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Unsupervised Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-image-processing-computer-vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Image Processing &amp; Computer Vision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-text-analysis-nlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Text Analysis &amp; NLP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Optimization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Model Optimization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-prompt-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance & Use Cases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Performance & Use Cases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-model-evaluation-and-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluation & Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-ai-business-use-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Use Cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safety, Risks & Governance
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Safety, Risks & Governance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-responsible-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsible AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-security-compliance-governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-prompt-misuse-risks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Misuse & Risks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Courses
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stephane-maarek-course/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stephane Maarek (Udemy)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sagemaker-ai-feature-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ SageMaker AI Feature Categories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ SageMaker AI Feature Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-data-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Data Preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-feature-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Feature Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-model-building-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Model Building &amp; Training
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-model-evaluation-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Model Evaluation &amp; Tuning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-deployment-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Deployment &amp; Inference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-monitoring-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Monitoring &amp; Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sagemaker-ai-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        �️ SageMaker AI Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources-of-ml-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        �📂 Sources of ML Models
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sagemaker-ai-built-in-algorithms-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧮 SageMaker AI Built-in Algorithms (Cheat Sheet)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧮 SageMaker AI Built-in Algorithms (Cheat Sheet)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Supervised Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-unsupervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Unsupervised Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-image-processing-computer-vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Image Processing &amp; Computer Vision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-text-analysis-nlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Text Analysis &amp; NLP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="amazon-sagemaker-ai-features">Amazon SageMaker AI Features</h1>
+<blockquote>
+<p><strong>AWS AI Practitioner Exam (AIF-C01) Study Guide</strong></p>
+</blockquote>
+<p>Amazon SageMaker AI is a fully managed ML service. In a single unified visual interface, you can perform the following tasks:
+1.  <strong>Collect and prepare data.</strong>
+2.  <strong>Build and train machine learning models.</strong>
+3.  <strong>Deploy the models and monitor the performance of their predictions.</strong></p>
+<hr />
+<h2 id="sagemaker-ai-feature-categories">🏗️ SageMaker AI Feature Categories</h2>
+<p>SageMaker AI provides specialized tools for every stage of the machine learning lifecycle.</p>
+<h3 id="1-data-preparation">1. Data Preparation</h3>
+<ul>
+<li><strong>Amazon SageMaker Data Wrangler</strong>
+    A low-code/no-code (LCNC) tool to import, prepare, transform, featurize, and analyze data through a web interface. You can also add custom Python scripts for advanced workflows.</li>
+<li><strong>SageMaker Studio Classic Integration</strong>
+    Built-in integration with <strong>Amazon EMR</strong> and <strong>AWS Glue</strong> for large-scale interactive data preparation and ML workflows within notebooks.</li>
+<li><strong>SageMaker Processing API</strong>
+    Allows running scripts and notebooks to process, transform, and analyze datasets. Supports frameworks like scikit-learn, MXNet, and PyTorch.</li>
+</ul>
+<h3 id="2-feature-management">2. Feature Management</h3>
+<ul>
+<li><strong>Amazon SageMaker Feature Store</strong>
+    A purpose-built repository to create, share, and manage features for ML development. It allows data to be ingested, stored, retrieved, and served to ML models for inference.</li>
+</ul>
+<h3 id="3-model-building-training">3. Model Building &amp; Training</h3>
+<ul>
+<li><strong>Training Jobs</strong>
+    SageMaker launches ML compute instances, uses your code/dataset to train the model, and saves artifacts in <strong>Amazon S3</strong>.</li>
+<li><strong>Amazon SageMaker Canvas</strong>
+    The primary LCNC option. It allows business analysts to build ML models and generate predictions <strong>without writing any code</strong>.</li>
+<li><strong>Amazon SageMaker JumpStart</strong>
+    A hub for pre-trained, open-source models (Foundation Models, etc.) that you can deploy or fine-tune with one click.</li>
+</ul>
+<h3 id="4-model-evaluation-tuning">4. Model Evaluation &amp; Tuning</h3>
+<ul>
+<li><strong>Amazon SageMaker Experiments</strong>
+    A tool to track and compare multiple combinations of data, algorithms, and parameters to observe their impact on model accuracy.</li>
+<li><strong>Automatic Model Tuning (Hyperparameter Tuning)</strong>
+    Finds the best version of your model by running multiple training jobs with different combinations of hyperparameters and measuring success against a chosen metric.</li>
+</ul>
+<h3 id="5-deployment-inference">5. Deployment &amp; Inference</h3>
+<ul>
+<li>SageMaker provides a broad selection of ML infrastructure (CPU/GPU/Inferentia) and deployment options (Real-time, Batch, Serverless, Asynchronous) to meet various latency and cost requirements.</li>
+</ul>
+<h3 id="6-monitoring-optimization">6. Monitoring &amp; Optimization</h3>
+<ul>
+<li><strong>Amazon SageMaker Model Monitor</strong>
+    Observes the quality of production models. It detects violations of user-defined thresholds for:<ul>
+<li><strong>Data Quality:</strong> Changes in data distribution.</li>
+<li><strong>Model Quality:</strong> Accuracy drift.</li>
+<li><strong>Bias Drift:</strong> Emergence of bias over time.</li>
+<li><strong>Feature Attribution Drift:</strong> Changes in which features contribute most to predictions.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="sagemaker-ai-workflow">�️ SageMaker AI Workflow</h2>
+<p>SageMaker AI allows you to automate and manage the end-to-end ML lifecycle.</p>
+<p><img alt="SageMaker AI Workflow" src="../assets/sagemaker-workflow.png" /></p>
+<ol>
+<li><strong>Prepare Data</strong>: Use <strong>SageMaker Data Wrangler</strong> and <strong>Processing Jobs</strong> to clean and transform raw data.</li>
+<li><strong>Curate Features</strong>: Store processed data in the <strong>SageMaker Feature Store</strong> for consistent use across training and inference.</li>
+<li><strong>Train Model</strong>: Run <strong>SageMaker Training Jobs</strong> using built-in algorithms or custom scripts.</li>
+<li><strong>Experiment Tracking</strong>: Use <strong>SageMaker Experiments</strong> to monitor and compare multiple training runs.</li>
+<li><strong>Evaluate Model</strong>: Run <strong>Processing Jobs</strong> to calculate evaluation metrics (Accuracy, RMSE, etc.).</li>
+<li><strong>Register Model</strong>: Store the best model version in the <strong>SageMaker Model Registry</strong>.</li>
+<li><strong>Deploy Model</strong>: Deploy the model to an endpoint for real-time or batch <strong>Deployments</strong>.</li>
+<li><strong>Manage Model</strong>: Use <strong>SageMaker Model Monitor</strong> to detect drift and maintain quality in production.</li>
+<li><strong>Automation</strong>: Orchestrate the entire flow using <strong>SageMaker AI Pipelines</strong>.</li>
+</ol>
+<hr />
+<h2 id="sources-of-ml-models">�📂 Sources of ML Models</h2>
+<p>SageMaker AI provides multiple ways to build models, ranging from "zero-effort" to "full customization."</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Level of Effort</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Pre-trained Models</strong></td>
+<td style="text-align: left;"><strong>Least Effort</strong></td>
+<td style="text-align: left;">Models ready to deploy or fine-tune immediately using <strong>SageMaker JumpStart</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Built-in Algorithms</strong></td>
+<td style="text-align: left;"><strong>Medium Effort</strong></td>
+<td style="text-align: left;">Highly optimized algorithms provided by AWS that scale automatically for large datasets.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pre-made Framework Images</strong></td>
+<td style="text-align: left;"><strong>High Effort</strong></td>
+<td style="text-align: left;">Use pre-configured Docker images for common frameworks like <strong>TensorFlow, PyTorch, scikit-learn, MXNet, or Chainer</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Custom Docker Images</strong></td>
+<td style="text-align: left;"><strong>Most Effort</strong></td>
+<td style="text-align: left;">Build and bring your own Docker image with specific packages and software required for your unique model.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="sagemaker-ai-built-in-algorithms-cheat-sheet">🧮 SageMaker AI Built-in Algorithms (Cheat Sheet)</h2>
+<p>SageMaker AI provides algorithms for different categories of machine learning problems.</p>
+<h3 id="1-supervised-learning">1. Supervised Learning</h3>
+<p>SageMaker AI provides several built-in general-purpose algorithms that you can use for either classification or regression problems.</p>
+<p><img alt="SageMaker Supervised Learning Algorithms" src="../assets/sagemaker-supervised-algorithms.png" /></p>
+<ul>
+<li>
+<p><strong>Linear Learner</strong>
+    <strong>Exam Triggers:</strong> "Base-line," "Simple Regression/Classification," "Yes/No."
+    <strong>Typical Use Case:</strong> Predicting simple house prices.</p>
+</li>
+<li>
+<p><strong>XGBoost</strong>
+    <strong>Exam Triggers:</strong> <strong>"Tabular Data,"</strong> "Highly Accurate," "Structured Data."
+    <strong>Typical Use Case:</strong> Predicting customer churn or defaults.</p>
+</li>
+<li>
+<p><strong>Factorization Machines</strong>
+    <strong>Exam Triggers:</strong> <strong>"Sparse Data,"</strong> "Recommendation Systems."
+    <strong>Typical Use Case:</strong> Predicting movie ratings for recommendation engines.</p>
+</li>
+<li>
+<p><strong>K-Nearest Neighbors (KNN)</strong>
+    <strong>Exam Triggers:</strong> "Proximity," "Similarity," "Non-parametric."
+    <strong>Typical Use Case:</strong> Classifying images based on similarities.</p>
+</li>
+</ul>
+<hr />
+<h3 id="2-unsupervised-learning">2. Unsupervised Learning</h3>
+<p>Used for discovering hidden patterns without the need for pre-existing labels.</p>
+<p><img alt="SageMaker Unsupervised Learning Algorithms" src="../assets/sagemaker-unsupervised-algorithms.png" /></p>
+<ul>
+<li>
+<p><strong>K-means</strong>
+    <strong>Exam Triggers:</strong> <strong>"Clustering,"</strong> "Groupings," "Segmentation."
+    <strong>Typical Use Case:</strong> Dividing customer bases for targeted ads.</p>
+</li>
+<li>
+<p><strong>LDA &amp; NTM</strong>
+    <strong>Exam Triggers:</strong> <strong>"Topic Modeling,"</strong> "Document Themes."
+    <strong>Typical Use Case:</strong> Finding themes in thousands of news articles.</p>
+</li>
+<li>
+<p><strong>Object2Vec</strong>
+    <strong>Exam Triggers:</strong> <strong>"Embeddings,"</strong> "Vectorization," "Similarity Scaling."
+    <strong>Typical Use Case:</strong> Creating math-based representations of books.</p>
+</li>
+<li>
+<p><strong>PCA</strong>
+    <strong>Exam Triggers:</strong> <strong>"Feature Reduction,"</strong> "Visualization," "Removing Noise."
+    <strong>Typical Use Case:</strong> Simplifying 100 columns into 3 "main" columns.</p>
+</li>
+<li>
+<p><strong>Random Cut Forest (RCF)</strong>
+    <strong>Exam Triggers:</strong> <strong>"Anomaly Detection,"</strong> "Streaming Data," "Outliers."
+    <strong>Typical Use Case:</strong> Spotting suspicious spikes in login attempts.</p>
+</li>
+<li>
+<p><strong>IP Insights</strong>
+    <strong>Exam Triggers:</strong> "IP Addresses," "Security Patterns," "Anomalies."
+    <strong>Typical Use Case:</strong> Flagging logins from unusual geographic locations.</p>
+</li>
+</ul>
+<hr />
+<h3 id="3-image-processing-computer-vision">3. Image Processing &amp; Computer Vision</h3>
+<p>Specialized algorithms for visual data and time-series forecasting.</p>
+<p><img alt="SageMaker Image Processing Algorithms" src="../assets/sagemaker-image-processing.png" /></p>
+<ul>
+<li>
+<p><strong>Image Classification</strong>
+    <strong>Exam Triggers:</strong> <strong>"What is it?"</strong> "Single Label," "ResNet/ImageNet."
+    <strong>Typical Use Case:</strong> Identifying a "Tractor" vs. a "Truck."</p>
+</li>
+<li>
+<p><strong>Object Detection</strong>
+    <strong>Exam Triggers:</strong> <strong>"Where is it?"</strong> "Multiple Labels," "Bounding Boxes."
+    <strong>Typical Use Case:</strong> Drawing boxes around "Cars" and "Pedestrians."</p>
+</li>
+<li>
+<p><strong>Semantic Segmentation</strong>
+    <strong>Exam Triggers:</strong> <strong>"Pixel-level,"</strong> "Masking," "Precise Boundaries."
+    <strong>Typical Use Case:</strong> Identifying exact pixels of a tumor in an X-ray.</p>
+</li>
+<li>
+<p><strong>DeepAR</strong>
+    <strong>Exam Triggers:</strong> <strong>"Forecasting,"</strong> "Seasonality," "Time Series."
+    <strong>Typical Use Case:</strong> Predicting future sales or stock levels.</p>
+</li>
+</ul>
+<hr />
+<h3 id="4-text-analysis-nlp">4. Text Analysis &amp; NLP</h3>
+<p>Algorithms designed for understanding and generating human-like text.</p>
+<p><img alt="SageMaker Text Analysis Algorithms" src="../assets/sagemaker-text-analysis.png" /></p>
+<ul>
+<li>
+<p><strong>BlazingText</strong>
+    <strong>Exam Triggers:</strong> <strong>"Word2Vec,"</strong> "High-speed Text Classif," "Sentiment Analysis."
+    <strong>Typical Use Case:</strong> Analyzing sentiment in millions of app reviews.</p>
+</li>
+<li>
+<p><strong>Seq2Seq</strong>
+    <strong>Exam Triggers:</strong> <strong>"Translation,"</strong> "Summarization," "Speech-to-Text."
+    <strong>Typical Use Case:</strong> Automatically translating legal documents.</p>
+</li>
+</ul>
+<hr />
+<p><em>Last Updated: Jan 2026</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

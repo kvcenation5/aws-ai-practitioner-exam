@@ -1,0 +1,2433 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Deep dive study notes for the AWS Certified AI Practitioner (AIF-C01) exam.">
+      
+      
+        <meta name="author" content="Dhee">
+      
+      
+      
+        <link rel="prev" href=".">
+      
+      
+        <link rel="next" href="01-ml-lifecycle/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Home - AWS AI Practitioner Exam Study Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#machine-learning-fundamentals" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="AWS AI Practitioner Exam Study Guide" class="md-header__button md-logo" aria-label="AWS AI Practitioner Exam Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS AI Practitioner Exam Study Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/yourusername/aws-ai-practitioner-exam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="." class="md-tabs__link">
+          
+  
+  
+  Fundamentals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="04-aws-infrastructure-technologies/" class="md-tabs__link">
+          
+  
+  
+  Infrastructure & AI Services
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="05-prompt-engineering/" class="md-tabs__link">
+          
+  
+  
+  Model Optimization
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="07-model-evaluation-and-metrics/" class="md-tabs__link">
+          
+  
+  
+  Performance & Use Cases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="09-responsible-ai/" class="md-tabs__link">
+          
+  
+  
+  Safety, Risks & Governance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="stephane-maarek-course/" class="md-tabs__link">
+          
+  
+  
+  Courses
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="AWS AI Practitioner Exam Study Guide" class="md-nav__button md-logo" aria-label="AWS AI Practitioner Exam Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AWS AI Practitioner Exam Study Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/yourusername/aws-ai-practitioner-exam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-foundation-training-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The Foundation: Training Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. The Foundation: Training Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-the-foundation-training-data_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The Foundation: Training Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-types-labeled-vs-unlabeled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Types: Labeled vs. Unlabeled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structured-vs-unstructured-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured vs. Unstructured Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-quick-rule-of-thumb-supervised-vs-unsupervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Quick Rule of Thumb: Supervised vs. Unsupervised
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Quick Rule of Thumb: Supervised vs. Unsupervised">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-supervised-learning-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Supervised Learning = Prediction 🎯
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-unsupervised-learning-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Unsupervised Learning = Discovery 🔍
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-machine-learning-paradigms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Machine Learning Paradigms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Machine Learning Paradigms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Supervised Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-unsupervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Unsupervised Learning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Unsupervised Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it Works:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Reinforcement Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-semi-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Semi-Supervised Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-determining-the-appropriate-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Determining the Appropriate Solution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Determining the Appropriate Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-aiml-is-appropriate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When AI/ML IS Appropriate:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-aiml-is-not-appropriate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When AI/ML IS NOT Appropriate:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-inferencing-using-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Inferencing: Using the Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-model-performance-concepts-bias-variance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Model Performance Concepts (Bias &amp; Variance)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Model Performance Concepts (Bias &amp; Variance)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-bullseye-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 The Bullseye Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-techniques-to-overcome-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Techniques to Overcome Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-evaluation-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Evaluation Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-foundation-training-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The Foundation: Training Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. The Foundation: Training Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-the-foundation-training-data_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The Foundation: Training Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-types-labeled-vs-unlabeled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Types: Labeled vs. Unlabeled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structured-vs-unstructured-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured vs. Unstructured Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-quick-rule-of-thumb-supervised-vs-unsupervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Quick Rule of Thumb: Supervised vs. Unsupervised
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Quick Rule of Thumb: Supervised vs. Unsupervised">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-supervised-learning-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Supervised Learning = Prediction 🎯
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-unsupervised-learning-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Unsupervised Learning = Discovery 🔍
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-machine-learning-paradigms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Machine Learning Paradigms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Machine Learning Paradigms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Supervised Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-unsupervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Unsupervised Learning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Unsupervised Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it Works:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Reinforcement Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-semi-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Semi-Supervised Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-determining-the-appropriate-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Determining the Appropriate Solution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Determining the Appropriate Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-aiml-is-appropriate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When AI/ML IS Appropriate:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-aiml-is-not-appropriate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When AI/ML IS NOT Appropriate:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-inferencing-using-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Inferencing: Using the Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-model-performance-concepts-bias-variance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Model Performance Concepts (Bias &amp; Variance)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Model Performance Concepts (Bias &amp; Variance)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-bullseye-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 The Bullseye Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-techniques-to-overcome-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Techniques to Overcome Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-evaluation-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Evaluation Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01-ml-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-deep-learning-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03-generative-ai-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure & AI Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Infrastructure & AI Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04-aws-infrastructure-technologies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10-sagemaker-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SageMaker AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Optimization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Model Optimization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05-prompt-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance & Use Cases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Performance & Use Cases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07-model-evaluation-and-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluation & Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="08-ai-business-use-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Use Cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safety, Risks & Governance
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Safety, Risks & Governance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="09-responsible-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsible AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11-security-compliance-governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06-prompt-misuse-risks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Misuse & Risks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Courses
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stephane-maarek-course/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stephane Maarek (Udemy)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-foundation-training-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The Foundation: Training Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. The Foundation: Training Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-the-foundation-training-data_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The Foundation: Training Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-types-labeled-vs-unlabeled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Types: Labeled vs. Unlabeled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structured-vs-unstructured-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured vs. Unstructured Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-quick-rule-of-thumb-supervised-vs-unsupervised" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Quick Rule of Thumb: Supervised vs. Unsupervised
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Quick Rule of Thumb: Supervised vs. Unsupervised">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-supervised-learning-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Supervised Learning = Prediction 🎯
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-unsupervised-learning-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Unsupervised Learning = Discovery 🔍
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-machine-learning-paradigms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Machine Learning Paradigms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Machine Learning Paradigms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Supervised Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-unsupervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Unsupervised Learning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Unsupervised Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it Works:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Reinforcement Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-semi-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Semi-Supervised Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-determining-the-appropriate-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Determining the Appropriate Solution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Determining the Appropriate Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-aiml-is-appropriate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When AI/ML IS Appropriate:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-aiml-is-not-appropriate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When AI/ML IS NOT Appropriate:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-inferencing-using-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Inferencing: Using the Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-model-performance-concepts-bias-variance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Model Performance Concepts (Bias &amp; Variance)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Model Performance Concepts (Bias &amp; Variance)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-bullseye-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 The Bullseye Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-techniques-to-overcome-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Techniques to Overcome Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-evaluation-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Evaluation Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="machine-learning-fundamentals">Machine Learning Fundamentals</h1>
+<blockquote>
+<p><strong>AWS AI Practitioner Exam (AIF-C01) Study Guide</strong></p>
+</blockquote>
+<p>Building a machine learning model involves a systematic process: collecting and preparing data, selecting an appropriate algorithm, training the model on the prepared data, and evaluating its performance through testing and iteration.</p>
+<hr />
+<h2 id="1-the-foundation-training-data">1. The Foundation: Training Data</h2>
+<h3 id="1-the-foundation-training-data_1">1. The Foundation: Training Data</h3>
+<p>The machine learning process starts with collecting and processing <strong>training data</strong>. </p>
+<ul>
+<li><strong>What is Training Data?</strong> It is a "Teacher's Guide" containing thousands of examples (Inputs) and their correct answers (Labels).</li>
+<li><strong>The Training Process:</strong> The model doesn't just look at the data once. It looks at it through many repetitions (<strong>Epochs</strong>). In each epoch, the model makes a guess, checks the answer, and adjusts its internal math to get closer to the truth.</li>
+</ul>
+<div class="admonition failure">
+<p class="admonition-title">Garbage In, Garbage Out (GIGO)</p>
+<p>Bad data leads to bad models. Although data preparation is often a routine process, it is the most critical stage. It can make the model work as intended or completely ruin its performance.</p>
+</div>
+<h3 id="data-types-labeled-vs-unlabeled">Data Types: Labeled vs. Unlabeled</h3>
+<ul>
+<li><strong>Labeled Data:</strong> Data that already contains the "answer" or the target attribute you want the model to predict (e.g., an image of a cat marked as "Cat").</li>
+<li><strong>Unlabeled Data:</strong> Information that has no predefined labels or categories. The model must find its own patterns.</li>
+</ul>
+<h3 id="structured-vs-unstructured-data">Structured vs. Unstructured Data</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Data Category</th>
+<th style="text-align: left;">Characteristics</th>
+<th style="text-align: left;">Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Structured</strong></td>
+<td style="text-align: left;">Highly organized, formatted in rows/columns. Easily searchable.</td>
+<td style="text-align: left;">Excel sheets, SQL databases, CSV files.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Unstructured</strong></td>
+<td style="text-align: left;">No predefined format. Difficult to collect and analyze.</td>
+<td style="text-align: left;">Images, audio files, videos, PDF documents, social media posts.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Exam Tip: Unstructured Data</p>
+<p>Generative AI and Foundation Models are primarily used to extract value from <strong>unstructured data</strong> (text, images, video) which traditional ML struggles with.</p>
+</div>
+<hr />
+<h3 id="11-quick-rule-of-thumb-supervised-vs-unsupervised">1.1 Quick Rule of Thumb: Supervised vs. Unsupervised</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Learning Type</th>
+<th style="text-align: left;">Keyword</th>
+<th style="text-align: left;">Analogy</th>
+<th style="text-align: left;">Exam Trigger Words</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Supervised</strong></td>
+<td style="text-align: left;"><strong>Answers</strong></td>
+<td style="text-align: left;">A student with an answer key.</td>
+<td style="text-align: left;">"Labeled data", "Predict $X$", "Classify as $Y$".</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Unsupervised</strong></td>
+<td style="text-align: left;"><strong>Patterns</strong></td>
+<td style="text-align: left;">An explorer discovering a new land.</td>
+<td style="text-align: left;">"Unlabeled", "Groups", "Clusters", "Anomalies".</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Common Misconception: Prediction vs. Discovery</p>
+<p>It is a common mistake to think Unsupervised is for prediction. Remember:</p>
+<h4 id="1-supervised-learning-prediction">1. Supervised Learning = Prediction 🎯</h4>
+<p>You give the model "Factual Data" (Labeled examples) so that it can <strong>Predict</strong> those same facts for new data.
+*   <strong>The Fact:</strong> "This transaction was Fraud."
+*   <strong>The Prediction:</strong> "Based on the facts I learned, I <strong>predict</strong> this new transaction is also Fraud."
+*   <strong>Exam Logic:</strong> If the goal is to <strong>Predict</strong> a specific value (Price, Category, Yes/No), it is <strong>Supervised</strong>.</p>
+<h4 id="2-unsupervised-learning-discovery">2. Unsupervised Learning = Discovery 🔍</h4>
+<p>Since you don't have "Facts" (Labels), you aren't predicting a right answer. Instead, you are <strong>Discovering</strong> hidden structures.
+*   <strong>The Discovery:</strong> "I noticed these 5,000 customers all buy diapers and beer at 7 PM on Fridays."
+*   <strong>The Value:</strong> You didn't "predict" they would do that; you <strong>discovered</strong> a group you didn't know existed.
+*   <strong>Exam Logic:</strong> If the goal is to <strong>Discover</strong> groups, patterns, or anomalies, it is <strong>Unsupervised</strong>.</p>
+</div>
+<hr />
+<h2 id="2-the-machine-learning-paradigms">2. The Machine Learning Paradigms</h2>
+<p>Training data is fed into machine learning algorithms to create a model. This process is divided into four broad categories:</p>
+<h3 id="21-supervised-learning">2.1 Supervised Learning</h3>
+<p>The algorithms are trained on <strong>labeled data</strong>. 
+*   <strong>Goal:</strong> Learn a <strong>mapping function</strong> that can predict the output for new, unseen input data.</p>
+<div class="admonition info">
+<p class="admonition-title">What is a Mapping Function?</p>
+<p>Think of it as a mathematical "rule" or "recipe" ($Y=f(X)$). The model analyzes labeled examples to figure out the specific rule that transforms <strong>Inputs (X)</strong> into <strong>Outputs (Y)</strong>. Once it knows the rule, it can apply it to brand-new data to make a prediction.</p>
+</div>
+<ul>
+<li><strong>Classification:</strong> Assigns labels or categories to data.<ul>
+<li><strong>Use Cases:</strong> Fraud detection, Image classification, Customer retention, Diagnostics.</li>
+</ul>
+</li>
+<li><strong>Regression:</strong> Predicts continuous or numerical values.<ul>
+<li><strong>Use Cases:</strong> Weather forecasting, Market forecasting, Estimating life expectancy, Advertising popularity.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">How to Choose: Classification vs. Regression?</p>
+<p>In the exam, look at the <strong>target value</strong> the algorithm is trying to predict:
+*   <strong>Discrete (Categories):</strong> If the answer is a "Word" or a specific "Group" (e.g., Cat vs. Dog), use <strong>Classification</strong>.
+*   <strong>Continuous (Numbers):</strong> If the answer is a "Measurement" or a "Count" (e.g., $450.25 or 72 degrees), use <strong>Regression</strong>.</p>
+</div>
+<h3 id="22-unsupervised-learning">2.2 Unsupervised Learning</h3>
+<p>Algorithms that learn from <strong>unlabeled data</strong>. 
+*   <strong>Goal:</strong> Discover <strong>inherent patterns, structures, or relationships</strong> within the input data.</p>
+<h4 id="how-it-works">How it Works:</h4>
+<ul>
+<li><strong>Clustering:</strong> Groups data based on <strong>Similarity</strong> and <strong>Distance</strong>. Even without labels, the model identifies which items "look alike" and puts them in groups.<ul>
+<li><strong>Use Cases:</strong> Customer segmentation, Targeted marketing, Recommendation systems.</li>
+</ul>
+</li>
+<li><strong>Dimensionality Reduction:</strong> Simplifies large datasets by removing <strong>Noise</strong> and <strong>Redundant</strong> features. <ul>
+<li><strong>Mechanism:</strong> It squishes 100s of variables into 2 or 3 "main" dimensions to help with <strong>Visualization</strong> and speed.</li>
+<li><strong>ELI5 Analogy:</strong> Imagine you have a LEGO piece with 20 different details (color, weight, factory, material). Dimensionality reduction is like picking only the 2 or 3 most important details (size and color) so you can describe the piece simply without getting overwhelmed by the boring stuff.</li>
+<li><strong>Use Cases:</strong> Big data visualization, Significant compression, Structure discovery.</li>
+</ul>
+</li>
+</ul>
+<h3 id="23-reinforcement-learning">2.3 Reinforcement Learning</h3>
+<p>The machine is given only a <strong>performance score</strong> as guidance. An <strong>agent</strong> learns through trial and error as it interacts in an <strong>environment</strong> based on feedback in the form of <strong>rewards and penalties</strong>.
+*   <strong>Goal:</strong> Improve decision-making over time to maximize the reward.
+*   <strong>Example:</strong> In <strong>AWS DeepRacer</strong>, a virtual car (agent) learns to navigate a track (environment) by receiving rewards for staying on the track and completing it quickly.
+*   <strong>Best For:</strong> When the desired outcome is known but the specific path to achieve it requires exploration.</p>
+<h3 id="24-semi-supervised-learning">2.4 Semi-Supervised Learning</h3>
+<p>A hybrid approach using a small amount of labeled data and a large amount of unlabeled data to improve accuracy and structure.</p>
+<div class="admonition note">
+<p class="admonition-title">Exam Perspective: Self-Supervised Learning</p>
+<p><strong>Foundation Models</strong> often use <strong>Self-Supervised Learning</strong>, where the data itself provides the labels (e.g., predicting the next word in a sentence).</p>
+</div>
+<hr />
+<h2 id="3-determining-the-appropriate-solution">3. Determining the Appropriate Solution</h2>
+<p>Before applying AI or ML, you must determine if it is the right fit for the business problem.</p>
+<h3 id="when-aiml-is-appropriate">When AI/ML IS Appropriate:</h3>
+<ul>
+<li><strong>Manual Rules are Challenging:</strong> When the rules are too complex for humans to code (e.g., Spam filtering with millions of overlapping variables).</li>
+<li><strong>Scale is Challenging:</strong> When the volume of data is too large for manual human analysis (e.g., scanning millions of emails in real-time).</li>
+</ul>
+<h3 id="when-aiml-is-not-appropriate">When AI/ML IS NOT Appropriate:</h3>
+<ul>
+<li><strong>Simple Rules Suffice:</strong> If you can determine the target value using simple math, logic, or predefined steps (e.g., calculating sales tax).</li>
+<li><strong>No Data Patterns:</strong> If there is no historical data or patterns to learn from.</li>
+</ul>
+<hr />
+<h2 id="4-inferencing-using-the-model">4. Inferencing: Using the Model</h2>
+<p>Once a model has been trained, it is used to make predictions or decisions on new data. This process is called <strong>Inferencing</strong>. </p>
+<p>There are two main ways to perform inferencing on AWS:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Batch Inferencing</strong></td>
+<td style="text-align: left;">Running predictions on a large group (batch) of data all at once. Usually processed on a schedule (e.g., overnight).</td>
+<td style="text-align: left;">Monthly credit scores, product recommendation emails, financial reporting.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Real-time Inferencing</strong></td>
+<td style="text-align: left;">Running predictions immediately as new data arrives. Requires low-latency response.</td>
+<td style="text-align: left;">Fraud detection at checkout, chatbot responses, navigation apps.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Exam Tip: Cost vs. Performance</p>
+<p><strong>Batch Inferencing</strong> is generally more cost-effective because it doesn't require "always-on" infrastructure, while <strong>Real-time Inferencing</strong> is required for interactive user experiences.</p>
+</div>
+<hr />
+<hr />
+<h2 id="5-model-performance-concepts-bias-variance">5. Model Performance Concepts (Bias &amp; Variance)</h2>
+<p>Accuracy is the #1 problem in AI applications. If a model is not trained properly, it will produce inaccurate results. This is measured through two primary metrics: <strong>Bias</strong> and <strong>Variance</strong>.</p>
+<h3 id="the-bullseye-analogy">🎯 The Bullseye Analogy</h3>
+<p>Think of the center of a bullseye as the actual label or target you are aiming for. Each dot is a prediction result from your model.</p>
+<p><img alt="Bias-Variance Bullseye" src="assets/bias-variance-bullseye.png" /></p>
+<ul>
+<li><strong>Bias:</strong> The gap between your predicted value and the actual value (how far you are from the center).</li>
+<li><strong>Variance:</strong> How dispersed or scattered your predicted values are (how inconsistent your shots are).</li>
+</ul>
+<p>The goal is to find the perfect balance:
+*   <strong>Balanced Model:</strong> Low bias and low variance. It captures enough patterns without memorizing the noise.
+*   <strong>The Tradeoff:</strong> Decreasing bias often increases variance, and vice versa. It is impossible to avoid this tradeoff entirely; the goal is to find the "sweet spot."</p>
+<p><img alt="Bias-Variance Fit Comparison" src="assets/bias-variance-fit-comparison.png" /></p>
+<div class="admonition quote">
+<p class="admonition-title">Can we avoid these algorithms?</p>
+<p>No. Every algorithm has a natural tendency toward one or the other. Instead of avoiding them, we use <strong>Ensemble Methods</strong> (like <strong>Random Forest</strong> or <strong>XGBoost</strong>) which combine many simple models to cancel out each other's bias and variance, leading to a much more "Balanced" result.</p>
+</div>
+<h3 id="54-techniques-to-overcome-errors">5.4 Techniques to Overcome Errors</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Technique</th>
+<th style="text-align: left;">Goal</th>
+<th style="text-align: left;">How it Works</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Cross-Validation</strong></td>
+<td style="text-align: left;">Detect Overfitting</td>
+<td style="text-align: left;">Training the model on different subsets of data to evaluate consistency.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Increase Data</strong></td>
+<td style="text-align: left;">Reduce Variance</td>
+<td style="text-align: left;">Adding more samples increases the model's learning scope.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Regularization</strong></td>
+<td style="text-align: left;">Prevent Overfitting</td>
+<td style="text-align: left;">Penalizes extreme weight values in linear models.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Simpler Models</strong></td>
+<td style="text-align: left;">Fix Overfitting</td>
+<td style="text-align: left;">Reducing complexity prevents the model from memorizing noise.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dimension Reduction</strong></td>
+<td style="text-align: left;">Simplify Data</td>
+<td style="text-align: left;">(e.g., PCA) Reduces features while retaining essential info.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stop Early</strong></td>
+<td style="text-align: left;">Prevent Overfitting</td>
+<td style="text-align: left;">Ending training before the model starts "memorizing" the data.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Infra vs. Logic</p>
+<p>For the exam, remember: <strong>Bias and Variance are "Logic" problems.</strong>
+*   <strong>Underfitting</strong> isn't caused by a slow CPU; it's caused by a <strong>math formula</strong> that is too simple.
+*   <strong>Overfitting</strong> isn't caused by too much RAM; it's caused by a <strong>math formula</strong> that is too complex and "memorizes" the noise.
+*   <strong>AWS Infrastructure</strong> (like SageMaker GPU instances) just determines how <em>fast</em> or <em>large</em> of a model you can train.</p>
+</div>
+<hr />
+<h2 id="6-evaluation-metrics">6. Evaluation Metrics</h2>
+<ul>
+<li><strong>Accuracy:</strong> Percentage of correct predictions.</li>
+<li><strong>Precision:</strong> How many of the "Positive" predictions were actually correct? (<strong>Avoids False Positives</strong>).</li>
+<li><strong>Recall:</strong> How many of the actual "Positives" did we find? (<strong>Avoids False Negatives</strong>).</li>
+<li><strong>F1-Score:</strong> The balance between Precision and Recall.</li>
+<li><strong>RMSE:</strong> Root Mean Square Error, used to measure accuracy in <strong>Regression</strong> problems.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Exam Perspective: Precision vs. Recall</p>
+<ul>
+<li>Use <strong>Precision</strong> when the cost of a False Positive is high (e.g., marking a legitimate email as Spam).</li>
+<li>Use <strong>Recall</strong> when the cost of a False Negative is high (e.g., missing a Cancer diagnosis).</li>
+<li><strong>F1-Score</strong> is the best "all-around" metric when you have an imbalanced dataset.</li>
+</ul>
+</div>
+<hr />
+<p><em>Last Updated: Jan 2026</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

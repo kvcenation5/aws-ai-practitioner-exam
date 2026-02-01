@@ -1,0 +1,2035 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Deep dive study notes for the AWS Certified AI Practitioner (AIF-C01) exam.">
+      
+      
+        <meta name="author" content="Dhee">
+      
+      
+      
+        <link rel="prev" href="../02-deep-learning-fundamentals/">
+      
+      
+        <link rel="next" href="../04-aws-infrastructure-technologies/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Generative AI - AWS AI Practitioner Exam Study Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#key-capabilities-of-generative-ai" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS AI Practitioner Exam Study Guide" class="md-header__button md-logo" aria-label="AWS AI Practitioner Exam Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS AI Practitioner Exam Study Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Generative AI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/yourusername/aws-ai-practitioner-exam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href=".." class="md-tabs__link">
+          
+  
+  
+  Fundamentals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../04-aws-infrastructure-technologies/" class="md-tabs__link">
+          
+  
+  
+  Infrastructure & AI Services
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../05-prompt-engineering/" class="md-tabs__link">
+          
+  
+  
+  Model Optimization
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../07-model-evaluation-and-metrics/" class="md-tabs__link">
+          
+  
+  
+  Performance & Use Cases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../09-responsible-ai/" class="md-tabs__link">
+          
+  
+  
+  Safety, Risks & Governance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../stephane-maarek-course/" class="md-tabs__link">
+          
+  
+  
+  Courses
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS AI Practitioner Exam Study Guide" class="md-nav__button md-logo" aria-label="AWS AI Practitioner Exam Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AWS AI Practitioner Exam Study Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/yourusername/aws-ai-practitioner-exam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ml-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-deep-learning-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generative AI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-capabilities-of-generative-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Capabilities of Generative AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-foundation-models-fms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Foundation Models (FMs)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Foundation Models (FMs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amazon-bedrock-model-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Bedrock Model Providers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-fm-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. FM Lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. FM Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-data-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Data Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pre-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Pre-training
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Evaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-feedback-and-continuous-improvement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Feedback and Continuous Improvement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-architectures-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core Architectures &amp; Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Core Architectures &amp; Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#large-language-models-llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Large Language Models (LLMs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diffusion-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diffusion Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multimodal-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multimodal Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-generative-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Generative Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-optimizing-model-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Optimizing Model Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Optimizing Model Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt Engineering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fine-Tuning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieval-augmented-generation-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrieval-Augmented Generation (RAG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-key-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Key Terminology
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure & AI Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Infrastructure & AI Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-aws-infrastructure-technologies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-sagemaker-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SageMaker AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Optimization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Model Optimization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-prompt-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance & Use Cases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Performance & Use Cases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-model-evaluation-and-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluation & Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-ai-business-use-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Use Cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safety, Risks & Governance
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Safety, Risks & Governance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-responsible-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsible AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-security-compliance-governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-prompt-misuse-risks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Misuse & Risks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Courses
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stephane-maarek-course/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stephane Maarek (Udemy)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-capabilities-of-generative-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Capabilities of Generative AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-foundation-models-fms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Foundation Models (FMs)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Foundation Models (FMs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amazon-bedrock-model-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Bedrock Model Providers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-fm-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. FM Lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. FM Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-data-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Data Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pre-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Pre-training
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Evaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-feedback-and-continuous-improvement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Feedback and Continuous Improvement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-architectures-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core Architectures &amp; Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Core Architectures &amp; Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#large-language-models-llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Large Language Models (LLMs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diffusion-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diffusion Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multimodal-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multimodal Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-generative-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Generative Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-optimizing-model-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Optimizing Model Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Optimizing Model Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt Engineering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fine-Tuning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieval-augmented-generation-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrieval-Augmented Generation (RAG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-key-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Key Terminology
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Generative AI</h1>
+
+<p># Generative AI Fundamentals</p>
+<blockquote>
+<p><strong>AWS AI Practitioner Exam (AIF-C01) Study Guide</strong></p>
+</blockquote>
+<p>Generative AI (GenAI) is a subset of deep learning that creates new content (text, images, audio, etc.) by learning patterns from massive datasets. <strong>It is considered a subset of deep learning because it adapts models built using deep learning (often without needing retraining or fine-tuning).</strong></p>
+<p>It is capable of generating entirely new data, including conversations, stories, images, videos, music, and code.</p>
+<h3 id="key-capabilities-of-generative-ai">Key Capabilities of Generative AI</h3>
+<ul>
+<li><strong>Adaptability:</strong> Models can adapt to various tasks and domains by learning from data and generating content tailored to specific contexts.</li>
+<li><strong>Responsiveness:</strong> Real-time generation allows for rapid response times and dynamic interactions (e.g., chatbots).</li>
+<li><strong>Simplicity:</strong> Simplifies complex tasks by automating content creation (e.g., reducing human effort in writing).</li>
+<li><strong>Creativity and Exploration:</strong> Fosters innovation by generating novel ideas, designs, or solutions through unique combinations.</li>
+<li><strong>Data Efficiency:</strong> Some models can learn from small amounts of data and generate new, consistent samples.</li>
+<li><strong>Personalization:</strong> Creates content tailored to individual preferences, enhancing engagement.</li>
+<li><strong>Scalability:</strong> Once trained, models can produce massive amounts of content quickly across industries.</li>
+</ul>
+<hr />
+<h2 id="1-foundation-models-fms">1. Foundation Models (FMs)</h2>
+<p>Generative AI is powered by <strong>Foundation Models</strong>. These are models pretrained on internet-scale, unlabeled data.</p>
+<ul>
+<li><strong>One Model, Many Tasks:</strong> Unlike traditional ML which requires a new model for every task, a single FM can be adapted for text generation, summarization, image creation, chatbot interactions, and more.</li>
+<li><strong>Starting Point:</strong> FMs serve as the base for building specialized models for specific industries (like medical or legal).</li>
+</ul>
+<h3 id="amazon-bedrock-model-providers">Amazon Bedrock Model Providers</h3>
+<p>AWS provides access to high-performing foundation models through <strong>Amazon Bedrock</strong>. Each provider specializes in different tasks:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Provider</th>
+<th style="text-align: left;">Key Model Series</th>
+<th style="text-align: left;">Primary Tasks</th>
+<th style="text-align: left;">Example Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>AI21 Labs</strong></td>
+<td style="text-align: left;">Jurassic-2</td>
+<td style="text-align: left;">Text generation, Summarization, Paraphrasing, Information extraction.</td>
+<td style="text-align: left;"><strong>Finance:</strong> Summarizing lengthy financial reports.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Amazon</strong></td>
+<td style="text-align: left;">Titan</td>
+<td style="text-align: left;">Text generation, Summarization, Classification, Embeddings, Search/Image generation.</td>
+<td style="text-align: left;"><strong>AdTech:</strong> Creating studio-quality images for campaigns.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Anthropic</strong></td>
+<td style="text-align: left;">Claude</td>
+<td style="text-align: left;">Content generation, Translation, Q&amp;A, Summarization, Code generation/debugging.</td>
+<td style="text-align: left;"><strong>Legal:</strong> Parsing legal documents and answering specific questions.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stability AI</strong></td>
+<td style="text-align: left;">Stable Diffusion</td>
+<td style="text-align: left;">Generating photo-realistic images, Improving image quality.</td>
+<td style="text-align: left;"><strong>Gaming:</strong> Creating characters and immersive worlds.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cohere</strong></td>
+<td style="text-align: left;">Command</td>
+<td style="text-align: left;">Text generation, Information extraction, Q&amp;A, Summarization.</td>
+<td style="text-align: left;"><strong>Healthcare:</strong> Summarizing key ideas from long medical texts.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Meta</strong></td>
+<td style="text-align: left;">Llama</td>
+<td style="text-align: left;">Q&amp;A, Chat, Summarization, Sentiment analysis, Text generation.</td>
+<td style="text-align: left;"><strong>Customer Service:</strong> Powering support chatbots.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Exam Tip: Balancing Model Size</p>
+<ul>
+<li><strong>Large Models:</strong> More precise and capable but expensive and slower (higher latency).</li>
+<li><strong>Small Models:</strong> Faster and cheaper (lower latency) but may have lower accuracy for complex tasks.</li>
+</ul>
+</div>
+<hr />
+<h2 id="2-fm-lifecycle">2. FM Lifecycle</h2>
+<h3 id="1-data-selection">1. Data Selection</h3>
+<p>Unlabeled data can be used at scale for pre-training because it is much easier to obtain compared to labeled data. Unlabeled data includes raw data, such as images, text files, or videos, with no meaningful informative labels to provide context. FMs require training on massive datasets from diverse sources.</p>
+<h3 id="2-pre-training">2. Pre-training</h3>
+<p>Although traditional ML models rely on supervised, unsupervised, or reinforcement learning patterns, FMs are typically pre-trained through <strong>self-supervised learning</strong>. With self-supervised learning, labeled examples are not required. Self-supervised learning makes use of the structure within the data to autogenerate labels.</p>
+<p>During the initial pre-training stage, the FM's algorithm can learn the meaning, context, and relationship of the words in the datasets. </p>
+<p>After the initial pre-training, the model can be further pre-trained on additional data. This is known as <strong>continuous pre-training</strong>. </p>
+<div class="admonition warning">
+<p class="admonition-title">Exam Perspective: Pre-training vs. Fine-tuning</p>
+<p><strong>Pre-training</strong> involves training on massive unlabeled datasets and is extremely expensive (millions of dollars). <strong>Fine-tuning</strong> is done on smaller, labeled datasets to specialize a model and is much cheaper.</p>
+</div>
+<h3 id="3-optimization">3. Optimization</h3>
+<p>Pre-trained language models can be optimized through techniques like prompt engineering, retrieval-augmented generation (RAG), and fine-tuning on task-specific data. These methods vary in complexity and cost.</p>
+<h3 id="4-evaluation">4. Evaluation</h3>
+<p>Whether or not you fine-tune a model or use a pre-trained model off the shelf, the next logical step is to evaluate the model. An FM's performance can be measured using appropriate metrics and benchmarks.</p>
+<h3 id="5-deployment">5. Deployment</h3>
+<p>When the FM meets the desired performance criteria, it can be deployed in the target production environment. Deployment can involve integrating the model into applications, APIs, or other software systems.</p>
+<h3 id="6-feedback-and-continuous-improvement">6. Feedback and Continuous Improvement</h3>
+<p>After deployment, the model's performance is continuously monitored. The feedback loop permits continuous enhancement of the foundation model through fine-tuning, continuous pre-training, or re-training, as needed.</p>
+<hr />
+<h2 id="3-core-architectures-models">3. Core Architectures &amp; Models</h2>
+<h3 id="large-language-models-llms">Large Language Models (LLMs)</h3>
+<p>Large language models can be based on a variety of architectures, but the most common architecture in today's state-of-the-art models is the <strong>Transformer architecture</strong>. Transformer-based LLMs are powerful models that can understand and generate human-like text. They are trained on vast amounts of text data from the internet, books, and other sources, and learn patterns and relationships between words and phrases.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Tokens</label><label for="__tabbed_1_2">Embeddings and Vectors</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Tokens are the basic units of text that the model processes. Tokens can be words, phrases, or individual characters like a period. Tokens also provide standardization of input data, which makes it easier for the model to process.</p>
+<ul>
+<li><strong>Example:</strong> The sentence <em>"A puppy is to dog as a kitten is to cat."</em> might be broken up into: <code>“A”</code> <code>“puppy”</code> <code>“is”</code> <code>“to”</code> <code>“dog”</code> <code>“as”</code> <code>"a"</code> <code>“kitten”</code> <code>“is”</code> <code>“to”</code> <code>"cat."</code></li>
+</ul>
+<p><img alt="Tokenization Process" src="../assets/images/tokenization.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>Embeddings are numerical representations of tokens, where each token is assigned a <strong>vector</strong> (a list of numbers) that captures its meaning and relationships with other tokens. </p>
+<ul>
+<li><strong>Contextual Understanding:</strong> These vectors are learned during training and allow the model to understand the context and nuances of language.</li>
+<li><strong>Semantic Similarity:</strong> Similar concepts cluster together in the vector space.<ul>
+<li><em>Example:</em> <code>Vector("King") - Vector("Man") + Vector("Woman") ≈ Vector("Queen")</code>.</li>
+</ul>
+</li>
+<li><strong>Exam Perspective:</strong> <ul>
+<li><strong>Vectors</strong> are the "language" machines use to calculate meaning.</li>
+<li><strong>Embeddings</strong> enable <strong>RAG</strong> (Retrieval-Augmented Generation) by allowing similarity searches in vector databases (like Amazon OpenSearch or pgvector).</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<p>LLMs use these tokens, embeddings, and vectors to understand and generate text. They can capture complex relationships, allowing them to generate coherent text, answer questions, summarize information, and engage in creative writing.</p>
+<h3 id="diffusion-models">Diffusion Models</h3>
+<p>Diffusion is a deep learning architecture system that starts with <strong>pure noise</strong> or random data. The models gradually add more and more meaningful information to this noise until they end up with a clear and coherent output, like an image or a piece of text.</p>
+<div class="admonition info">
+<p class="admonition-title">Two-Step Process</p>
+<ol>
+<li><strong>Forward Diffusion:</strong> The system gradually introduces a small amount of noise to an input image until only the noise is left over.</li>
+<li><strong>Reverse Diffusion:</strong> In the subsequent reverse diffusion step, the noisy image is gradually introduced to denoising until a new image is generated.</li>
+</ol>
+</div>
+<p><img alt="Diffusion Process" src="../assets/images/diffusion.png" /></p>
+<h3 id="multimodal-models">Multimodal Models</h3>
+<p>Instead of relying on a single type of input or output, multimodal models can process and generate <strong>multiple modes of data simultaneously</strong>.
+*   <strong>Synergy:</strong> They learn how different modalities like images and text are connected and can influence each other.
+*   <strong>Use Cases:</strong> Automating video captioning, creating graphics from text instructions, answering questions by combining text and visual info, and translating content while keeping relevant visuals.</p>
+<h3 id="other-generative-models">Other Generative Models</h3>
+<details class="abstract">
+<summary>Generative Adversarial Networks (GANs)</summary>
+<p>GANs involve two neural networks competing against each other in a zero-sum game:</p>
+<ul>
+<li><strong>Generator:</strong> Generates new synthetic data from random noise to resemble training data.</li>
+<li><strong>Discriminator:</strong> Tries to distinguish between real data and the synthetic data from the generator.</li>
+<li><strong>Process:</strong> The goal is for the generator to eventually produce data indistinguishable from real data.</li>
+</ul>
+</details>
+<details class="abstract">
+<summary>Variational Autoencoders (VAEs)</summary>
+<p>VAEs are generative models that use an encoder-decoder architecture to create new data.</p>
+<ul>
+<li><strong>Encoder:</strong> Maps input data to a <strong>probability distribution</strong> in a lower-dimensional <strong>latent space</strong> (capturing core features like "smile intensity" or "hair color").</li>
+<li><strong>Decoder:</strong> Takes a sample from that distribution and generates a reconstruction or a brand-new variation.</li>
+<li><strong>Example:</strong> A VAE trained on faces can generate a new, non-existent face by "sampling" different feature combinations from the latent space.</li>
+<li><strong>Exam Tip:</strong> <ul>
+<li>VAEs are known for <strong>speed</strong> but can produce <strong>blurry</strong> images compared to Diffusion models.</li>
+<li>Key takeaway for exam: They use <strong>distributions</strong> in the latent space to ensure smooth transitions between generated features.</li>
+</ul>
+</li>
+</ul>
+</details>
+<hr />
+<h2 id="4-optimizing-model-outputs">4. Optimizing Model Outputs</h2>
+<p>The optimization phase of the FM lifecycle is critical for tailoring output to specific needs.</p>
+<h3 id="prompt-engineering">Prompt Engineering</h3>
+<p>Prompts act as instructions for foundation models. Prompt engineering focuses on developing, designing, and optimizing prompts to enhance output.</p>
+<div class="admonition example">
+<p class="admonition-title">Components of a Prompt</p>
+<ul>
+<li><strong>Instructions:</strong> Task description (what the FM should do).</li>
+<li><strong>Context:</strong> External information to guide the model.</li>
+<li><strong>Input Data:</strong> The specific content you want a response for.</li>
+<li><strong>Output Indicator:</strong> The desired output type or format.</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Exam Tip: Few-Shot vs. Zero-Shot</p>
+<ul>
+<li><strong>Zero-Shot:</strong> Asking the model to perform a task without any examples.</li>
+<li><strong>Few-Shot:</strong> Providing a few examples within the prompt to guide the model's output.</li>
+</ul>
+</div>
+<p><strong>Example Prompt:</strong></p>
+<blockquote>
+<p>"You are an experienced journalist that excels at condensing long articles into concise summaries. Summarize the following text in 2–3 sentences.
+<strong>Text:</strong> [Long article text goes here]"</p>
+</blockquote>
+<h3 id="fine-tuning">Fine-Tuning</h3>
+<p>Fine-tuning involves taking a pre-trained model and adding specific, smaller datasets to <strong>modify the weights</strong> of the model to better align with the task.</p>
+<ul>
+<li><strong>Instruction Fine-Tuning:</strong> Uses examples of how the model should respond to specific instructions (e.g., prompt tuning).</li>
+<li><strong>RLHF (Reinforcement Learning from Human Feedback):</strong> Uses human feedback data to align the model with human preferences.</li>
+<li><strong>Use Case:</strong> Fine-tuning a base model with articles from medical journals for specialized medical research tasks.</li>
+</ul>
+<h3 id="retrieval-augmented-generation-rag">Retrieval-Augmented Generation (RAG)</h3>
+<p>RAG supplies domain-relevant data as context to produce responses based on that data.
+*   <strong>Difference from Fine-Tuning:</strong> RAG retrieves relevant documents to provide context but <strong>will not change the weights</strong> of the foundation model.
+*   <strong>Benefit:</strong> Allows the model to answer questions based on private or up-to-date data without expensive retraining.
+*   <strong>Exam Perspective:</strong> RAG is the best choice when you need to reduce <strong>hallucinations</strong> and use data that changes frequently (e.g., daily news or company wikis).</p>
+<hr />
+<h2 id="5-key-terminology">5. Key Terminology</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Term</th>
+<th style="text-align: left;">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Hallucination</strong></td>
+<td style="text-align: left;">When a model generates factually incorrect but plausible-sounding info.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Context Window</strong></td>
+<td style="text-align: left;">The limit of how many tokens a model can "remember" or process at once.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Temperature</strong></td>
+<td style="text-align: left;">Controls randomness (0 = predictable/factual, 1+ = creative/random).</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Exam Perspective: Hallucinations</p>
+<p>Hallucinations are a key risk in GenAI. They are best mitigated using <strong>RAG</strong> (Grounding the model in facts) or <strong>Prompt Engineering</strong> (Telling the model to say "I don't know").</p>
+</div>
+<p>| <strong>Tokens</strong> | Small units of text that provide standardization for model processing. |</p>
+<hr />
+<p><em>Last Updated: Jan 2026</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
