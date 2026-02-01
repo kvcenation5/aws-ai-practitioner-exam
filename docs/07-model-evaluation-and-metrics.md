@@ -21,6 +21,29 @@ Evaluation occurs after a model is trained. To ensure a model generalizes well t
 
 ---
 
+## ⚖️ Model Fit
+
+Model fit is essential for understanding the root cause of poor model accuracy. By analyzing where the model fails, you can take specific corrective steps. 
+
+### Detecting Fit via Prediction Error
+You can determine the state of your model by comparing the **prediction error** on the **training data** versus the **evaluation data**.
+
+#### 1. Underfitting
+*   **Behavior:** Performs poorly on the **training data**.
+*   **Cause:** The model is too simple (the input features are not expressive enough) to capture the relationship between inputs (X) and target values (Y).
+*   **Visual:** The model remains far from the data points even in training.
+
+#### 2. Overfitting
+*   **Behavior:** Performs well on **training data** but poorly on **evaluation data**.
+*   **Cause:** The model has "memorized" the specific training examples and noise rather than learning the general underlying patterns. It is unable to **generalize** to unseen examples.
+*   **Visual:** The model zig-zags to hit every training point perfectly, missing the overall trend.
+
+#### 3. Balanced
+*   **Behavior:** Consistent performance across both training and evaluation data.
+*   **Goal:** The model is not overfit or underfit; it has captured the core trend without sacrificing generalization.
+
+---
+
 ## 1. Generative AI Metrics (LLMs)
 
 ### Perplexity (PPL)

@@ -150,6 +150,8 @@ Accuracy is the #1 problem in AI applications. If a model is not trained properl
 *   **ELI5 Analogy:** You tell a kid a dog is just "a thing with 4 legs." The kid sees a cow and calls it a dog because they were too simple.
 *   **Result (Underfitting):** The model performs poorly on **both** the training data and new data.
 
+![Underfitting Diagram](assets/underfitting.png)
+
 ### 5.2 Variance (Overfitting)
 *   **Definition:** Variance refers to the model's sensitivity to "noise" or fluctuations in the training data.
 *   **High Variance:** The model becomes too familiar with the training data and "memorizes" it instead of learning general patterns.
@@ -160,10 +162,14 @@ Accuracy is the #1 problem in AI applications. If a model is not trained properl
 *   **ELI5 Analogy:** You show a kid your tiny white poodle. The kid memorizes it so perfectly that when they see a big brown dog, they say "That's not a dog!" because it's not exactly like the one they saw.
 *   **Result (Overfitting):** The model performs with high accuracy on training data but **fails significantly** when introduced to new, unseen data.
 
+![Overfitting Diagram](assets/overfitting.png)
+
 ### 5.3 The Bias-Variance Tradeoff
 The goal is to find the perfect balance:
 *   **Balanced Model:** Low bias and low variance. It captures enough patterns without memorizing the noise.
 *   **The Tradeoff:** Decreasing bias often increases variance, and vice versa. It is impossible to avoid this tradeoff entirely; the goal is to find the "sweet spot."
+
+![Balanced Model Fit](assets/balanced-fit.png)
 
 !!! quote "Can we avoid these algorithms?"
     No. Every algorithm has a natural tendency toward one or the other. Instead of avoiding them, we use **Ensemble Methods** (like **Random Forest** or **XGBoost**) which combine many simple models to cancel out each other's bias and variance, leading to a much more "Balanced" result.
