@@ -94,9 +94,15 @@ Key Unsupervised Algorithms:
 *   **IP Insights:** An anomaly detection algorithm that learns patterns in IP addresses to identify suspicious activity.
 
 ### 3. Image Processing & Computer Vision
-*   **Image Classification:** Identifying the primary subject of an image.
-*   **Object Detection:** Locating and labeling multiple objects within an image.
-*   **Time Series Vision:** Specialized vision tasks involving temporal changes.
+SageMaker AI provides image processing algorithms for image classification, object detection, semantic segmentation, and time series forecasting.
+
+![SageMaker Image Processing Algorithms](assets/sagemaker-image-processing.png)
+
+Key Vision & Time Series Algorithms:
+*   **Image Classification:** Uses frameworks like **MXNet** and **TensorFlow** (e.g., ResNet, ImageNet) to identify the primary subject of an image.
+*   **Object Detection:** Identifies and locates multiple objects within an image or video frame.
+*   **Semantic Segmentation:** Provides pixel-level classification to identify the exact boundaries of objects. Key methods include **FCN** (Fully Convolutional Network), **PSP** (Pyramid Scene Parsing), and **DeepLab V3**.
+*   **DeepAR:** A supervised learning algorithm for forecasting one-dimensional **Time Series** data (e.g., predicting future sales or stock levels).
 
 ### 4. Text Analysis & NLP
 Algorithms tailored for analyzing textual documents:
