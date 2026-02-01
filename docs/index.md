@@ -141,35 +141,19 @@ There are two main ways to perform inferencing on AWS:
 
 Accuracy is the #1 problem in AI applications. If a model is not trained properly, it will produce inaccurate results. This is measured through two primary metrics: **Bias** and **Variance**.
 
-### 5.1 Bias (Underfitting)
-*   **Definition:** Bias measures the difference between the model's expected predictions and the true values. 
-*   **High Bias:** The model is too simple and misses important features of the dataset.
-*   **Algorithm Examples:** 
-    *   **Linear Regression:** Assumes everything is a straight line. If the data is a complex curve, it will miss the point.
-    *   **Logistic Regression:** A simple classifier that can't handle complex, overlapping patterns.
-*   **ELI5 Analogy:** You tell a kid a dog is just "a thing with 4 legs." The kid sees a cow and calls it a dog because they were too simple.
-*   **Result (Underfitting):** The model performs poorly on **both** the training data and new data.
+### 🎯 The Bullseye Analogy
+Think of the center of a bullseye as the actual label or target you are aiming for. Each dot is a prediction result from your model.
 
-![Underfitting Diagram](assets/underfitting.png)
+![Bias-Variance Bullseye](assets/bias-variance-bullseye.png)
 
-### 5.2 Variance (Overfitting)
-*   **Definition:** Variance refers to the model's sensitivity to "noise" or fluctuations in the training data.
-*   **High Variance:** The model becomes too familiar with the training data and "memorizes" it instead of learning general patterns.
-*   **Algorithm Examples:** 
-    *   **Decision Trees (unpruned):** If left to grow, they can create a branch for every single row of data, memorizing the dataset perfectly.
-    *   **k-Nearest Neighbors (k-NN) with k=1:** It only looks at the single closest neighbor, making it extremely sensitive to random noise.
-    *   **Deep Neural Networks:** With millions of "knobs" (parameters), they can easily memorize noise if not restricted.
-*   **ELI5 Analogy:** You show a kid your tiny white poodle. The kid memorizes it so perfectly that when they see a big brown dog, they say "That's not a dog!" because it's not exactly like the one they saw.
-*   **Result (Overfitting):** The model performs with high accuracy on training data but **fails significantly** when introduced to new, unseen data.
+*   **Bias:** The gap between your predicted value and the actual value (how far you are from the center).
+*   **Variance:** How dispersed or scattered your predicted values are (how inconsistent your shots are).
 
-![Overfitting Diagram](assets/overfitting.png)
-
-### 5.3 The Bias-Variance Tradeoff
 The goal is to find the perfect balance:
 *   **Balanced Model:** Low bias and low variance. It captures enough patterns without memorizing the noise.
 *   **The Tradeoff:** Decreasing bias often increases variance, and vice versa. It is impossible to avoid this tradeoff entirely; the goal is to find the "sweet spot."
 
-![Balanced Model Fit](assets/balanced-fit.png)
+![Bias-Variance Fit Comparison](assets/bias-variance-fit-comparison.png)
 
 !!! quote "Can we avoid these algorithms?"
     No. Every algorithm has a natural tendency toward one or the other. Instead of avoiding them, we use **Ensemble Methods** (like **Random Forest** or **XGBoost**) which combine many simple models to cancel out each other's bias and variance, leading to a much more "Balanced" result.

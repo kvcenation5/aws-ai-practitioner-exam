@@ -28,74 +28,82 @@ Model fit is essential for understanding the root cause of poor model accuracy. 
 ### Detecting Fit via Prediction Error
 You can determine the state of your model by comparing the **prediction error** on the **training data** versus the **evaluation data**.
 
-#### 1. Underfitting
+#### 1. Underfitting (High Bias)
 *   **Behavior:** Performs poorly on the **training data**.
-*   **Cause:** The model is too simple (the input features are not expressive enough) to capture the relationship between inputs (X) and target values (Y).
-*   **Visual:** The model remains far from the data points even in training.
+*   **Cause:** The model is too simple (the input features are not expressive enough).
 
-#### 2. Overfitting
+#### 2. Overfitting (High Variance)
 *   **Behavior:** Performs well on **training data** but poorly on **evaluation data**.
-*   **Cause:** The model has "memorized" the specific training examples and noise rather than learning the general underlying patterns. It is unable to **generalize** to unseen examples.
-*   **Visual:** The model zig-zags to hit every training point perfectly, missing the overall trend.
+*   **Cause:** The model has "memorized" the training noise rather than learning general patterns.
 
-#### 3. Balanced
-*   **Behavior:** Consistent performance across both training and evaluation data.
-*   **Goal:** The model is not overfit or underfit; it has captured the core trend without sacrificing generalization.
+#### 3. Balanced (Ideal)
+*   **Goal:** Low bias and low variance. Consistency across both training and evaluation data.
 
 ---
 
-## 1. Generative AI Metrics (LLMs)
+## 📊 Classification Problem Metrics
 
-### Perplexity (PPL)
-Perplexity measures how well a probability model predicts a sample. 
-*   **Conceptual Meaning:** "How confused is the model?"
-*   **Scoring:** **Lower is better.** A lower perplexity means the model is more confident in its predictions.
-*   **Key Fact:** It is an *intrinsic* metric, meaning it measures the model's internal logic without needing a human "correct answer" to compare against.
+Classification involves Assigning labels or categories to data. Evaluation is done by comparing model predictions against known target values in a "held-out" dataset.
 
-### ROUGE (Recall-Oriented Understudy for Gisting Evaluation)
-Used primarily for **Text Summarization**.
-*   **How it works:** It counts how many words in the model's summary also appear in a "reference" summary written by a human.
-*   **Metric Focus:** It focuses on **Recall** (did we capture all the important points?).
+### 🧩 The Confusion Matrix
+A confusion matrix is the building block for classification evaluation. It compares **Predicted Classes** against **Actual Classes**.
 
-### BLEU (Bilingual Evaluation Understudy)
-Used primarily for **Machine Translation**.
-*   **How it works:** It measures the overlap between a model's translation and a human's translation.
-*   **Metric Focus:** It focuses on **Precision** (how accurate are the words we chose?).
-
----
-
-## 2. Traditional ML Metrics (Recap)
-
-### Classification (Discrete Categories)
-*   **Accuracy:** Overall correctness. Useful only for balanced datasets.
-*   **Precision:** "Of all the positives we predicted, how many were right?" (Avoids False Positives).
-*   **Recall:** "Of all the actual positives that exist, how many did we find?" (Avoids False Negatives).
-*   **F1-Score:** The harmonic mean of Precision and Recall. Best for imbalanced data.
-*   **Confusion Matrix:** A table Layout showing True Positives (TP), False Positives (FP), True Negatives (TN), and False Negatives (FN).
-
-### Regression (Predicting Numbers)
-*   **RMSE (Root Mean Square Error):** Measures the average "distance" between the predicted number and the actual number. Penalizes large errors heavily.
-*   **MAE (Mean Absolute Error):** Similar to RMSE but doesn't penalize large outliers as aggressively.
-
----
-
-## 3. The "Confusion" vs. "Confidence" Comparison
-
-| Goal | Metric | Logic |
+| | Actual Positive | Actual Negative |
 | :--- | :--- | :--- |
-| **Measure Uncertainty** | **Perplexity** | How many options did the model struggle to choose between? |
-| **Measure Text Quality**| **ROUGE / BLEU** | How close is the output to a "perfect" human example? |
-| **Measure Factual Accuracy** | **Logprobs** | What was the mathematical probability (0-1) of the chosen word? |
+| **Predicted Positive** | **True Positive (TP)** | False Positive (FP) |
+| **Predicted Negative** | False Negative (FN) | **True Negative (TN)** |
+
+### Key Metrics
+*   **Accuracy** 
+    *   **Formula:** `(TP + TN) / (TP + TN + FP + FN)`
+    *   **Logic:** Overall correctness.
+    *   **Limitation:** Less effective when there are many True Negative cases (imbalanced data).
+*   **Precision**
+    *   **Formula:** `TP / (TP + FP)`
+    *   **Focus:** Proportion of positive predictions that are actually correct.
+    *   **When to use:** When the cost of **False Positives** is high.
+    *   *Example:* **Email Spam Filtering**. You don't want legitimate emails sent to spam.
+*   **Recall (Sensitivity)**
+    *   **Formula:** `TP / (TP + FN)`
+    *   **Focus:** Proportion of actual positives correctly identified.
+    *   **When to use:** When the cost of **False Negatives** is high.
+    *   *Example:* **Terminal Illness Diagnosis**. It is vital not to miss a sick patient.
+*   **F1-Score**
+    *   **Logic:** The harmonic mean of Precision and Recall. Best "all-around" metric for imbalanced datasets.
+*   **AUC-ROC (Area Under Curve)**
+    *   **ROC:** A probability curve plotting True Positive Rate vs. False Positive Rate at various thresholds.
+    *   **AUC:** Represents the degree of **separability**. It shows how well the model can distinguish between classes.
 
 ---
 
-## 4. Exam Tips: Which Metric to Choose?
+## 🔢 Regression Problem Metrics
 
-*   **Summarization/Captions?** Choose **ROUGE**.
-*   **Translation?** Choose **BLEU**.
-*   **Model "Guts"/Confidence?** Choose **Perplexity** or **Logprobs**.
-*   **Cancer detection or Medical?** Choose **Recall** (You cannot afford to miss a positive).
-*   **Email Spam filtering?** Choose **Precision** (You cannot afford to accidentally block a real email).
+Regression predicts continuous numerical values. Evaluation focuses on the difference between the prediction and the actual outcome.
+
+*   **Mean Squared Error (MSE)**
+    *   **Calculation:** Sum up the squares of the differences between predicted and actual values.
+    *   **Goal:** The **smaller the MSE**, the better the predictive accuracy.
+*   **R-Squared (R²)**
+    *   **Logic:** Explains the fraction of variance accounted for by the model (scored 0 to 1).
+    *   **Goal:** A value close to 1 indicates the model explains most of the data's variance.
+
+---
+
+## 🧠 Generative AI Metrics (LLMs)
+
+*   **Perplexity (PPL):** Measures "How confused is the model?" **Lower is better.**
+*   **ROUGE:** Used for **Summarization**. Focuses on Recall.
+*   **BLEU:** Used for **Translation**. Focuses on Precision.
+
+---
+
+## 💼 Business Metrics and KPIs
+
+Model performance must align with business goals established in the **Business Goal Identification** phase.
+
+*   **KPI Alignment:** Link numerical metrics (Precision/Recall) to business results like increasing sales or cutting costs.
+*   **Cost Functions:** Specify the economic impact of correct predictions vs. errors.
+*   **A/B Testing & Canary Deployments:** Experiment with multiple variants of a model to determine which best achieves business goals in production.
 
 ---
 *Last Updated: Jan 2026*
