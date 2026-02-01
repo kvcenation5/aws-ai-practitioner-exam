@@ -105,10 +105,15 @@ Key Vision & Time Series Algorithms:
 *   **DeepAR:** A supervised learning algorithm for forecasting one-dimensional **Time Series** data (e.g., predicting future sales or stock levels).
 
 ### 4. Text Analysis & NLP
-Algorithms tailored for analyzing textual documents:
-*   **Classification & Summarization:** Organizing documents or generating short versions.
-*   **Topic Modeling:** Discovering themes within text.
-*   **Language Transcription & Translation:** Converting speech to text or one language to another.
+SageMaker AI provides algorithms tailored to natural language processing (NLP), document classification, summarization, topic modeling, and language translation.
+
+![SageMaker Text Analysis Algorithms](assets/sagemaker-text-analysis.png)
+
+Key Text & NLP Algorithms:
+*   **BlazingText:** A highly optimized implementation of the **Word2Vec** and text classification algorithms. It can scale to large datasets and is useful for sentiment analysis and document labeling.
+*   **Sequence-to-Sequence (Seq2Seq):** Used for **Machine Translation** and speech-to-text tasks where the input and output are both sequences (e.g., translating a sentence from English to French).
+*   **Latent Dirichlet Allocation (LDA):** A non-neural algorithm used for **Topic Modeling** to discover hidden themes within a collection of documents.
+*   **Neural Topic Modeling (NTM):** A neural network-based approach to **Topic Modeling** that can often discover more complex patterns than LDA.
 
 ---
 *Last Updated: Jan 2026*
