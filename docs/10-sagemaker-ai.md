@@ -81,11 +81,17 @@ Key Supervised Algorithms:
 *   **K-Nearest Neighbors (KNN):** Simple, proximity-based prediction.
 
 ### 2. Unsupervised Learning
-Used for discovering hidden patterns without labels:
-*   **Clustering:** Grouping similar data points.
-*   **Dimension Reduction:** Simplifying complex datasets.
-*   **Topic Modeling:** Pattern recognition in large text corpora.
-*   **Anomaly Detection:** Identifying outliers in data streams.
+SageMaker AI provides several built-in algorithms that can be used for unsupervised learning tasks such as clustering, dimension reduction, topic modeling, and anomaly detection.
+
+![SageMaker Unsupervised Learning Algorithms](assets/sagemaker-unsupervised-algorithms.png)
+
+Key Unsupervised Algorithms:
+*   **K-means:** Used for clustering similar data points into different groups.
+*   **Latent Dirichlet Allocation (LDA):** Used for **Topic Modeling** and finding patterns in high-dimensional datasets.
+*   **Object2Vec:** Creates **Embeddings** (low-dimensional vectors) for complex objects like words or users to measure similarity.
+*   **Principal Component Analysis (PCA):** Reduces the number of features (**Dimensionality Reduction**) while retaining as much information as possible.
+*   **Random Cut Forest (RCF):** Specifically designed for **Anomaly Detection** in streaming or batch data.
+*   **IP Insights:** An anomaly detection algorithm that learns patterns in IP addresses to identify suspicious activity.
 
 ### 3. Image Processing & Computer Vision
 *   **Image Classification:** Identifying the primary subject of an image.
