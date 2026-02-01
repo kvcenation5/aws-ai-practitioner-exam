@@ -74,46 +74,48 @@ SageMaker AI provides several built-in general-purpose algorithms that you can u
 
 ![SageMaker Supervised Learning Algorithms](assets/sagemaker-supervised-algorithms.png)
 
-Key Supervised Algorithms:
-*   **Linear Learner:** Used for linear regression or classification.
-*   **XGBoost:** An optimized gradient boosting library.
-*   **Factorization Machines:** Often used for high-dimensional data like recommendation systems.
-*   **K-Nearest Neighbors (KNN):** Simple, proximity-based prediction.
+| Algorithm | Exam Triggers / Keywords | Typical Use Case |
+| :--- | :--- | :--- |
+| **Linear Learner** | "Base-line," "Simple Regression/Classification," "Yes/No." | Predicting a simple value like a house price or a binary choice (Stay/Leave). |
+| **XGBoost** | **"Tabular Data,"** "Highly Accurate," "Structured Data." | Predicting customer churn or mortgage defaults using CSV/spreadsheet data. |
+| **Factorization Machines** | **"Sparse Data,"** "Recommendation Systems." | Predicting how a user will rate a movie based on a massive list of other users' ratings. |
+| **K-Nearest Neighbors (KNN)** | "Proximity," "Similarity," "Non-parametric." | Classifying an image based on how similar it is to other images in the database. |
 
 ### 2. Unsupervised Learning
-SageMaker AI provides several built-in algorithms that can be used for unsupervised learning tasks such as clustering, dimension reduction, topic modeling, and anomaly detection.
+Used for discovering hidden patterns without the need for pre-existing labels.
 
 ![SageMaker Unsupervised Learning Algorithms](assets/sagemaker-unsupervised-algorithms.png)
 
-Key Unsupervised Algorithms:
-*   **K-means:** Used for clustering similar data points into different groups.
-*   **Latent Dirichlet Allocation (LDA):** Used for **Topic Modeling** and finding patterns in high-dimensional datasets.
-*   **Object2Vec:** Creates **Embeddings** (low-dimensional vectors) for complex objects like words or users to measure similarity.
-*   **Principal Component Analysis (PCA):** Reduces the number of features (**Dimensionality Reduction**) while retaining as much information as possible.
-*   **Random Cut Forest (RCF):** Specifically designed for **Anomaly Detection** in streaming or batch data.
-*   **IP Insights:** An anomaly detection algorithm that learns patterns in IP addresses to identify suspicious activity.
+| Algorithm | Exam Triggers / Keywords | Typical Use Case |
+| :--- | :--- | :--- |
+| **K-means** | **"Clustering,"** "Groupings," "Segmentation." | Dividing a customer base into 4 groups based on spending habits for targeted ads. |
+| **LDA & NTM** | **"Topic Modeling,"** "Document Themes." | Scanning 10,000 news articles to find the top 5 common themes (Politics, Sports, etc.). |
+| **Object2Vec** | **"Embeddings,"** "Vectorization," "Similarity Scaling." | Creating a math-based representation of a book to suggest "similar" reads. |
+| **PCA** | **"Feature Reduction,"** "Visualization," "Removing Noise." | Turning 100 complicated data columns into 3 "main" columns to simplify the dataset. |
+| **Random Cut Forest (RCF)** | **"Anomaly Detection,"** "Streaming Data," "Outliers." | Spotting a sudden, suspicious spike in login attempts on a secure website. |
+| **IP Insights** | "IP Addresses," "Security Patterns," "Anomalies." | Flagging a login attempt if the IP address is geographically distant from the user's home. |
 
 ### 3. Image Processing & Computer Vision
-SageMaker AI provides image processing algorithms for image classification, object detection, semantic segmentation, and time series forecasting.
+Specialized algorithms for visual data and time-series forecasting.
 
 ![SageMaker Image Processing Algorithms](assets/sagemaker-image-processing.png)
 
-Key Vision & Time Series Algorithms:
-*   **Image Classification:** Uses frameworks like **MXNet** and **TensorFlow** (e.g., ResNet, ImageNet) to identify the primary subject of an image.
-*   **Object Detection:** Identifies and locates multiple objects within an image or video frame.
-*   **Semantic Segmentation:** Provides pixel-level classification to identify the exact boundaries of objects. Key methods include **FCN** (Fully Convolutional Network), **PSP** (Pyramid Scene Parsing), and **DeepLab V3**.
-*   **DeepAR:** A supervised learning algorithm for forecasting one-dimensional **Time Series** data (e.g., predicting future sales or stock levels).
+| Task | Exam Triggers / Keywords | Typical Use Case |
+| :--- | :--- | :--- |
+| **Image Classification** | **"What is it?"** "Single Label," "ResNet/ImageNet." | Identifying if a photo contains a "Tractor" or a "Truck." |
+| **Object Detection** | **"Where is it?"** "Multiple Labels," "Bounding Boxes." | Drawing boxes around every "Car," "Pedestrian," and "Stop Sign" in a video frame. |
+| **Semantic Segmentation** | **"Pixel-level,"** "Masking," "Precise Boundaries." | Identifying the exact pixels that belong to a tumor in a medical X-ray. |
+| **DeepAR** | **"Forecasting,"** "Seasonality," "Time Series." | Predicting how many umbrellas you need to stock for next week's rain forecast. |
 
 ### 4. Text Analysis & NLP
-SageMaker AI provides algorithms tailored to natural language processing (NLP), document classification, summarization, topic modeling, and language translation.
+Algorithms designed for understanding and generating human-like text.
 
 ![SageMaker Text Analysis Algorithms](assets/sagemaker-text-analysis.png)
 
-Key Text & NLP Algorithms:
-*   **BlazingText:** A highly optimized implementation of the **Word2Vec** and text classification algorithms. It can scale to large datasets and is useful for sentiment analysis and document labeling.
-*   **Sequence-to-Sequence (Seq2Seq):** Used for **Machine Translation** and speech-to-text tasks where the input and output are both sequences (e.g., translating a sentence from English to French).
-*   **Latent Dirichlet Allocation (LDA):** A non-neural algorithm used for **Topic Modeling** to discover hidden themes within a collection of documents.
-*   **Neural Topic Modeling (NTM):** A neural network-based approach to **Topic Modeling** that can often discover more complex patterns than LDA.
+| Algorithm | Exam Triggers / Keywords | Typical Use Case |
+| :--- | :--- | :--- |
+| **BlazingText** | **"Word2Vec,"** "High-speed Text Classif," "Sentiment Analysis." | Determining if 1 million app reviews are "Positive" or "Negative" in seconds. |
+| **Seq2Seq** | **"Translation,"** "Summarization," "Speech-to-Text." | Automatically translating a legal document from English to French. |
 
 ---
 *Last Updated: Jan 2026*
