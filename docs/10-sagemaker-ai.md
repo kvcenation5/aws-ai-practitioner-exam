@@ -67,12 +67,18 @@ SageMaker AI provides multiple ways to build models, ranging from "zero-effort" 
 
 ## 🧮 SageMaker AI Built-in Algorithms (Cheat Sheet)
 
-SageMaker AI offers pre-built algorithms for a wide range of ML tasks. Below are the most common categories:
+SageMaker AI provides algorithms for different categories of machine learning problems. This is a shortlist of the most common algorithms. Refer to the SageMaker AI documentation for a complete list and further details.
 
 ### 1. Supervised Learning
-General-purpose algorithms tailored for:
-*   **Classification:** Identifying discrete categories (e.g., Fraud vs. Not Fraud).
-*   **Regression:** Predicting continuous numerical values (e.g., Housing Prices).
+SageMaker AI provides several built-in general-purpose algorithms that you can use for either classification or regression problems.
+
+![SageMaker Supervised Learning Algorithms](assets/sagemaker-supervised-algorithms.png)
+
+Key Supervised Algorithms:
+*   **Linear Learner:** Used for linear regression or classification.
+*   **XGBoost:** An optimized gradient boosting library.
+*   **Factorization Machines:** Often used for high-dimensional data like recommendation systems.
+*   **K-Nearest Neighbors (KNN):** Simple, proximity-based prediction.
 
 ### 2. Unsupervised Learning
 Used for discovering hidden patterns without labels:
