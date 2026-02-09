@@ -89,11 +89,40 @@ Regression predicts continuous numerical values. Evaluation focuses on the diffe
 
 ---
 
-## 🧠 Generative AI Metrics (LLMs)
+## 🧠 Generative AI Metrics (FMs)
 
-*   **Perplexity (PPL):** Measures "How confused is the model?" **Lower is better.**
-*   **ROUGE:** Used for **Summarization**. Focuses on Recall.
-*   **BLEU:** Used for **Translation**. Focuses on Precision.
+Evaluating Foundation Models (FMs) is unique because their outputs are creative and open-ended. Evaluation is split into **Automatic** (algorithmic) and **Human** (subjective) methods.
+
+### 🤖 Automatic Evaluation Metrics
+These metrics compare the model's output to a "Gold Standard" (human-written reference) using math. 
+
+!!! info "Deep Dive"
+    For a simpler, more detailed breakdown of these metrics with analogies, see our [GenAI Metrics Deep Dive (ELI5)](07a-gen-ai-metrics-deep-dive.md).
+
+| Metric | Full Name | Primary Use Case | Logic |
+| :--- | :--- | :--- | :--- |
+| **Perplexity (PPL)** | - | **General Language** | Measures how well the model predicts symbols. **Lower is better** (less "confused"). |
+| **ROUGE** | Recall-Oriented Understudy for Gisting Evaluation | **Summarization** | Focuses on **Recall**. Did the model capture all the key points from the reference? |
+| **BLEU** | Bilingual Evaluation Understudy | **Translation** | Focuses on **Precision**. How much of the model's output matches the human translation? |
+| **METEOR** | Metric for Evaluation of Translation with Explicit ORdering | **Translation** | Similar to BLEU but considers synonyms and grammar. |
+| **BERTScore** | - | **Semantic Similarity** | Uses embeddings to see if the *meaning* matches, even if the words are different. |
+
+### 🛡️ Safety & Alignment Metrics
+Required for **Responsible AI** to ensure the model isn't dangerous.
+*   **Toxicity:** Measures the presence of hate speech, insults, or profanity.
+*   **Stereotyping:** Detects if the model produces biased or discriminatory content.
+*   **Semantic Robustness:** Measures how much the output changes when the input is slightly modified (e.g., adding a typo). A robust model should give the same answer.
+
+### 👥 Human Evaluation (Bedrock Model Evaluation)
+Some things can't be measured by math. Amazon Bedrock allows two types of Human Evaluation:
+1.  **Your Own Employees:** Internal team members review and score the model.
+2.  **AWS Managed Team:** You hire a specialized AWS team to perform the evaluation.
+
+**Typical Human Scoring Criteria (The "HHH" Framework):**
+*   **Helpfulness:** Does it actually answer the user's prompt?
+*   **Honesty:** Is the information factually accurate (no hallucinations)?
+*   **Harmlessness:** Does it avoid toxic or dangerous content?
+*   **Brand Voice:** Does the tone match the company's personality?
 
 ---
 
