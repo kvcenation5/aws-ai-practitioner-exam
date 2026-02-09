@@ -14,10 +14,20 @@ Imagine I give you a big book and ask you to write a short summary. I have a lis
 *   **How it works:** ROUGE counts how many of those 5 Important Facts you actually found and put in your summary. 
 *   **The Goal:** **Recall.** We want to make sure the model didn't "forget" or "miss" any important information.
 *   **🎯 Exam Trigger:** **Summarization.** 
-*   **Practical Example:** 
-    *   **Human Answer:** "The cat sat on the mat and ate a fish."
-    *   **AI Answer:** "The cat ate a fish."
-    *   **ROUGE Score:** Good! It found the "Cat" and the "Fish," but it's not perfect because it missed the "Mat."
+
+### 🧬 The "Flavors" of ROUGE (N vs. L)
+In the exam, you might see small letters next to ROUGE. Here is how to tell them apart:
+
+#### **ROUGE-N (The Word Chains)**
+"N" stands for **N-grams**. Think of this as how many words in a row the AI got right.
+*   **ROUGE-1:** Looking for **single words**. (e.g., "The," "Cat," "Sat"). If the words are there, you get points.
+*   **ROUGE-2:** Looking for **pairs of words**. (e.g., "The cat," "cat sat"). This is harder because the words have to be in the right order!
+
+#### **ROUGE-L (The Longest Snake)**
+"L" stands for **LCS** (Longest Common Subsequence). 
+*   **Logic:** Instead of just looking at 1 or 2 words, it looks for the **longest piece of a sentence** that matches between the AI and the Human.
+*   **Analogy:** Imagine the sentences are like Lego snakes. ROUGE-L measures how long the matching "snake" is.
+*   **Benefit:** It's better at understanding the **sentence structure** and flow than just counting individual words.
 
 ---
 
