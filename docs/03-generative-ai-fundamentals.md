@@ -64,7 +64,9 @@ After the initial pre-training, the model can be further pre-trained on addition
 Pre-trained language models can be optimized through techniques like prompt engineering, retrieval-augmented generation (RAG), and fine-tuning on task-specific data. These methods vary in complexity and cost.
 
 ### 4. Evaluation
-Whether or not you fine-tune a model or use a pre-trained model off the shelf, the next logical step is to evaluate the model. An FM's performance can be measured using appropriate metrics and benchmarks.
+Whether or not you fine-tune a model or use a pre-trained model off the shelf, the next logical step is to evaluate the model. An FM's performance can be measured using appropriate metrics and benchmarks (like ROUGE, BLEU, and Toxicity checks).
+
+See the [Model Evaluation and Metrics](07-model-evaluation-and-metrics.md#generative-ai-metrics-fms) page for a full breakdown.
 
 ### 5. Deployment
 When the FM meets the desired performance criteria, it can be deployed in the target production environment. Deployment can involve integrating the model into applications, APIs, or other software systems.
