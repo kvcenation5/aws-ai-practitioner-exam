@@ -61,6 +61,36 @@ Remember how BLEU failed the "The heaven is azure" example above? BERTScore fixe
 
 ---
 
+## 🛠️ Real-World Debugging Examples
+
+In practice, we look at where these metrics **disagree** to figure out what's wrong with the AI.
+
+### Example 1: The "Word Salad" (High R-1, Zero R-2)
+*   **Human:** "The CEO quit yesterday."
+*   **AI:** "Yesterday quit CEO the."
+*   **Analysis:**
+    *   **ROUGE-1:** **100%** (All the words are there!)
+    *   **ROUGE-2:** **0%** (No pairs like "The CEO" match).
+    *   **The Diagnostic:** The AI knows the facts (keywords) but has no idea how to speak English (grammar/fluency is broken). 
+
+### Example 2: The "Confident Hallucination" (High R-L, Low R-1)
+*   **Human:** "Sales are **up** by **10%**."
+*   **AI:** "Sales are **down** by **50%**."
+*   **Analysis:**
+    *   **ROUGE-L:** **High** (The structure "Sales are [direction] by [number]" is perfectly copied).
+    *   **ROUGE-1:** **Low** (The most important words "up" and "10" are missing).
+    *   **The Diagnostic:** The AI is a "copy-cat." It knows how to structure a sentence, but it's making up the actual facts. This is a very dangerous model!
+
+### Example 3: The "Paraphrase" (Zero ROUGE, Perfect BERTScore)
+*   **Human:** "It is raining very hard outside."
+*   **AI:** "There is a massive downpour occurring."
+*   **Analysis:**
+    *   **ROUGE (all):** **Near Zero** (Not a single word matches).
+    *   **BERTScore:** **Perfect** (The "math" knows that "raining hard" and "massive downpour" are the same thing).
+    *   **The Diagnostic:** The AI is actually very smart and creative. It gave a great answer, but the "Spelling Bee" metrics (ROUGE/BLEU) are too dumb to understand it. 
+
+---
+
 ## 📉 Summary Table for the Exam
 
 | Metric | Simple Analogy | Best For... | Focus |
