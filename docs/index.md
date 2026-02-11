@@ -40,6 +40,7 @@ The machine learning process starts with collecting and processing **training da
 | :--- | :--- | :--- | :--- |
 | **Supervised** | **Answers** | A student with an answer key. | "Labeled data", "Predict $X$", "Classify as $Y$". |
 | **Unsupervised**| **Patterns** | An explorer discovering a new land. | "Unlabeled", "Groups", "Clusters", "Anomalies". |
+| **Self-Supervised**| **Context** | A "Fill-in-the-Blanks" puzzle. | "Self-labeling", "Foundation Models", "Predicting next word". |
 
 !!! warning "Common Misconception: Prediction vs. Discovery"
     It is a common mistake to think Unsupervised is for prediction. Remember:
@@ -124,8 +125,16 @@ The machine is given only a **performance score** as guidance. An **agent** lear
 ### 2.4 Semi-Supervised Learning
 A hybrid approach using a small amount of labeled data and a large amount of unlabeled data to improve accuracy and structure.
 
-!!! note "Exam Perspective: Self-Supervised Learning"
-    **Foundation Models** often use **Self-Supervised Learning**, where the data itself provides the labels (e.g., predicting the next word in a sentence).
+### 2.5 Self-Supervised Learning (The Engine of GenAI)
+In self-supervised learning, the data itself provides the labels. The model "hides" part of the data from itself and then tries to predict the missing part.
+
+*   **Logic:** It turns an unlabeled dataset into a labeled one automatically.
+*   **Analogy (The Mad Libs Puzzle):** Imagine reading a sentence with one word blacked out: *"The cat sat on the ____."* To guess "mat," the model must learn about cats, sitting, and grammar. It doesn't need a human to tell it the answer; the answer was already in the sentence!
+*   **Why it's important:** This is how **Foundation Models** and **LLMs** are trained on massive amounts of internet text without requiring millions of humans to label every word.
+
+!!! tip "Exam Tip: Self-Supervised vs. Unsupervised"
+    *   **Unsupervised** is for **Discovery** (finding groups/clusters).
+    *   **Self-Supervised** is for **Learning Context** (learning how language or images work by predicting missing pieces).
 
 ---
 
