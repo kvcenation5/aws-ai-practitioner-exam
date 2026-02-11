@@ -35,7 +35,14 @@ In machine learning, there is a big difference between **Parameters** (the model
 *   **What it is:** How many times the model sees the entire dataset.
 *   **The Overfitting Risk:** If you run too many epochs, the model starts to **memorize** the specific data rather than learning the general pattern.
 
-### 🌳 4. Algorithm-Specific Hyperparameters
+### 🔄 4. Regularization (The "Overfitting Brake")
+*   **What it is:** A technique used to prevent **Overfitting** by adding a penalty for complexity. It keeps the model's internal weights small and simple.
+*   **The Settings:**
+    *   **L1 (Lasso):** Can eliminate useless features by shrinking their weights to zero.
+    *   **L2 (Ridge):** Keeps features but prevents any single one from having too much influence.
+*   **Analogy:** A "Speeding Ticket" for math. If the model tries to go too far/crazy with one feature, regularization takes "money" away from its accuracy score until it behaves.
+
+### 🌳 5. Algorithm-Specific Hyperparameters
 *   **kNN:** The value of **$k$** (How many neighbors to look at).
 *   **Decision Trees:** **Max Depth** (How many levels the tree can grow).
 *   **Deep Learning:** Number of layers and neurons.
