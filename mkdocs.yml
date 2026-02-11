@@ -48,6 +48,7 @@ nav:
     - ML Lifecycle: 01-ml-lifecycle.md
     - Deep Learning: 02-deep-learning-fundamentals.md
     - Generative AI: 03-generative-ai-fundamentals.md
+    - ML Terminology Cheat Sheet: 13-ml-terminology-cheat-sheet.md
   - Infrastructure & AI Services:
     - AWS Infrastructure: 04-aws-infrastructure-technologies.md
     - SageMaker AI: 10-sagemaker-ai.md
