@@ -163,7 +163,7 @@ Prompts act as instructions for foundation models. Prompt engineering focuses on
 Fine-tuning involves taking a pre-trained model and adding specific, smaller datasets to **modify the weights** of the model to better align with the task.
 
 *   **Instruction Fine-Tuning:** Uses examples of how the model should respond to specific instructions (e.g., prompt tuning).
-*   **RLHF (Reinforcement Learning from Human Feedback):** Uses human feedback data to align the model with human preferences.
+*   **RLHF (Reinforcement Learning from Human Feedback):** Aligns the model with human preferences by having humans rank multiple responses. This "human signal" is used to reward the model for better behavior (Safety, Helpfulness, Honesty).
 *   **Use Case:** Fine-tuning a base model with articles from medical journals for specialized medical research tasks.
 
 ### Retrieval-Augmented Generation (RAG)

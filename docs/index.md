@@ -122,6 +122,12 @@ The machine is given only a **performance score** as guidance. An **agent** lear
 *   **Example:** In **AWS DeepRacer**, a virtual car (agent) learns to navigate a track (environment) by receiving rewards for staying on the track and completing it quickly.
 *   **Best For:** When the desired outcome is known but the specific path to achieve it requires exploration.
 
+!!! info "RL vs. RLHF"
+    *   **Reinforcement Learning (RL):** The reward is defined by **math/rules** within an environment (e.g., DeepRacer).
+    *   **RLHF (Reinforcement Learning from Human Feedback):** Uses human feedback data to align the model with human preferences. 
+    *   **How it works:** Humans rank multiple model responses from best to worst. This data is used to train a **Reward Model**, which then fine-tunes the FM using Reinforcement Learning.
+    *   **Goal:** Ensure the model is **Safe, Helpful, and Honest (HHH)**.
+
 ### 2.4 Semi-Supervised Learning
 A hybrid approach using a small amount of labeled data and a large amount of unlabeled data to improve accuracy and structure.
 
