@@ -137,6 +137,11 @@ These services provide developers with AI/ML capabilities without requiring exte
     *   **Goal:** Reduces the administrative burden on healthcare professionals.
     *   **Features:** Summarizes medical notes, categorizes content into sections (e.g., Chief Complaint), and includes citations to the original transcript.
 
+*   **Amazon Comprehend Medical:** A HIPAA-eligible NLP service that uses ML to extract health information from unstructured medical text.
+    *   **Exam Trigger:** "Extracting medical conditions, medications, or dosages from clinical notes."
+*   **Amazon Transcribe Medical:** A HIPAA-eligible ASR service that makes it easy to add medical speech-to-text capabilities to applications.
+    *   **Exam Trigger:** "Transcribing medical dictation or clinician-patient conversations."
+
 
 ---
 
@@ -175,6 +180,8 @@ A fully managed service that makes Foundation Models (FMs) from Amazon and leadi
 | **Kendra** | Search | Intelligent search across repositories. | "Enterprise search", "Natural language Q&A" |
 | **Personalize** | Recs | Personalized user recommendations. | "Recommendation engine" |
 | **HealthScribe** | Healthcare | Clinical documentation from conversations. | "Clinical notes", "Patient-clinician" |
+| **Comprehend Medical** | Healthcare | Extract medical info from text. | "PHI", "Dosages", "Medical NLP" |
+| **Transcribe Medical** | Healthcare | Medical speech-to-text. | "Medical dictation", "Medical ASR" |
 | **Q Developer** | Coding | AI-powered code suggestions. | "Speed up coding", "IDE integration" |
 
 ---
