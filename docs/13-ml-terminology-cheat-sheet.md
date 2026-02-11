@@ -32,6 +32,7 @@ This page is an "Executive Summary" of common machine learning models and terms.
 | :--- | :--- |
 | **XGBoost** | Extreme Gradient Boosting. A highly optimized implementation of gradient boosting used for **regression** and classification on tabular data. |
 | **SVM** | Support Vector Machine. A classic algorithm used for both **classification and regression**. |
+| **kNN** | **k-Nearest Neighbors**. Predicts based on the **similarity (distance)** to its neighbors. Can be used for classification and regression. |
 
 ---
 
