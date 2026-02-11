@@ -28,11 +28,24 @@ This page is an "Executive Summary" of common machine learning models and terms.
 
 ## 📊 Traditional ML Algorithms
 
-| Algorithm | Exam Trigger / Intent |
-| :--- | :--- |
-| **XGBoost** | Extreme Gradient Boosting. A highly optimized implementation of gradient boosting used for **regression** and classification on tabular data. |
-| **SVM** | Support Vector Machine. A classic algorithm used for both **classification and regression**. |
-| **kNN** | **k-Nearest Neighbors**. Predicts based on the **similarity (distance)** to its neighbors. Can be used for classification and regression. |
+| Algorithm | Full Name | Exam Trigger / Intent |
+| :--- | :--- | :--- |
+| **XGBoost** | Extreme Gradient Boosting | Highly optimized gradient boosting for **regression** and classification on tabular data. |
+| **SVM** | Support Vector Machine | Classic algorithm used for both **classification and regression**. |
+| **kNN** | k-Nearest Neighbors | Predicts by looking at **closest neighbors** (Majority Vote for Classification, Average for Regression). |
+
+---
+
+## 🏘️ ELI5: k-Nearest Neighbors (kNN)
+
+Think of kNN as the **"Peer Pressure"** algorithm. It doesn't really "learn" from a textbook; it just looks at who is standing next to it.
+
+*   **How it works:** To classify a new point, it finds the **$k$** closest points (neighbors).
+*   **Classification:** It chooses the label held by the **majority** of its neighbors.
+*   **Regression:** It calculates the **average** value of its neighbors.
+
+!!! warning "Exam Secret"
+    If the exam describes an algorithm that **"doesn't have a formal training phase"** or **"makes predictions by directly comparing new data to existing samples at runtime,"** the answer is **kNN**.
 
 ---
 
