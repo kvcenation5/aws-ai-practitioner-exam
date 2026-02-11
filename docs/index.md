@@ -79,16 +79,41 @@ The algorithms are trained on **labeled data**.
     *   **Continuous (Numbers):** If the answer is a "Measurement" or a "Count" (e.g., $450.25 or 72 degrees), use **Regression**.
 
 ### 2.2 Unsupervised Learning
-Algorithms that learn from **unlabeled data**. 
-*   **Goal:** Discover **inherent patterns, structures, or relationships** within the input data.
+Algorithms that learn from **unlabeled data**. Unlike supervised learning, there is no "ground truth" or correct answer key.
 
-#### How it Works:
-*   **Clustering:** Groups data based on **Similarity** and **Distance**. Even without labels, the model identifies which items "look alike" and puts them in groups.
-    *   **Use Cases:** Customer segmentation, Targeted marketing, Recommendation systems.
-*   **Dimensionality Reduction:** Simplifies large datasets by removing **Noise** and **Redundant** features. 
-    - **Mechanism:** It squishes 100s of variables into 2 or 3 "main" dimensions to help with **Visualization** and speed.
-    - **ELI5 Analogy:** Imagine you have a LEGO piece with 20 different details (color, weight, factory, material). Dimensionality reduction is like picking only the 2 or 3 most important details (size and color) so you can describe the piece simply without getting overwhelmed by the boring stuff.
-    - **Use Cases:** Big data visualization, Significant compression, Structure discovery.
+*   **Goal:** Discover **inherent patterns, structures, hidden groupings, or anomalies** within the input data.
+
+#### Key Techniques:
+
+| Technique | Core Logic | Practical Example |
+| :--- | :--- | :--- |
+| **Clustering** | Groups data based on **similarity/distance**. | **Customer Segmentation:** Grouping shoppers into "big spenders" vs. "bargain hunters." |
+| **Dim. Reduction** | **Simplifies** data by removing redundant columns/noise. | **PCA:** Squashing 100 patient indicators into 3 "main trends" to speed up diagnosis models. |
+| **Association Rules** | Finds **"If-This-Then-That"** relationships between items. | **Market Basket Analysis:** Noticing that people who buy diapers also buy beer (Amazon's "Frequent together"). |
+| **Anomaly Detection** | Identifies the "odd one out" or outliers. | **Fraud Detection:** Spotting a transaction that is completely different from your normal spending habits. |
+
+---
+
+### 🎨 Deep Dive: Unsupervised Techniques (ELI5)
+
+#### 1. Clustering (The Sorting Bin)
+Imagine a huge bin of mixed, unlabeled LEGO pieces. Clustering is the act of sorting them into piles based on **shape and color**. You don't know the names of the pieces, but you know which ones "belong together."
+*   **SageMaker Algorithm:** **K-Means**.
+
+#### 2. Dimensionality Reduction (The Executive Summary)
+Imagine a 500-page book. You don't have time to read every word (feature). Dimensionality reduction is like reading the **TL;DR summary**. You lose some tiny details, but you keep the most important "dimensions" of the story.
+*   **SageMaker Algorithm:** **PCA** (Principal Component Analysis).
+
+#### 3. Association Rule Learning (The Shopping Buddy)
+This is about finding "Co-occurrence." If I see you carrying a surfboard, I can guess with 90% certainty that you also have wax and a leash. 
+*   **Real Life:** Streaming services (Netflix) suggesting a movie because you liked another one with similar cast/genre.
+
+#### 4. Anomaly Detection (The Security Guard)
+Think of a security guard at a party. They don't know everyone's name, but they know when someone is acting **unusual** or wearing a mask. 
+*   **SageMaker Algorithm:** **Random Cut Forest (RCF)**.
+
+!!! tip "Exam Tip: Unsupervised Discovery"
+    If the exam question asks for "Grouping," "Clustering," "Segmenting," or found "hidden patterns" in a dataset that **lacks labels**, always choose **Unsupervised Learning**.
 
 ### 2.3 Reinforcement Learning
 The machine is given only a **performance score** as guidance. An **agent** learns through trial and error as it interacts in an **environment** based on feedback in the form of **rewards and penalties**.
