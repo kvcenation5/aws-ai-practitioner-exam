@@ -133,6 +133,10 @@ These services provide developers with AI/ML capabilities without requiring exte
 !!! example "Practical Example: DeepRacer"
     A developer trains a virtual car in a simulator to stay on a track. The car gets a "reward" (+1) for staying in the center and a "penalty" (-1) for going off-track, eventually learning the optimal racing line.
 
+*   **AWS HealthScribe:** A generative AI powered service that automatically creates clinical documentation from patient-clinician conversations.
+    *   **Goal:** Reduces the administrative burden on healthcare professionals.
+    *   **Features:** Summarizes medical notes, categorizes content into sections (e.g., Chief Complaint), and includes citations to the original transcript.
+
 
 ---
 
@@ -170,11 +174,25 @@ A fully managed service that makes Foundation Models (FMs) from Amazon and leadi
 | **Transcribe** | Speech | Speech-to-Text (ASR). | "Subtitles", "Meeting notes" |
 | **Kendra** | Search | Intelligent search across repositories. | "Enterprise search", "Natural language Q&A" |
 | **Personalize** | Recs | Personalized user recommendations. | "Recommendation engine" |
+| **HealthScribe** | Healthcare | Clinical documentation from conversations. | "Clinical notes", "Patient-clinician" |
 | **Q Developer** | Coding | AI-powered code suggestions. | "Speed up coding", "IDE integration" |
 
 ---
 
-## 7. Infrastructure and Cost Considerations
+## 7. AWS AI Hardware (The Bottom Layer)
+
+For the exam, you should recognize the names of AWS-designed chips and hardware that power the AI stack.
+
+| Hardware | Category | Use Case | Exam Tip |
+| :--- | :--- | :--- | :--- |
+| **AWS Trainium** | **Training** | High-performance, cost-effective model training. | "Most cost-effective for **Training**." |
+| **AWS Inferentia** | **Inference** | High throughput and lowest cost for running predictions. | "Lowest cost for **Inference**." |
+| **AWS Nitro System** | **Platform** | Underlying hardware and software for EC2. | Offloads security and I/O tasks to improve performance. |
+| **NVIDIA GPUs** | **General Purpose** | Industry standard for high-performance training/inference. | "H100/A100 instances" for extreme workloads. |
+
+---
+
+## 8. Infrastructure and Cost Considerations
 
 AWS provides a secure and compliant infrastructure for building AI applications. AWS uses a **Shared Responsibility Model**.
 

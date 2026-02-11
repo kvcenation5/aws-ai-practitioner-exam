@@ -178,4 +178,25 @@ Algorithms designed for understanding and generating human-like text.
     **Typical Use Case:** Automatically translating legal documents.
 
 ---
-*Last Updated: Jan 2026*
+
+## 🤝 Human-in-the-Loop (HITL)
+
+ML models aren't perfect. AWS provides services to combine AI with human judgment for better accuracy and safety.
+
+### 1. Amazon SageMaker Ground Truth
+Used during the **Data Preparation** phase to create high-quality labels for your datasets.
+*   **How it works:** Uses a mix of automated labeling and human workers to identify objects in images, or sentiment in text.
+*   **Worker Options:** Choose between your own private team, a 3rd party vendor, or the **Amazon Mechanical Turk** crowd.
+
+### 2. Amazon Augmented AI (A2I)
+Used during the **Inference** phase to provide human review of model predictions.
+*   **The Logic:** If a model's prediction is **low confidence**, or if the use case is sensitive (e.g., healthcare), A2I routes the prediction to a human for verification.
+*   **Exam Trigger:** "Human review of low-confidence predictions."
+
+### 3. Amazon Mechanical Turk (MTurk)
+The specialized **crowdsourcing marketplace** that provides the human workforce for labeling and review tasks.
+*   **Role:** Provides access to thousands of independent workers worldwide (the "on-demand workforce").
+
+---
+
+*Last Updated: Feb 2026*
