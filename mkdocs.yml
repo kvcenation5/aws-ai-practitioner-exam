@@ -57,6 +57,7 @@ nav:
   - Performance & Use Cases:
     - Evaluation & Metrics: 07-model-evaluation-and-metrics.md
     - GenAI Metrics Deep Dive (ELI5): 07a-gen-ai-metrics-deep-dive.md
+    - Hyperparameters Deep Dive: 15-hyperparameters-deep-dive.md
     - Business Use Cases: 08-ai-business-use-cases.md
   - Safety, Risks & Governance:
     - Responsible AI: 09-responsible-ai.md
