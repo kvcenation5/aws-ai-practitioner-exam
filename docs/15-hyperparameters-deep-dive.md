@@ -89,4 +89,47 @@ Imagine Amazon is training a model to predict delivery times.
     *   This ensures the model stays stable over thousands of deliveries!
 
 ---
+
+## 📝 Practice Exam Questions
+
+### Question 1
+**A Machine Learning specialist is training a model but notices that the model is fitting the training data perfectly while performing poorly on unseen validation data. Which technique should be applied to prevent this?**
+A. Increase the number of Epochs.  
+B. Decrease the size of the Training Dataset.  
+C. Apply Regularization (L1 or L2).  
+D. Remove the Validation Dataset.
+
+<details>
+<summary><b>View Answer</b></summary>
+**Correct Answer: C.**  
+Regularization is specifically designed to prevent **Overfitting** (where the model memorizes the training data but fails to generalize). Increasing epochs (A) would likely make the overfitting worse.
+</details>
+
+### Question 2
+**Which of the following is considered a Hyperparameter rather than a Model Parameter?**
+A. The weights in a neural network layer.  
+B. The learning rate set before training.  
+C. The biases learned during the training process.  
+D. The internal coefficients of a linear regression model.
+
+<details>
+<summary><b>View Answer</b></summary>
+**Correct Answer: B.**  
+Hyperparameters are set **manually before** training begins. Weights (A), Biases (C), and Coefficients (D) are all learned **automatically during** training.
+</details>
+
+### Question 3
+**A startup wants to find the best hyperparameter settings for their model but has a very limited budget and needs to find the results as quickly as possible. Which method should they use?**
+A. Grid Search  
+B. Manual Trial-and-Error  
+C. SageMaker Automatic Model Tuning (Bayesian Optimization)  
+D. Increasing the number of GPU instances
+
+<details>
+<summary><b>View Answer</b></summary>
+**Correct Answer: C.**  
+SageMaker Automatic Model Tuning uses Bayesian optimization to find the best settings faster and with fewer training runs than Grid Search (A), making it the most cost-effective automated choice.
+</details>
+
+---
 *Last Updated: Feb 2026*
