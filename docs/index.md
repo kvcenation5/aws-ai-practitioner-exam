@@ -153,8 +153,24 @@ Before applying AI or ML, you must determine if it is the right fit for the busi
 *   **Scale is Challenging:** When the volume of data is too large for manual human analysis (e.g., scanning millions of emails in real-time).
 
 ### When AI/ML IS NOT Appropriate:
-*   **Simple Rules Suffice:** If you can determine the target value using simple math, logic, or predefined steps (e.g., calculating sales tax).
-*   **No Data Patterns:** If there is no historical data or patterns to learn from.
+
+*   **Simple Rules Suffice:** If you can determine the outcome using simple math, `if/else` logic, or predefined steps.
+    *   *Real-Life Example:* Calculating sales tax or checking if a user is eligible for a discount based on a coupon code.
+*   **No Data Patterns / Zero Historical Data:** ML requires patterns to learn. If no data exists or the data is purely random, ML will fail.
+    *   *Real-Life Example:* Predicting the sales of a revolutionary new product that has no similar competitors or historical precursors.
+*   **Need for 100% Accuracy & Total Explainability:** In some high-stakes logic, "black box" predictions are too risky or illegal.
+    *   *Real-Life Example:* Calculating a bank's overnight interest rates or the launch sequence for a spacecraft.
+*   **Static or Fixed Relationships:** If the relationship between input and output never changes.
+    *   *Real-Life Example:* Converting Celsius to Fahrenheit or Miles to Kilometers.
+*   **Hardware/Latency Limits (Safety Critical):** If the decision must be made in microseconds by literal hardware sensors.
+    *   *Real-Life Example:* The trigger that deploys an airbag in a car collision.
+
+---
+
+!!! tip "Exam Tip: ML vs. Heuristics"
+    The exam may use the word **"Heuristics"** (which means hand-written rules).
+    *   Choose **ML** when heuristics are **no longer manageable** because the rules are too complex.
+    *   Choose **Traditional Logic** when the problem is solved by a **deterministic** (fixed) formula.
 
 ---
 
